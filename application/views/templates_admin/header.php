@@ -20,5 +20,40 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+<!-- Custom CSS -->
+<style>
+    /* IMPORT FILE */
+    .btn-light {
+        background-color: white;
+        border: 1px solid #ced4da;
+    }
+
+    #file-name {
+        background-color: #e7dbeb;
+        cursor: pointer; /* Makes the input look clickable */
+    }
+
+    @media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+    }
+
+    /* SEARCH */
+    .clearable input[type=text] {
+        padding-right: 24px;
+    }
+
+    .clearable input[type=text]:not(:placeholder-shown) + .clearable__clear {
+        display: inline;
+    }
+
+    @media (max-width: 576px) {
+        .clearable {
+            width: 100%; /* Full width on small screens */
+        }
+    }
+}
+</style>
 </head>

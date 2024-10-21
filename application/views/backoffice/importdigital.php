@@ -1,40 +1,4 @@
 <html>
-    <!-- Custom CSS -->
-<style>
-    /* IMPORT FILE */
-    .btn-light {
-        background-color: white;
-        border: 1px solid #ced4da;
-    }
-
-    #file-name {
-        background-color: #e7dbeb;
-        cursor: pointer; /* Makes the input look clickable */
-    }
-
-    @media (max-width: 768px) {
-    .table-responsive {
-        overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
-    }
-
-    /* SEARCH */
-    .clearable input[type=text] {
-        padding-right: 24px;
-    }
-
-    .clearable input[type=text]:not(:placeholder-shown) + .clearable__clear {
-        display: inline;
-    }
-
-    @media (max-width: 576px) {
-        .clearable {
-            width: 100%; /* Full width on small screens */
-        }
-    }
-    
-}
-</style>
-
 <!-- justify-content-center -->
 <div class="container-fluid mt-5">
 	<!-- #e7dbeb -->
@@ -88,29 +52,42 @@
 	<div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="d-flex flex-row align-items-center mb-3 mb-md-0">
+                        <div class="custom-spacing me-2">Show</div>
+                        <div class="custom-spacing me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">10</button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#" onclick="changeItemsPerPage(10)">10</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changeItemsPerPage(25)">25</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changeItemsPerPage(50)">50</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="changeItemsPerPage(100)">100</a></li>
+                            </ul>
+                        </div>
+                        <div class="ms-2"> Entries</div>
+                    </div>
                     <h5 class="mb-0">Data List</h5>
-                    <div class="clearable" style="width: 250px; position: relative;">
+                    <div class="clearable position-relative" style="width: 250px; position: relative;">
                         <input type="text" id="searchInput" class="form-control" placeholder="Search..." style="padding-right: 24px;">
                         <!--i class="clearable__clear" id="cancelSearch">&times;</i-->
-                        <span id="cancelSearch" class="clearable__clear" style="position: absolute;top: 50%;right: 8px;transform: translateY(-50%);cursor: pointer;display: none;">&times;</span>
+                        <i class="clearable__clear" id="cancelSearch" style="position: absolute;top: 50%;right: 8px;transform: translateY(-50%);cursor: pointer;display: none;">&times;</i> <!-- display: none; -->
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="overflow-x: auto;">
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
-                            <thead id="data-head" style="background-color: #e7dbeb;">
+                            <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th>Channel ID <i class="bi bi-caret-down-fill"></i></th>
-                                    <th>Channel Name <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:50%;" data-column="id">Channel ID <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:50%;" data-column="name">Channel Name <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
-                            <tbody id="video-container">
+                            <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($channels)): ?>
                                     <?php foreach ($channels as $channel): ?>
                                         <tr>
-                                            <td><?php echo $channel['id']; ?></td>
-                                            <td><?php echo $channel['name']; ?></td>
+                                            <td  scope="row" style="width:50%;" data-label="id"><?php echo $channel['id']; ?></td>
+                                            <td  scope="row" style="width:50%;" data-label="name"><?php echo $channel['name']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -120,9 +97,11 @@
                                 <?php endif; ?>
                             </tbody>
                         </table>
+                        <div class="text-center" id="no-results" style="display: none; padding: 20px;top: 50%;left: 50%;right: 50%;">No results found.</div>
                     </div>
+                    <div id="entries-info" class="mb-3 mb-md-0" style="padding: 20px;">Showing 1 to 10 of 3053 entries</div>
                     <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center mt-3" id="pagination-controls">
+                        <ul class="pagination justify-content-center mt-3" id="pagination">
                             <!-- Pagination buttons will be rendered here -->
                         </ul>
                     </nav>
@@ -132,6 +111,9 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <!-- JavaScript to Handle File Name -->
 <script>
     // Open file dialog when clicking the text input
@@ -149,73 +131,41 @@
 <!-- JavaScript -->
 <script>
     var videos = <?php echo json_encode($channels); ?>;
-    var videosPerPage = 10;
+    var itemsPerPage = 10;
     var currentPage = 1;
-    var filteredVideos = videos;
+    //var filteredData = initialized(videos);
+    var filteredData = videos;
+    var totalItems = videos.length;
+    var totalPages = Math.ceil(totalItems / itemsPerPage);
+    var sortColumn = '';  // Default sort column
+    var sortOrder = 'asc';  // Default sort order
+    var button = document.getElementById('dropdownMenuButton');
 
-    function renderVideos() {
-        var container = document.getElementById('video-container');
-        container.innerHTML = '';
+    function renderTable(data) {
+        var $dataBody = $('#data-body');
+        $dataBody.empty();
+        var offset = (currentPage - 1) * itemsPerPage;
+        var paginatedData = data.slice(offset, offset + itemsPerPage);
 
-        var start = (currentPage - 1) * videosPerPage;
-        var paginatedVideos = filteredVideos.slice(start, start + videosPerPage);
+        var no = offset + 1; // Set nomor urut berdasarkan offset saat ini
 
-        if (paginatedVideos.length === 0) {
-            container.innerHTML = '<tr><td colspan="2" class="text-center">No channels found.</td></tr>';
-            return;
-        }
-
-        paginatedVideos.forEach(video => {
-            container.insertAdjacentHTML('beforeend', `
+        paginatedData.forEach(row => {
+            $dataBody.append(`
                 <tr>
-                    <td>${video.id}</td>
-                    <td>${video.name}</td>
+                    <td scope="row" style="width:50%;" data-label="id">${row.id}</td>
+                    <td scope="row" style="width:50%;" data-label="name">${row.name}</td>
                 </tr>
             `);
         });
     }
 
-    function renderPaginationControls() {
-        var totalPages = Math.ceil(filteredVideos.length / videosPerPage);
-        var controls = document.getElementById('pagination-controls');
-        controls.innerHTML = '';
-
-        controls.insertAdjacentHTML('beforeend', `
-            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                <a class="page-link" href="#" onclick="goToPage(${currentPage - 1})">Previous</a>
-            </li>
-        `);
-
-        for (let i = 1; i <= totalPages; i++) {
-            controls.insertAdjacentHTML('beforeend', `
-                <li class="page-item ${i === currentPage ? 'active' : ''}">
-                    <a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>
-                </li>
-            `);
-        }
-
-        controls.insertAdjacentHTML('beforeend', `
-            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                <a class="page-link" href="#" onclick="goToPage(${currentPage + 1})">Next</a>
-            </li>
-        `);
-    }
-
-    function goToPage(page) {
-        currentPage = page;
-        var sortedData = sortData(sortColumn, sortOrder);
-        renderVideos();
-        //renderVideos(sortedData);
-        renderPaginationControls();
-    }
-
     function sortData(column, order) {
         if (column === '') {
-            return filteredVideos.slice();
+            return filteredData.slice();
         }
 
         /*if (column === 'No') {
-            return filteredVideos.slice().sort((a, b) => {
+            return filteredData.slice().sort((a, b) => {
                 var valA = a.originalIndex;
                 var valB = b.originalIndex;
 
@@ -226,7 +176,7 @@
             });
         }*/
 
-        return filteredVideos.slice().sort((a, b) => {
+        return filteredData.slice().sort((a, b) => {
             var valA = a[column] || '';
             var valB = b[column] || '';
             if (typeof valA === 'string') valA = valA.toLowerCase();
@@ -237,6 +187,73 @@
 
             return 0;
         });
+    }
+
+    function navigatePage(page) {
+        currentPage = page;
+        var sortedData = sortData(sortColumn, sortOrder);
+        renderTable(sortedData);
+        updatePagination();
+        updateEntriesInfo();
+    }
+
+    function updatePagination() {
+        var $pagination = $('.pagination');
+        $pagination.empty();
+
+        if (currentPage > 1) {
+            $pagination.append(`<li class="page-item"><button class="page-link" onclick="navigatePage(${currentPage - 1})">Previous</button></li>`);
+        } else {
+            $pagination.append(`<li class="page-item disabled"><button class="page-link">Previous</button></li>`);
+        }
+
+        var startPage = Math.max(1, currentPage - 1);
+        var endPage = Math.min(totalPages, currentPage + 1);
+
+        if (startPage > 1) {
+            $pagination.append(`<li class="page-item disabled"><button class="page-link">...</button></li>`);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            if (i === currentPage) {
+                $pagination.append(`<li class="page-item active"><button class="page-link">${i} <span class="sr-only"></span></button></li>`);
+            } else {
+                $pagination.append(`<li class="page-item"><button class="page-link" onclick="navigatePage(${i})">${i}</button></li>`);
+            }
+        }
+
+        if (endPage < totalPages) {
+            $pagination.append(`<li class="page-item disabled"><button class="page-link">...</button></li>`);
+        }
+
+        if (currentPage < totalPages) {
+            $pagination.append(`<li class="page-item"><button class="page-link" onclick="navigatePage(${currentPage + 1})">Next</button></li>`);
+        } else {
+            $pagination.append(`<li class="page-item disabled"><button class="page-link">Next</button></li>`);
+        }
+    }
+
+    function debounce(func, wait) {
+        var timeout;
+        return function(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func.apply(this, args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    function changeItemsPerPage(newItemsPerPage) {
+        itemsPerPage = newItemsPerPage;
+        totalPages = Math.ceil(totalItems / itemsPerPage);
+        currentPage = 1;
+        var sortedData = sortData(sortColumn, sortOrder);
+        renderTable(sortedData);
+        updatePagination();
+        updateEntriesInfo();
+        button.textContent = `${newItemsPerPage}`;
     }
 
     function handleSort(column) {
@@ -260,51 +277,77 @@
         });
 
         var sortedData = sortData(sortColumn, sortOrder);
-        renderVideos(sortedData);
-        renderPaginationControls();
+        renderTable(sortedData);
+        updatePagination();
         //updateEntriesInfo();
     }
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const query = this.value.toLowerCase();
-        filteredVideos = videos.filter(video => 
-            video.name.toLowerCase().includes(query) ||
-            video.id.toLowerCase().includes(query)
-        );
-        currentPage = 1;
-        renderVideos();
-        renderPaginationControls();
-    });
+    function updateEntriesInfo() {
+        var startEntry = (currentPage - 1) * itemsPerPage + 1;
+        var endEntry = Math.min(currentPage * itemsPerPage, totalItems);
+        $('#entries-info').text(`Showing ${startEntry} to ${endEntry} of ${totalItems} entries`);
+    }
 
-    document.getElementById('cancelSearch').addEventListener('click', function () {
-        document.getElementById('searchInput').value = '';
-        filteredVideos = videos;
-        this.style.display = 'none';
-        currentPage = 1;
-        renderVideos();
-        renderPaginationControls();
-    });
+    $(document).ready(function() {
+    function refreshTable() {
+        var sortedData = sortData(sortColumn, sortOrder);
+        renderTable(sortedData);
+        updatePagination();
+        updateEntriesInfo();
+    }
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-        document.getElementById('cancelSearch').style.display = this.value ? 'block' : 'none';
-    });
+    $('#searchInput').on('keyup', debounce(function() {
+    var query = $(this).val().toLowerCase();
 
-    /*document.getElementById('data-head th').addEventListener('click', function () {
+    if (query) {
+        $('#cancelSearch').show();  // Tampilkan tombol cancel saat ada input
+    } else {
+        $('#cancelSearch').hide();  // Sembunyikan tombol saat input kosong
+    }
+
+    filteredData = videos.filter(row => 
+        Object.values(row).some(val => {
+            // Pastikan val adalah string sebelum memanggil toLowerCase
+            if (typeof val === 'string') {
+                return val.toLowerCase().includes(query);
+            }
+            // Jika val bukan string, kita bisa memilih untuk mengabaikannya atau melakukan sesuatu
+            return false;
+        })
+    );
+
+    if (query.length > 2 && filteredData.length === 0) {
+        $('#no-results').show();
+    } else {
+        $('#no-results').hide();
+    }
+
+    totalItems = filteredData.length;
+    totalPages = Math.ceil(totalItems / itemsPerPage);
+    currentPage = 1;
+    refreshTable();
+    }, 300));
+
+    $('#data-head th').on('click', function() {
         var column = $(this).data('column');
         handleSort(column);
-        //updateEntriesInfo();
-    });*/
+        updateEntriesInfo();
+    });
 
-    /*function updateFileName(input) {
-        document.getElementById('file-name').value = input.files[0]?.name || 'No file chosen';
-    }*/
+    $('#cancelSearch').on('click', function() {
+        $('#searchInput').val('');
+        videos = <?php echo json_encode($channels); ?>;
+        filteredData = videos;
+        $(this).hide();  // Sembunyikan tombol cancel
+        totalItems = filteredData.length;
+        totalPages = Math.ceil(totalItems / itemsPerPage);
+        currentPage = 1;
+        $('#no-results').hide();  // Pastikan pesan "No results found" disembunyikan
+        refreshTable();
+    });
 
-    renderVideos();
-    //renderVideos(sortedData);
-    renderPaginationControls();
+    filteredData = videos;  // Initialize filteredData with allData on page load
+    refreshTable();
+    });
 </script>
-
-<!--script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script-->
 </html>
