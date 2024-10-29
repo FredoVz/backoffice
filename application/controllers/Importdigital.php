@@ -22,9 +22,9 @@ class Importdigital extends CI_Controller {
 
     public function index() {
         $channels = [
-            ['id' => 'UCQ7dUY53AOGGTYl_Myiurlw', 'name' => 'Fredo'],
-            ['id' => 'UCrLp5XWCXQHJnmK8P36KTsQ', 'name' => 'Impact Music Indonesia'],
-            ['id' => 'UCIimjC2xJp3Zi6CAr5-TMIg', 'name' => 'JCC'],
+            ['day' => '2024-10-26 00:00:00.000', 'channelId' => 'UCQ7dUY53AOGGTYl_Myiurlw', 'channelName' => 'Fredo', 'videoId' => '7tTPWdu0FKM', 'videoTitle' => 'Doa Pagi Hari - Seri Beri Ruang Buat Tuhan'],
+            ['day' => '2024-10-23 00:00:00.000', 'channelId' => 'UCrLp5XWCXQHJnmK8P36KTsQ', 'channelName' => 'Impact Music Indonesia', 'videoId' => '4yjsRArySSU',  'videoTitle' => 'Doa Pagi Hari - Seri Beri Ruang Buat Tuhan'],
+            ['day' => '2024-10-22 00:00:00.000', 'channelId' => 'UCIimjC2xJp3Zi6CAr5-TMIg', 'channelName' => 'JCC', 'videoId' => 'rzzv-sMB-U8',  'videoTitle' => 'Doa Pagi Hari - Seri Beri Ruang Buat Tuhan'],
         ];
 
         //$data = ['channels' => $channels, 'error' => '', 'success' => ''];

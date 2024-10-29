@@ -78,16 +78,22 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:50%;" data-column="id">Channel ID <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:50%;" data-column="name">Channel Name <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="day">Day <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="channelId">Channel ID <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="channelName">Channel Name <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="videoId">Video Id <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="videoTitle">Video Title <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($channels)): ?>
                                     <?php foreach ($channels as $channel): ?>
                                         <tr>
-                                            <td  scope="row" style="width:50%;" data-label="id"><?php echo $channel['id']; ?></td>
-                                            <td  scope="row" style="width:50%;" data-label="name"><?php echo $channel['name']; ?></td>
+                                            <td  scope="row" style="width:20%;" data-label="day"><?php echo $channel['day']; ?></td>
+                                            <td  scope="row" style="width:20%;" data-label="channelId"><?php echo $channel['channelId']; ?></td>
+                                            <td  scope="row" style="width:20%;" data-label="channelName"><?php echo $channel['channelName']; ?></td>
+                                            <td  scope="row" style="width:20%;" data-label="videoId"><?php echo $channel['videoId']; ?></td>
+                                            <td  scope="row" style="width:20%;" data-label="videoTitle"><?php echo $channel['videoTitle']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -152,8 +158,11 @@
         paginatedData.forEach(row => {
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:50%;" data-label="id">${row.id}</td>
-                    <td scope="row" style="width:50%;" data-label="name">${row.name}</td>
+                    <td scope="row" style="width:20%;" data-label="day">${row.day}</td>
+                    <td scope="row" style="width:20%;" data-label="channelId">${row.channelId}</td>
+                    <td scope="row" style="width:20%;" data-label="channelName">${row.channelName}</td>
+                    <td scope="row" style="width:20%;" data-label="videoId">${row.videoId}</td>
+                    <td scope="row" style="width:20%;" data-label="videoTitle">${row.videoTitle}</td>
                 </tr>
             `);
         });
