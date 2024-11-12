@@ -32,8 +32,9 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:25%;" data-column="Nama">Nama <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:25%;" data-column="Email">Email <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="YoutubeChannelNama">YT Nama <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="Judul">Judul <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="YoutubeChannelId">YT ID <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:25%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:25%;">Action </th>
                                 </tr>
@@ -42,14 +43,16 @@
                                 <?php if (!empty($arrayUser)): ?>
                                     <?php foreach ($arrayUser as $user): ?>
                                         <tr>
-                                            <td scope="row" style="width:25%;" data-label="Nama"><?php echo $user['Nama']; ?></td>
-                                            <td scope="row" style="width:25%;" data-label="Email"><?php echo $user['Email']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="YoutubeChannelNama"><?php echo $user['YoutubeChannelNama']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="Judul"><?php echo $user['Judul']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="YoutubeChannelId"><?php echo $user['YoutubeChannelId']; ?></td>
                                             <td scope="row" style="width:25%;" data-label="Status"><?php echo $user['Status']; ?></td>
                                             <td scope="row" style="width:25%;">
                                                 <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                                                    <input type="hidden" name="nama" value="<?= $user['Nama']; ?>">
-                                                    <input type="hidden" name="email" value="<?= $user['Email']; ?>">
-                                                    <input type="hidden" name="status" value="<?= $user['Status']; ?>">
+                                                    <input type="hidden" name="YoutubeChannelNama" value="${row.YoutubeChannelNama}">
+                                                    <input type="hidden" name="Judul" value="${row.Judul}">
+                                                    <input type="hidden" name="YoutubeChannelId" value="${row.YoutubeChannelId}">
+                                                    <input type="hidden" name="Status" value="<?= $user['Status']; ?>">
                                                     <button class="btn btn-primary">Confirm</button>
                                                 </form>
                                             </td>
@@ -129,14 +132,16 @@
         paginatedData.forEach(row => {
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:25%;" data-label="Nama">${row.Nama}</td>
-                    <td scope="row" style="width:25%;" data-label="Email">${row.Email}</td>
+                    <td scope="row" style="width:25%;" data-label="YoutubeChannelNama">${row.YoutubeChannelNama}</td>
+                    <td scope="row" style="width:25%;" data-label="Judul">${row.Judul}</td>
+                    <td scope="row" style="width:25%;" data-label="YoutubeChannelId">${row.YoutubeChannelId}</td>
                     <td scope="row" style="width:25%;" data-label="Status">${row.Status}</td>
                     <td scope="row" style="width:25%;">
                         <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                            <input type="hidden" name="nama" value="${row.Nama}">
-                            <input type="hidden" name="email" value="${row.Email}">
-                            <input type="hidden" name="status" value="${row.Status}">
+                            <input type="hidden" name="YoutubeChannelNama" value="${row.YoutubeChannelNama}">
+                            <input type="hidden" name="Judul" value="${row.Judul}">
+                            <input type="hidden" name="YoutubeChannelId" value="${row.YoutubeChannelId}">
+                            <input type="hidden" name="Status" value="${row.Status}">
                             <button class="btn btn-primary">Confirm</button>
                         </form>
                     </td>

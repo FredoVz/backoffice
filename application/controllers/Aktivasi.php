@@ -17,23 +17,38 @@ class Aktivasi extends CI_Controller {
 	{
 		$arrayUser = [
 			[
-				"Nama" => "Vidi Aldiano",
-				"Email" => "vidialdiano@gmail.com",
-				"Status" => "Aktif",
+				"YoutubeChannelNama" => "Vidi Aldiano",
+				"Judul" => "Congratulations! Your account is approving",
+				"YoutubeChannelId" => "uishbdUAdai-asSfda",
+				"Status" => "1",
 			],
 			[
-				"Nama" => "Wilfredo Alexander Sutanto",
-				"Email" => "fredo@gmail.com",
-				"Status" => "Aktif",
+				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
+				"Judul" => "Congratulations! Your account is approving",
+				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
+				"Status" => "1",
+			],
+			[
+				"YoutubeChannelNama" => "Vidi Aldiano",
+				"Judul" => "Congratulations! Your registration is successful...",
+				"YoutubeChannelId" => "uishbdUAdai-asSfda",
+				"Status" => "0",
+			],
+			[
+				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
+				"Judul" => "Congratulations! Your registration is successful...",
+				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
+				"Status" => "0",
 			],
 		];
 
 		$data['arrayUser'] = $arrayUser;
 
 		if ($this->input->post()) {
-			$nama = $this->input->post('nama'); // Menangkap nama yang dikirimkan dari form
-			$email = $this->input->post('email');  // Menangkap email yang dikirimkan dari form
-			$status = $this->input->post('status');  // Menangkap status yang dikirimkan dari form
+			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
+			$Judul = $this->input->post('Judul');  // Menangkap judul yang dikirimkan dari form
+			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
+			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
