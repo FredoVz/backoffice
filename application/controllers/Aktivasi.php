@@ -17,27 +17,27 @@ class Aktivasi extends CI_Controller {
 	{
 		$arrayUser = [
 			[
-				"YoutubeChannelNama" => "Vidi Aldiano",
-				"Judul" => "Congratulations! Your account is approving",
 				"YoutubeChannelId" => "uishbdUAdai-asSfda",
+				"YoutubeChannelNama" => "Vidi Aldiano",
+				"MoU" => "Congratulations! Your account is approving",
 				"Status" => "1",
 			],
 			[
-				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
-				"Judul" => "Congratulations! Your account is approving",
 				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
+				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
+				"MoU" => "Congratulations! Your account is approving",
 				"Status" => "1",
 			],
 			[
-				"YoutubeChannelNama" => "Vidi Aldiano",
-				"Judul" => "Congratulations! Your registration is successful...",
 				"YoutubeChannelId" => "uishbdUAdai-asSfda",
+				"YoutubeChannelNama" => "Vidi Aldiano",
+				"MoU" => "Congratulations! Your registration is successful...",
 				"Status" => "0",
 			],
 			[
-				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
-				"Judul" => "Congratulations! Your registration is successful...",
 				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
+				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
+				"MoU" => "Congratulations! Your registration is successful...",
 				"Status" => "0",
 			],
 		];
@@ -45,9 +45,9 @@ class Aktivasi extends CI_Controller {
 		$data['arrayUser'] = $arrayUser;
 
 		if ($this->input->post()) {
-			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
-			$Judul = $this->input->post('Judul');  // Menangkap judul yang dikirimkan dari form
 			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
+			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
+			$MoU = $this->input->post('MoU');  // Menangkap judul yang dikirimkan dari form
 			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
