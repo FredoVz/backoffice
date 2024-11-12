@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Aktivasi extends CI_Controller {
 
+	public function __construct() {
+        parent::__construct();
+        $this->load->library('session');
+
+        // Check if user is logged in, otherwise redirect to login page
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login'); // Redirect to login page if not logged in
+        }
+    }
 	
 	public function akun()
 	{
