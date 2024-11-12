@@ -11,6 +11,7 @@ class Importdigital extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->library('session');
         $this->load->library('upload'); // Load upload library
         $this->load->model('Model_home');
 

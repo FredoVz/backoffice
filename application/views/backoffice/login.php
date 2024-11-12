@@ -63,11 +63,12 @@
                                     </div>
 
 									<!-- Pesan Error -->
-									<?php if ($this->session->flashdata('error')): ?>
+									<div class="flash-data" data-flashdata='<?= json_encode($this->session->flashdata('error')); ?>'></div>
+									<!--?php if ($this->session->flashdata('error')): ?>
                                         <div class="alert alert-danger">
-                                            <?= $this->session->flashdata('error'); ?>
+                                            < ?= $this->session->flashdata('error'); ?>
                                         </div>
-                                    <?php endif; ?>
+                                    < ?php endif; ?-->
 
 									<form method="POST" action="<?php echo base_url('login/index'); ?>" class="user">
 										<div class="form-group mb-3">
@@ -109,6 +110,31 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+	<!-- SWEET ALERT -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+	    document.addEventListener('DOMContentLoaded', function() {
+	        //console.log("masuk");
+	        var flashData = document.querySelector('.flash-data').dataset.flashdata;
+	        var confirmButtonText = 'OK';
+
+	        //console.log(flashData);
+	        if(flashData) {
+	            // Parsing data JSON
+	            var data = JSON.parse(flashData);
+
+	            Swal.fire({      
+	                icon: data.icon,
+	                title: data.title,
+	                text: data.text,
+	                confirmButtonText: confirmButtonText,
+	            });
+	        }
+	    });
+	</script>
+	
+	<!-- PASSWORD HIDDEN/SHOW INPUT -->
 	<script>
         // Script untuk toggle visibility password
         var togglePassword = document.getElementById('togglePassword');

@@ -1,4 +1,3 @@
-<html>
 <!-- justify-content-center -->
 <div class="container-fluid mt-5">
 	<!-- #e7dbeb -->
@@ -67,7 +66,7 @@
                         <div class="ms-2"> Entries</div>
                     </div>
                     <h5 class="mb-0">Data List</h5>
-                    <div class="clearable position-relative" style="width: 250px; position: relative;">
+                    <div class="clearable position-relative" style="width: auto; position: relative;">
                         <input type="text" id="searchInput" class="form-control" placeholder="Search..." style="padding-right: 24px;">
                         <!--i class="clearable__clear" id="cancelSearch">&times;</i-->
                         <i class="clearable__clear" id="cancelSearch" style="position: absolute;top: 50%;right: 8px;transform: translateY(-50%);cursor: pointer;display: none;">&times;</i> <!-- display: none; -->
@@ -120,6 +119,30 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<!-- SWEET ALERT -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        //console.log("masuk");
+        var flashData = document.querySelector('.flash-data').dataset.flashdata;
+        var confirmButtonText = 'OK';
+
+        //console.log(flashData);
+        if(flashData) {
+            // Parsing data JSON
+            var data = JSON.parse(flashData);
+
+            Swal.fire({
+                icon: data.icon,
+                title: data.title,
+                text: data.text,
+                confirmButtonText: confirmButtonText,
+            });
+        }
+    });
+</script>
+
 <!-- JavaScript to Handle File Name -->
 <script>
     // Open file dialog when clicking the text input

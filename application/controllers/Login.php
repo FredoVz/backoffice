@@ -19,16 +19,22 @@ class Login extends CI_Controller {
 
             // Validasi hardcoded
             if ($username === 'admin' && $password === 'sukses') {
+                $username1 = strtolower($username);
                 // Redirect ke halaman dashboard jika berhasil login
                 // Set session userdata
                 $this->session->set_userdata([
-                    'username' => $username,
+                    'username' => $username1,
                     'logged_in' => true // Menandakan user telah login
                 ]);
                 redirect('importdigital');
             } else {
                 // Set flashdata untuk pesan error
-                $this->session->set_flashdata('error', 'Username atau Password salah!');
+                //$this->session->set_flashdata('error', 'Username atau Password salah!');
+                $this->session->set_flashdata('error', [
+                    'icon' => 'error',
+                    'title' => 'Login Gagal!',
+                    'text' => 'Akun tidak ditemukan!',
+                ]);
                 redirect('login');
             }
         } else {

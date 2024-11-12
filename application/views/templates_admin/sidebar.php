@@ -58,41 +58,34 @@
             <!--hr class="sidebar-divider my-0" style="border-color: #D3D3D3;"--> <!-- #D3D3D3 -->
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?php echo ($this->uri->segment(1) == 'importdigital') ? 'active' : ''; ?>">
-                <a class="nav-link" href="<?php echo base_url('importdigital'); ?>">
+            <li class="nav-item <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'active' : ''; ?>">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#aktivasiDropdown" aria-expanded="true" aria-controls="aktivasiDropdown">
                     <i class="fas fa-fw fa-database" style="color: black;"></i>
-                    <span style="color: black;">Import Digital</span>
+                    <span style="color: black;">Aktivasi</span>
                 </a>
+                <!-- Dropdown Menu -->
+                <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'akun' || $this->uri->segment(1) == 'akun1') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
+                        <a class="collapse-item <?php echo ($this->uri->segment(1) == 'akun') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/akun'); ?>"><i class="bi bi-person-fill"></i> Akun</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(1) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/album'); ?>"><i class="bi bi-person-fill"></i> Album</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'importdigital') ? 'active' : ''; ?>">
                 <a class="nav-link" href="<?php echo base_url('importdigital') ?>">
-                    <!--i class="fas fa-fw fa-tachometer-alt"></i-->
-                    <i class="fas fa-fw fa-database" style="color: black;"></i>
-                    <span style="color: black;">Import Digital</span></a>
-            </li>
-
-            <li class="nav-item <?php echo ($this->uri->segment(1) == 'importdigital') ? 'active' : ''; ?>">
-                <a class="nav-link" href="<?php echo base_url('importdigital') ?>">
-                    <!--i class="fas fa-fw fa-file-invoice"></i-->
-                    <i class="fas fa-fw fa-database" style="color: black;"></i>
-                    <span style="color: black;">Import Digital</span></a>
+                <!--i class="fas fa-fw fa-tachometer-alt"></i-->
+                <i class="fas fa-fw fa-database" style="color: black;"></i>
+                <span style="color: black;">Import Digital</span></a>
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle" 
-                        style="background-color: gray; color: white;"></button>
+                style="background-color: gray; color: white;"></button>
             </div>
-
-            <!-- Sidebar Message -->
-            <!-- div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div -->
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -131,14 +124,14 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                            <!--a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a-->
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            <!--div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                             aria-labelledby="searchDropdown">
-                                <!--form class="form-inline mr-auto w-100 navbar-search">
+                                <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
                                         placeholder="Search Track" aria-label="Search"
@@ -149,8 +142,8 @@
                                             </button>
                                         </div>
                                     </div>
-                                </form-->
-                            </div>
+                                </form>
+                            </div-->
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -159,11 +152,7 @@
                             <?php if ($this->session->userdata('logged_in')) { ?>
                                 <li class="nav-item">
                                 <!--li-->
-                                    <div>Selamat Datang, admin<!--?php echo $this->session->userdata('username'); ?--></div>
-                                </li>
-                                <li class="nav-item ml-2">
-                                <!--li class="ml-2"-->
-                                    <?php echo anchor('login/logout', 'Logout', ['class' => 'nav-link']); ?>
+                                    <div>Selamat Datang, <?php echo $this->session->userdata('username'); ?></div>
                                 </li>
                             <?php } else { ?>
                                 <li class="nav-item">
@@ -172,6 +161,27 @@
                                 </li>
                             <?php } ?>
                         </ul>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="<?= base_url('assets/img/undraw_profile.svg'); ?>">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <!--a class="dropdown-item" href="< ?= base_url('user'); ?>">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    My Profile
+                                </a>
+                                <div class="dropdown-divider"></div-->
+                                <a class="dropdown-item" href="<?= base_url('login/logout'); ?>">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             <!--/div-->
@@ -179,6 +189,7 @@
         <!--/div-->
         <!-- End of Content Wrapper -->
 
+<!-- SIDEBAR TOGGLE -->
 <script>
     // Mendapatkan elemen sidebar dan tombol toggle
     var sidebar = document.getElementById('accordionSidebar');
