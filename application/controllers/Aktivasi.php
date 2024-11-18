@@ -64,7 +64,6 @@ class Aktivasi extends CI_Controller {
 		    $this->load->view('templates_admin/sidebar');
 			$this->load->view('backoffice/akun', $data);
 			$this->load->view('templates_admin/footer');
-			//Nama, Email, Status, Action
 		}
 	}
 
@@ -89,7 +88,6 @@ class Aktivasi extends CI_Controller {
 		    $this->load->view('templates_admin/sidebar');
 			$this->load->view('backoffice/akun');
 			$this->load->view('templates_admin/footer');
-			//Nama, Email, Status, Action
 		}
 	}
 
@@ -125,9 +123,12 @@ class Aktivasi extends CI_Controller {
 		$data['arrayUser'] = $arrayUser;
 
 		if ($this->input->post()) {
-			$nama = $this->input->post('nama'); // Menangkap nama yang dikirimkan dari form
-			$email = $this->input->post('email');  // Menangkap email yang dikirimkan dari form
-			$status = $this->input->post('status');  // Menangkap status yang dikirimkan dari form
+			$keterangan = $this->input->post('keterangan'); // Menangkap keterangan yang dikirimkan dari form
+			$upc = $this->input->post('upc');  // Menangkap upc yang dikirimkan dari form
+			$jenis = $this->input->post('jenis');  // Menangkap jenis yang dikirimkan dari form
+			$createdate = $this->input->post('createdate');  // Menangkap createdate yang dikirimkan dari form
+			$approve = $this->input->post('approve');  // Menangkap approve yang dikirimkan dari form
+			$aktif = $this->input->post('aktif');  // Menangkap aktif yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
@@ -143,7 +144,32 @@ class Aktivasi extends CI_Controller {
 		    $this->load->view('templates_admin/sidebar');
 			$this->load->view('backoffice/album', $data);
 			$this->load->view('templates_admin/footer');
-			//Nama, Email, Status, Action
+		}
+	}
+
+	public function aktifalbum(){
+		if ($this->input->post()) {
+			$keterangan = $this->input->post('keterangan'); // Menangkap keterangan yang dikirimkan dari form
+			$upc = $this->input->post('upc');  // Menangkap upc yang dikirimkan dari form
+			$jenis = $this->input->post('jenis');  // Menangkap jenis yang dikirimkan dari form
+			$createdate = $this->input->post('createdate');  // Menangkap createdate yang dikirimkan dari form
+			$approve = $this->input->post('approve');  // Menangkap approve yang dikirimkan dari form
+			$aktif = $this->input->post('aktif');  // Menangkap aktif yang dikirimkan dari form
+
+			$this->session->set_flashdata('message', [
+		        'icon' => 'success',
+		        'title' => 'Berhasil!',
+		        'text' => 'Data berhasil di confirm!',
+			]);
+			redirect('aktivasi/album');
+		}
+
+		else {
+			// Load views with data and messages
+		    $this->load->view('templates_admin/header');
+		    $this->load->view('templates_admin/sidebar');
+			$this->load->view('backoffice/album');
+			$this->load->view('templates_admin/footer');
 		}
 	}
 }
