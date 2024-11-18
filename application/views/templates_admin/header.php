@@ -56,4 +56,35 @@
     }
 }
 </style>
+
+<style>
+/* Styling untuk tombol */
+.btnn {
+    background-color: transparent;
+    border: 2px solid #c9c9c9;
+    color: green;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s ease;
+  }
+
+  .btnn:hover {
+    background-color: #969696;
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .btnn:active {
+    transform: scale(0.98);
+  }
+
+  .btnn p {
+    margin: 0;
+    font-weight: bold;
+  }
+</style>
+
 </head>

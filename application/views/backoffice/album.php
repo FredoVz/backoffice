@@ -32,25 +32,70 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:25%;" data-column="Nama">Nama <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:25%;" data-column="Email">Email <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:25%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:25%;">Action </th>
+                                    <th scope="col" style="width:14%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="UPC">UPC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Jenis">Jenis <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="CreateDate">CreateDate <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Approve">Approve <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Aktif">Aktif <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;">Action </th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayUser)): ?>
                                     <?php foreach ($arrayUser as $user): ?>
                                         <tr>
-                                            <td scope="row" style="width:25%;" data-label="Nama"><?php echo $user['Nama']; ?></td>
-                                            <td scope="row" style="width:25%;" data-label="Email"><?php echo $user['Email']; ?></td>
-                                            <td scope="row" style="width:25%;" data-label="Status"><?php echo $user['Status']; ?></td>
-                                            <td scope="row" style="width:25%;">
-                                                <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                                                    <input type="hidden" name="nama" value="<?= $user['Nama']; ?>">
-                                                    <input type="hidden" name="email" value="<?= $user['Email']; ?>">
-                                                    <input type="hidden" name="status" value="<?= $user['Status']; ?>">
-                                                    <button class="btn btn-primary">Confirm</button>
+                                            <td scope="row" style="width:14%;" data-label="Keterangan"><?php echo $user['Keterangan']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="UPC"><?php echo $user['UPC']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Jenis"><?php echo $user['Jenis']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="CreateDate"><?php echo $user['CreateDate']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Approve">
+                                                <?php if ($user['Approve'] == 0): ?>
+                                                    <!-- Form for confirmation when Approve is 0 -->
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjUlEQVR4nO2TwQqDMBBE36dG8VL/qBf7gS1UvdeRQA6pLGYjOTqXQHb2McsmcKu5BE/BIuhOPJ1gjV4cwI9Agp9gMOpDqkXP2wMMWcMf9ACLZygCU2OfNW6C0bh7uGAnaczUVTqkupbMARy5IrUcWcYCrEV5YaHpsxHMFQ/76wG+0rcKhSmiZyoCb1GrHblJqZalZeXEAAAAAElFTkSuQmCC" alt="multiply">
+                                                <?php elseif ($user['Approve'] == 1): ?>
+                                                    <!-- Button for confirmation when Approve is 1 -->
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsUlEQVR4nGNgGAXDDzjPd+9wnueWRBXDnBa4dTkvcP/vvMB9b319PROFLnNrhRjmdsh+lT3PEDXMfr89CzFh5rTAbb/PTB8u/DYvcG9xXuC21WOiBzvFLquvr2dyWuC+FBpj641nGrOS7TIYCF0Vyuw0330h1BVwl1IUAaGrQpmdF7gtgrnUeYF7D8kuw+Z95wVu86GGUidpMPxnYHRe4DadOoYxIFxqsSqUkyqGDSoAAKAhc1GmQEzcAAAAAElFTkSuQmCC" alt="checkmark--v1">
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:14%;" data-label="Aktif">
+                                                <?php if ($user['Aktif'] == 0): ?>
+                                                    <!-- Form for confirmation when Aktif is 0 -->
+                                                    <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                                                        <input type="hidden" name="keterangan" value="<?= $user['Keterangan']; ?>">
+                                                        <input type="hidden" name="upc" value="<?= $user['UPC']; ?>">
+                                                        <input type="hidden" name="jenis" value="<?= $user['Jenis']; ?>">
+                                                        <input type="hidden" name="createdate" value="<?= $user['CreateDate']; ?>">
+                                                        <input type="hidden" name="approve" value="<?= $user['Approve']; ?>">
+                                                        <input type="hidden" name="aktif" value="<?= $user['Aktif']; ?>">
+                                                        <button class="btnn">
+                                                            <p style="color:red;">OFF</p>
+                                                        </button>
+                                                    </form>
+                                                <?php elseif ($user['Aktif'] == 1): ?>
+                                                    <!-- Button for confirmation when Aktif is 1 -->
+                                                    <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                                                        <input type="hidden" name="keterangan" value="<?= $user['Keterangan']; ?>">
+                                                        <input type="hidden" name="upc" value="<?= $user['UPC']; ?>">
+                                                        <input type="hidden" name="jenis" value="<?= $user['Jenis']; ?>">
+                                                        <input type="hidden" name="createdate" value="<?= $user['CreateDate']; ?>">
+                                                        <input type="hidden" name="approve" value="<?= $user['Approve']; ?>">
+                                                        <input type="hidden" name="aktif" value="<?= $user['Aktif']; ?>">
+                                                        <button class="btnn">
+                                                            <p style="color:green;">ON</p>
+                                                        </button>
+                                                    </form>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:14%;">
+                                                <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                                                    <input type="hidden" name="keterangan" value="<?= $user['Keterangan']; ?>">
+                                                    <input type="hidden" name="upc" value="<?= $user['UPC']; ?>">
+                                                    <input type="hidden" name="jenis" value="<?= $user['Jenis']; ?>">
+                                                    <input type="hidden" name="createdate" value="<?= $user['CreateDate']; ?>">
+                                                    <input type="hidden" name="approve" value="<?= $user['Approve']; ?>">
+                                                    <input type="hidden" name="aktif" value="<?= $user['Aktif']; ?>">
+                                                    <button class="btn btn-primary">Konfirmasi</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -127,17 +172,67 @@
         var no = offset + 1; // Set nomor urut berdasarkan offset saat ini
 
         paginatedData.forEach(row => {
+            var aktifColumn = ''; // This will hold the form or the button
+            var approveColumn = '';
+
+            // Check the status and set action column accordingly
+            if (row.Aktif == 0) {
+                aktifColumn = `
+                    <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                        <input type="hidden" name="keterangan" value="${row.Keterangan}">
+                        <input type="hidden" name="upc" value="${row.UPC}">
+                        <input type="hidden" name="jenis" value="${row.Jenis}">
+                        <input type="hidden" name="createdate" value="${row.CreateDate}">
+                        <input type="hidden" name="approve" value="${row.Approve}">
+                        <input type="hidden" name="aktif" value="${row.Aktif}">
+                        <button class="btnn">
+                            <p style="color:red;">OFF</p>
+                        </button>
+                    </form>
+                `;
+            } else if (row.Aktif == 1) {
+                aktifColumn = `
+                    <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                        <input type="hidden" name="keterangan" value="${row.Keterangan}">
+                        <input type="hidden" name="upc" value="${row.UPC}">
+                        <input type="hidden" name="jenis" value="${row.Jenis}">
+                        <input type="hidden" name="createdate" value="${row.CreateDate}">
+                        <input type="hidden" name="approve" value="${row.Approve}">
+                        <input type="hidden" name="aktif" value="${row.Aktif}">
+                        <button class="btnn">
+                            <p style="color:green;">ON</p>
+                        </button>
+                    </form>
+                `;
+            }
+
+            if (row.Approve == 0) {
+                approveColumn = `
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjUlEQVR4nO2TwQqDMBBE36dG8VL/qBf7gS1UvdeRQA6pLGYjOTqXQHb2McsmcKu5BE/BIuhOPJ1gjV4cwI9Agp9gMOpDqkXP2wMMWcMf9ACLZygCU2OfNW6C0bh7uGAnaczUVTqkupbMARy5IrUcWcYCrEV5YaHpsxHMFQ/76wG+0rcKhSmiZyoCb1GrHblJqZalZeXEAAAAAElFTkSuQmCC" alt="multiply">
+                `;
+            } else if (row.Approve == 1) {
+                approveColumn = `
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsUlEQVR4nGNgGAXDDzjPd+9wnueWRBXDnBa4dTkvcP/vvMB9b319PROFLnNrhRjmdsh+lT3PEDXMfr89CzFh5rTAbb/PTB8u/DYvcG9xXuC21WOiBzvFLquvr2dyWuC+FBpj641nGrOS7TIYCF0Vyuw0330h1BVwl1IUAaGrQpmdF7gtgrnUeYF7D8kuw+Z95wVu86GGUidpMPxnYHRe4DadOoYxIFxqsSqUkyqGDSoAAKAhc1GmQEzcAAAAAElFTkSuQmCC" alt="checkmark--v1">
+                `;
+            }
+
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:25%;" data-label="Nama">${row.Nama}</td>
-                    <td scope="row" style="width:25%;" data-label="Email">${row.Email}</td>
-                    <td scope="row" style="width:25%;" data-label="Status">${row.Status}</td>
-                    <td scope="row" style="width:25%;">
-                        <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                            <input type="hidden" name="nama" value="${row.Nama}">
-                            <input type="hidden" name="email" value="${row.Email}">
-                            <input type="hidden" name="status" value="${row.Status}">
-                            <button class="btn btn-primary">Confirm</button>
+                    <td scope="row" style="width:14%;" data-label="Keterangan">${row.Keterangan}</td>
+                    <td scope="row" style="width:14%;" data-label="UPC">${row.UPC}</td>
+                    <td scope="row" style="width:14%;" data-label="Jenis">${row.Jenis}</td>
+                    <td scope="row" style="width:14%;" data-label="CreateDate">${row.CreateDate}</td>
+                    <td scope="row" style="width:14%;" data-label="Approve">${approveColumn}</td>
+                    <td scope="row" style="width:14%;" data-label="Aktif">${aktifColumn}</td>
+                    <td scope="row" style="width:14%;">
+                        <form action="<?= base_url('aktivasi/album'); ?>" method="post">
+                            <input type="hidden" name="keterangan" value="${row.Keterangan}">
+                            <input type="hidden" name="upc" value="${row.UPC}">
+                            <input type="hidden" name="jenis" value="${row.Jenis}">
+                            <input type="hidden" name="createdate" value="${row.CreateDate}">
+                            <input type="hidden" name="approve" value="${row.Approve}">
+                            <input type="hidden" name="aktif" value="${row.Aktif}">
+                            <button class="btn btn-primary">Konfirmasi</button>
                         </form>
                     </td>
                 </tr>

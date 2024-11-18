@@ -68,18 +68,57 @@ class Aktivasi extends CI_Controller {
 		}
 	}
 
+	public function rejectakun(){
+		if ($this->input->post()) {
+			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
+			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
+			$MoU = $this->input->post('MoU');  // Menangkap judul yang dikirimkan dari form
+			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
+
+			$this->session->set_flashdata('message', [
+		        'icon' => 'success',
+		        'title' => 'Berhasil!',
+		        'text' => 'Data berhasil di confirm!',
+			]);
+			redirect('aktivasi/akun');
+		}
+
+		else {
+			// Load views with data and messages
+		    $this->load->view('templates_admin/header');
+		    $this->load->view('templates_admin/sidebar');
+			$this->load->view('backoffice/akun');
+			$this->load->view('templates_admin/footer');
+			//Nama, Email, Status, Action
+		}
+	}
+
 	public function album()
 	{
 		$arrayUser = [
 			[
-				"Nama" => "Vidi Aldiano",
-				"Email" => "vidialdiano@gmail.com",
-				"Status" => "Aktif",
+				"Keterangan" => "Jehovah (Chapter I)",
+				"UPC" => "112233",
+				"Jenis" => "Single",
+				"CreateDate" => "04/11/2024",
+				"Approve" => "1",
+				"Aktif" => "1",
 			],
 			[
-				"Nama" => "Wilfredo Alexander Sutanto",
-				"Email" => "fredo@gmail.com",
-				"Status" => "Aktif",
+				"Keterangan" => "Blackpink Cover",
+				"UPC" => "112233",
+				"Jenis" => "Single",
+				"CreateDate" => "31/10/2024",
+				"Approve" => "1",
+				"Aktif" => "1",
+			],
+			[
+				"Keterangan" => "Bahagia Itu Indah Sapa Bahagia Yang Bernama Indah",
+				"UPC" => "112233",
+				"Jenis" => "Single",
+				"CreateDate" => "30/10/2024",
+				"Approve" => "1",
+				"Aktif" => "0",
 			],
 		];
 

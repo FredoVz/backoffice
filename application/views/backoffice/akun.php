@@ -32,8 +32,8 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelId">YT ID <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelNama">YT Nama <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelId">ChannelID <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelNama">ChannelNama <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:20%;" data-column="MoU">MoU <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:20%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:20%;">Action </th>
@@ -45,8 +45,26 @@
                                         <tr>
                                             <td scope="row" style="width:20%;" data-label="YoutubeChannelId"><?php echo $user['YoutubeChannelId']; ?></td>
                                             <td scope="row" style="width:20%;" data-label="YoutubeChannelNama"><?php echo $user['YoutubeChannelNama']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="MoU"><?php echo $user['MoU']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="Status"><?php echo $user['Status']; ?></td>
+                                            <td scope="row" style="width:20%;" data-label="MoU">
+                                                <?php if ($user['MoU'] == "Congratulations! Your account is approving"): ?>
+                                                    <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
+                                                <?php elseif ($user['MoU'] == "Congratulations! Your registration is successful..."): ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+                                                    <p>-</p>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:20%;" data-label="Status">
+                                                <?php if ($user['Status'] == 0): ?>
+                                                    <!-- Form for confirmation when Status is 0 -->
+                                                    <p style="color:blue;">Waiting</p>
+                                                <?php elseif ($user['Status'] == 1): ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+                                                    <p style="color:green;">Approve</p>
+                                                <?php elseif ($user['Status'] == 2): ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+                                                    <p style="color:red;">Rejected</p>
+                                                <?php endif; ?>
+                                            </td>
                                             <td scope="row" style="width:20%;">
                                                 <?php if ($user['Status'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
@@ -55,11 +73,15 @@
                                                         <input type="hidden" name="MoU" value="<?php echo $user['MoU']; ?>">
                                                         <input type="hidden" name="YoutubeChannelId" value="<?php echo $user['YoutubeChannelId']; ?>">
                                                         <input type="hidden" name="Status" value="<?php echo $user['Status']; ?>">
-                                                        <button class="btn btn-primary">Confirm</button>
+                                                        <button class="btn btn-primary">Konfirmasi</button>
                                                     </form>
+                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" data-userid="PM00000014">Reject</button>
                                                 <?php elseif ($user['Status'] == 1): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-                                                    <button class="btn btn-success" disabled>Sudah Konfirmasi</button>
+                                                    <button class="btn btn-success" disabled>Terkonfirmasi</button>
+                                                <?php elseif ($user['Status'] == 2): ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+                                                    <button class="btn btn-danger" disabled>Gagal</button>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
@@ -83,6 +105,32 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="rejectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rejectModalLabel">Tolak Akun</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="rejectForm" action="<?php base_url('aktivasi/rejectakun'); ?>" method="post">
+          <input type="hidden" name="UserID" id="rejectUserID">
+          <div class="form-group">
+            <label for="reason">Alasan Penolakan</label>
+            <textarea class="form-control" name="reason" id="reason" rows="4" required=""></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="submit" form="rejectForm" class="btn btn-danger">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -137,6 +185,21 @@
 
         paginatedData.forEach(row => {
             var actionColumn = ''; // This will hold the form or the button
+            var statusColumn = '';
+            var mouColumn = '';
+
+            // Check the status and set action column accordingly
+            if (row.MoU == "Congratulations! Your registration is successful...") {
+                //
+                mouColumn = `
+                    <p>-</p>
+                `;
+            } else if (row.MoU == "Congratulations! Your account is approving") {
+                //
+                mouColumn = `
+                    <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
+                `;
+            }
 
             // Check the status and set action column accordingly
             if (row.Status == 0) {
@@ -146,12 +209,26 @@
                         <input type="hidden" name="YoutubeChannelNama" value="${row.YoutubeChannelNama}">
                         <input type="hidden" name="MoU" value="${row.MoU}">
                         <input type="hidden" name="Status" value="${row.Status}">
-                        <button class="btn btn-primary">Confirm</button>
+                        <button class="btn btn-primary">Konfirmasi</button>
                     </form>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" data-userid="PM00000014">Reject</button>
+                `;
+                statusColumn = `
+                    <p style="color:blue;">Waiting</p>
                 `;
             } else if (row.Status == 1) {
                 actionColumn = `
-                    <button class="btn btn-success">Sudah Konfirmasi</button>
+                    <button class="btn btn-success" disabled>Terkonfirmasi</button>
+                `;
+                statusColumn= `
+                    <p style="color:green;">Approve</p>
+                `;
+            } else if (row.Status == 2) {
+                actionColumn = `
+                    <button class="btn btn-danger" disabled>Gagal</button>
+                `;
+                statusColumn= `
+                    <p style="color:red;">Rejected</p>
                 `;
             }
 
@@ -159,8 +236,8 @@
                 <tr>
                     <td scope="row" style="width:20%;" data-label="YoutubeChannelId">${row.YoutubeChannelId}</td>
                     <td scope="row" style="width:20%;" data-label="YoutubeChannelNama">${row.YoutubeChannelNama}</td>
-                    <td scope="row" style="width:20%;" data-label="MoU">${row.MoU}</td>
-                    <td scope="row" style="width:20%;" data-label="Status">${row.Status}</td>
+                    <td scope="row" style="width:20%;" data-label="MoU">${mouColumn}</td>
+                    <td scope="row" style="width:20%;" data-label="Status">${statusColumn}</td>
                     <td scope="row" style="width:20%;">
                         ${actionColumn}
                     </td>
