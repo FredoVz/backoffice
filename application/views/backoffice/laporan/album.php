@@ -3,10 +3,6 @@
 
     <div class="flash-data" data-flashdata='<?= json_encode($this->session->flashdata('message')); ?>'></div>
 
-
-
-
-
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5 mt-5">
@@ -16,7 +12,7 @@
                     </div>
 
                     <div class="col-lg-2" style="text-align:right;">
-                        <form action="<?= base_url('aktivasi/exportakun') ?>" method="post">
+                        <form action="<?= base_url('laporan/exportakun') ?>" method="post">
                             <input type="hidden" name="arrayUser" id="arrayUser"
                             value='<?= json_encode($arrayUser); ?>'>
                             <button type="submit" class="btn btn-success">Export</button>

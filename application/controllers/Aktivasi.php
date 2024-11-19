@@ -62,7 +62,7 @@ class Aktivasi extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/akun', $data);
+			$this->load->view('backoffice/aktivasi/akun', $data);
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -86,7 +86,7 @@ class Aktivasi extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/akun');
+			$this->load->view('backoffice/aktivasi/akun');
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -142,7 +142,7 @@ class Aktivasi extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/album', $data);
+			$this->load->view('backoffice/aktivasi/album', $data);
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -168,7 +168,7 @@ class Aktivasi extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/album');
+			$this->load->view('backoffice/aktivasi/album');
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -205,7 +205,7 @@ class Aktivasi extends CI_Controller {
 			// Load views with data and messages
 			$this->load->view('templates_admin/header');
 			$this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/akun');
+			$this->load->view('backoffice/aktivasi/akun');
 			$this->load->view('templates_admin/footer');
 		}
 	}

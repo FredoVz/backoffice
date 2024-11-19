@@ -62,7 +62,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/laporan', $data);
+			$this->load->view('backoffice/laporan/user', $data);
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -86,7 +86,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/laporan');
+			$this->load->view('backoffice/laporan/user');
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -142,7 +142,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/album', $data);
+			$this->load->view('backoffice/laporan/album', $data);
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -168,7 +168,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/album');
+			$this->load->view('backoffice/laporan/album');
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -205,7 +205,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 			$this->load->view('templates_admin/header');
 			$this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/laporan');
+			$this->load->view('backoffice/laporan/user');
 			$this->load->view('templates_admin/footer');
 		}
 	}
@@ -258,7 +258,7 @@ class Laporan extends CI_Controller {
 			// Load views with data and messages
 		    $this->load->view('templates_admin/header');
 		    $this->load->view('templates_admin/sidebar');
-			$this->load->view('backoffice/laporan', $data);
+			$this->load->view('backoffice/laporan/user', $data);	
 			$this->load->view('templates_admin/footer');
 		}
 	}
