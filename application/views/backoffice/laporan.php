@@ -3,19 +3,44 @@
 
     <div class="flash-data" data-flashdata='<?= json_encode($this->session->flashdata('message')); ?>'></div>
 
-    <div class="row">
-        <div class="mt-5">
-            <form action="<?= base_url('aktivasi/exportakun') ?>" method="post">
-                <input type="hidden" name="arrayUser" id="arrayUser"
-                value='<?= json_encode($arrayUser); ?>'>
-                <button type="submit" class="btn btn-primary">Export</button>
-            </form>
-        </div>
-    </div>
+
+
+
 
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5 mt-5">
+                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="col-lg-10" style="text-align:center;">
+                        <h5 class="mb-0">Laporan Account</h5>
+                    </div>
+
+                    <div class="col-lg-2" style="text-align:right;">
+                        <form action="<?= base_url('aktivasi/exportakun') ?>" method="post">
+                            <input type="hidden" name="arrayUser" id="arrayUser"
+                            value='<?= json_encode($arrayUser); ?>'>
+                            <button type="submit" class="btn btn-success">Export</button>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+                        <label for="">Tanggal Awal</label>
+                        <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="">Tanggal Akhir</label>
+                        <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
+                    </div>
+                </div>
+
+                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="col-lg-12" style="text-align:right;">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                    </div>
+                </div>
+
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="d-flex flex-row align-items-center mb-3 mb-md-0">
                         <div class="custom-spacing me-2">Show</div>
@@ -30,7 +55,7 @@
                         </div>
                         <div class="ms-2"> Entries</div>
                     </div>
-                    <h5 class="mb-0">Data Akun</h5>
+                    <!--h5 class="mb-0">Laporan Account</h5-->
                     <div class="clearable position-relative" style="width: auto; position: relative;">
                         <input type="text" id="searchInput" class="form-control" placeholder="Search..." style="padding-right: 24px;">
                         <!--i class="clearable__clear" id="cancelSearch">&times;</i-->

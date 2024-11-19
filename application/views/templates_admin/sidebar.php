@@ -64,11 +64,11 @@
                     <span style="color: black;">Aktivasi</span>
                 </a>
                 <!-- Dropdown Menu -->
-                <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'akun' || $this->uri->segment(1) == 'akun1') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
+                <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'aktivasi' || $this->uri->segment(2) == 'akun' || $this->uri->segment(2) == 'album') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
-                        <a class="collapse-item <?php echo ($this->uri->segment(1) == 'akun') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/akun'); ?>"><i class="bi bi-person-fill"></i> Akun</a>
-                        <a class="collapse-item <?php echo ($this->uri->segment(1) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/album'); ?>"><i class="bi bi-person-fill"></i> Album</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'akun') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/akun'); ?>"><i class="bi bi-person-fill"></i> Akun</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/album'); ?>"><i class="bi bi-person-fill"></i> Album</a>
                     </div>
                 </div>
             </li>
@@ -79,6 +79,22 @@
                 <!--i class="fas fa-fw fa-tachometer-alt"></i-->
                 <i class="fas fa-fw fa-database" style="color: black;"></i>
                 <span style="color: black;">Import Digital</span></a>
+            </li>
+
+            <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active' : ''; ?>">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#laporanDropdown" aria-expanded="true" aria-controls="laporanDropdown">
+                    <i class="fas fa-fw fa-database" style="color: black;"></i>
+                    <span style="color: black;">Laporan</span>
+                </a>
+                <!-- Dropdown Menu -->
+                <div id="laporanDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'laporan' || $this->uri->segment(2) == 'user' || $this->uri->segment(2) == 'album') ? 'show' : ''; ?>" aria-labelledby="laporanHeading" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'user') ? 'active' : ''; ?>" href="<?php echo base_url('laporan/user'); ?>"><i class="bi bi-person-fill"></i> User</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('laporan/album'); ?>"><i class="bi bi-person-fill"></i> Album</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'track') ? 'active' : ''; ?>" href="<?php echo base_url('laporan/track'); ?>"><i class="bi bi-person-fill"></i> Track</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
