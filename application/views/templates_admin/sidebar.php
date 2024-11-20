@@ -64,7 +64,7 @@
                     <span style="color: black;">Aktivasi</span>
                 </a>
                 <!-- Dropdown Menu -->
-                <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'aktivasi' || $this->uri->segment(2) == 'akun' || $this->uri->segment(2) == 'album') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
+                <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
                         <a class="collapse-item <?php echo ($this->uri->segment(2) == 'akun') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/akun'); ?>"><i class="bi bi-person-fill"></i> Akun</a>
@@ -87,7 +87,7 @@
                     <span style="color: black;">Laporan</span>
                 </a>
                 <!-- Dropdown Menu -->
-                <div id="laporanDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'laporan' || $this->uri->segment(2) == 'user' || $this->uri->segment(2) == 'album') ? 'show' : ''; ?>" aria-labelledby="laporanHeading" data-parent="#accordionSidebar">
+                <div id="laporanDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'laporan') ? 'show' : ''; ?>" aria-labelledby="laporanHeading" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
                         <a class="collapse-item <?php echo ($this->uri->segment(2) == 'user') ? 'active' : ''; ?>" href="<?php echo base_url('laporan/user'); ?>"><i class="bi bi-clipboard-data-fill"></i> User</a>

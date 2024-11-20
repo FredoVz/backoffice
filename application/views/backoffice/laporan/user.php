@@ -18,24 +18,26 @@
                             <button type="submit" class="btn btn-success">Export</button>
                         </form>
                     </div>
-
-                </div>
-                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                        <label for="">Tanggal Awal</label>
-                        <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="">Tanggal Akhir</label>
-                        <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
-                    </div>
                 </div>
 
-                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-12" style="text-align:right;">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                <form action="<?= base_url('laporan/user'); ?>" method="post">
+                    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                        <div class="col-lg-6">
+                            <label for="">Tanggal Awal</label>
+                            <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="">Tanggal Akhir</label>
+                            <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                        <div class="col-lg-12" style="text-align:right;">
+                            <button type="submit" class="btn btn-primary">Cari</button>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="d-flex flex-row align-items-center mb-3 mb-md-0">

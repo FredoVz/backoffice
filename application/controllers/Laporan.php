@@ -49,6 +49,8 @@ class Laporan extends CI_Controller {
 			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
 			$MoU = $this->input->post('MoU');  // Menangkap judul yang dikirimkan dari form
 			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
+			$tanggalawal = $this->input->post('tanggalawal');  // Menangkap tanggalawal yang dikirimkan dari form
+			$tanggalakhir = $this->input->post('tanggalakhir');  // Menangkap tanggalakhir yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
@@ -129,6 +131,8 @@ class Laporan extends CI_Controller {
 			$createdate = $this->input->post('createdate');  // Menangkap createdate yang dikirimkan dari form
 			$approve = $this->input->post('approve');  // Menangkap approve yang dikirimkan dari form
 			$aktif = $this->input->post('aktif');  // Menangkap aktif yang dikirimkan dari form
+			$tanggalawal = $this->input->post('tanggalawal');  // Menangkap tanggalawal yang dikirimkan dari form
+			$tanggalakhir = $this->input->post('tanggalakhir');  // Menangkap tanggalakhir yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
@@ -245,6 +249,8 @@ class Laporan extends CI_Controller {
 			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
 			$MoU = $this->input->post('MoU');  // Menangkap judul yang dikirimkan dari form
 			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
+			$tanggalawal = $this->input->post('tanggalawal');  // Menangkap tanggalawal yang dikirimkan dari form
+			$tanggalakhir = $this->input->post('tanggalakhir');  // Menangkap tanggalakhir yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',

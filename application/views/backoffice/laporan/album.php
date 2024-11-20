@@ -8,7 +8,7 @@
             <div class="card shadow-lg mb-5 mt-5">
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="col-lg-10" style="text-align:center;">
-                        <h5 class="mb-0">Laporan Account</h5>
+                        <h5 class="mb-0">Laporan Album</h5>
                     </div>
 
                     <div class="col-lg-2" style="text-align:right;">
@@ -20,22 +20,25 @@
                     </div>
 
                 </div>
-                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                        <label for="">Tanggal Awal</label>
-                        <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="">Tanggal Akhir</label>
-                        <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
-                    </div>
-                </div>
 
-                <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-12" style="text-align:right;">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                <form action="<?= base_url('laporan/album'); ?>" method="post">
+                    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                        <div class="col-lg-6">
+                            <label for="">Tanggal Awal</label>
+                            <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="">Tanggal Akhir</label>
+                            <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
+                        <div class="col-lg-12" style="text-align:right;">
+                            <button type="submit" class="btn btn-primary">Cari</button>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="d-flex flex-row align-items-center mb-3 mb-md-0">
