@@ -16,7 +16,7 @@ class Importdigital extends CI_Controller {
         $this->load->model('Model_home');
 
         // Check if user is logged in, otherwise redirect to login page
-        if (!$this->session->userdata('logged_in')) {
+        if (!$this->session->userdata('username_pusatmusik_backoffice')) {
             redirect('login'); // Redirect to login page if not logged in
         }
     }

@@ -165,17 +165,18 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <ul class="na navbar-nav navbar-right d-flex align-items-center">
-                            <?php if ($this->session->userdata('logged_in')) { ?>
+                            <!--?php if ($this->session->userdata('logged_in')) { ?>
                                 <li class="nav-item">
-                                <!--li-->
-                                    <div>Selamat Datang, <?php echo $this->session->userdata('username'); ?></div>
+                                    <div>Selamat Datang, < ?php echo $this->session->userdata('username'); ?></div>
                                 </li>
-                            <?php } else { ?>
+                            < ?php } else { ?>
                                 <li class="nav-item">
-                                <!--li-->
-                                    <?php echo anchor('login/index', 'Login', ['class' => 'nav-link']); ?>
+                                    < ?php echo anchor('login/index', 'Login', ['class' => 'nav-link']); ?>
                                 </li>
-                            <?php } ?>
+                            < ?php } ?-->
+                            <li class="nav-item">
+                                <div>Selamat Datang, <?php echo $this->session->userdata('username_pusatmusik_backoffice'); ?></div>
+                            </li>
                         </ul>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">

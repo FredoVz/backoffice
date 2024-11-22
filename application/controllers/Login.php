@@ -12,6 +12,10 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+        //if ($this->session->userdata('logged_in')) {
+            //redirect('dashboard');
+        //}
+        
 		// Jika form disubmit, lakukan validasi
         if ($this->input->post()) {
             $username = $this->input->post('username', true);
@@ -22,10 +26,12 @@ class Login extends CI_Controller {
                 $username1 = strtolower($username);
                 // Redirect ke halaman dashboard jika berhasil login
                 // Set session userdata
-                $this->session->set_userdata([
-                    'username' => $username1,
-                    'logged_in' => true // Menandakan user telah login
-                ]);
+                $data = [
+                    'username_pusatmusik_backoffice' => $username1,
+                    //'logged_in' => true // Menandakan user telah login
+                ];
+
+                $this->session->set_userdata($data);
                 redirect('importdigital');
             } else {
                 // Set flashdata untuk pesan error
@@ -45,7 +51,8 @@ class Login extends CI_Controller {
 
     public function logout()
 	{
-		$this->session->sess_destroy();
+		//$this->session->sess_destroy();
+        $this->session->unset_userdata('username_pusatmusik_backoffice');
 		redirect('login');
 	}
 }
