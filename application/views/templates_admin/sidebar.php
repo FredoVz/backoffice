@@ -44,7 +44,7 @@
     <div id="wrapper">
         <!-- Sidebar -->
          <!-- #b18cc2 -->
-        <ul class="navbar-nav bg-gradient-light sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-light sidebar sidebar-light accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('importdigital') ?>">
@@ -56,6 +56,20 @@
 
             <!-- Divider -->
             <!--hr class="sidebar-divider my-0" style="border-color: #D3D3D3;"--> <!-- #D3D3D3 -->
+
+            <li class="nav-item <?php echo ($this->uri->segment(1) == 'setting') ? 'active' : ''; ?>">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#settingDropdown" aria-expanded="true" aria-controls="settingDropdown">
+                    <i class="fas fa-fw fa-cog" style="color: black;"></i>
+                    <span style="color: black;">Setting</span>
+                </a>
+                <!-- Dropdown Menu -->
+                <div id="settingDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'setting') ? 'show' : ''; ?>" aria-labelledby="settingHeading" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'kurs') ? 'active' : ''; ?>" href="<?php echo base_url('setting/kurs'); ?>"><i class="bi bi-currency-dollar"></i> Kurs</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'active' : ''; ?>">
