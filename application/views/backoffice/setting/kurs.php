@@ -55,7 +55,7 @@
                                         <tr>
                                             <td scope="row" style="width:20%;" data-label="TanggalBerlaku"><?php echo $kurs['TanggalBerlaku']; ?></td>
                                             <td scope="row" style="width:20%;" data-label="MataUang"><?php echo $kurs['MataUang']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="KursBerapa"><?php echo $kurs['KursBerapa']; ?></td>
+                                            <td scope="row" style="width:20%;" data-label="KursBerapa"><?php echo number_format($kurs['KursBerapa'],0,',','.'); ?></td>
                                             <td scope="row" style="width:20%;" data-label="Audit"><?php echo $kurs['Audit']; ?></td>
                                             <td scope="row" style="width:20%;" data-label="CreateDate"><?php echo $kurs['CreateDate']; ?></td>
                                         </tr>
@@ -131,14 +131,17 @@
 
         var no = offset + 1; // Set nomor urut berdasarkan offset saat ini
 
-        paginatedData.forEach(row => { 
+        paginatedData.forEach(row => {
+            // Format angka pada row.KursBerapa
+            var kursBerapaFormatted = number_format(row.KursBerapa, 0, ',', '.');
+
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:20%;" data-label="Keterangan">${row.TanggalBerlaku}</td>
-                    <td scope="row" style="width:20%;" data-label="UPC">${row.MataUang}</td>
-                    <td scope="row" style="width:20%;" data-label="Jenis">${row.KursBerapa}</td>
-                    <td scope="row" style="width:20%;" data-label="CreateDate">${row.Audit}</td>
-                    <td scope="row" style="width:20%;" data-label="Approve">${row.CreateDate}</td>
+                    <td scope="row" style="width:20%;" data-label="TanggalBerlaku">${row.TanggalBerlaku}</td>
+                    <td scope="row" style="width:20%;" data-label="MataUang">${row.MataUang}</td>
+                    <td scope="row" style="width:20%;" data-label="KursBerapa">${kursBerapaFormatted}</td>
+                    <td scope="row" style="width:20%;" data-label="Audit">${row.Audit}</td>
+                    <td scope="row" style="width:20%;" data-label="CreateDate">${row.CreateDate}</td>
                 </tr>
             `);
         });

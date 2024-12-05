@@ -13,24 +13,30 @@ class Setting extends CI_Controller {
 		}
     }
 
-	public function kurs()
-	{
+	public function arrayKurs(){
 		$arrayKurs = [
 			[
 				"TanggalBerlaku" => "04/12/2024",
 				"MataUang" => "Rupiah",
 				"KursBerapa" => "15000",
-				"Audit" => "1",
+				"Audit" => "Vidi",
 				"CreateDate" => "04/12/2024",
 			],
 			[
 				"TanggalBerlaku" => "04/12/2024",
 				"MataUang" => "Dollar",
 				"KursBerapa" => "15000",
-				"Audit" => "2",
+				"Audit" => "Fredo",
 				"CreateDate" => "04/12/2024",
 			],
 		];
+
+		return $arrayKurs;
+	}
+
+	public function kurs()
+	{
+		$arrayKurs = $this->arrayKurs();
 
 		$data['arrayKurs'] = $arrayKurs;
 
@@ -43,34 +49,70 @@ class Setting extends CI_Controller {
 
 	public function tambahkurs()
 	{
+		$arrayKurs = $this->arrayKurs();
+
+		$data['arrayKurs'] = $arrayKurs;
+
 		// Load views with data and messages
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
-		$this->load->view('backoffice/setting/tambahkurs');
+		$this->load->view('backoffice/setting/tambahkurs', $data);
 		$this->load->view('templates_admin/footer');
 	}
 
 	public function submitkurs()
 	{
 		$tanggalberlaku = $this->input->post('tanggalberlaku');
-		$matauang = $this->input->post('matauang');
+		$matauangSelect = $this->input->post('matauangSelect');
+		$matauangInput = $this->input->post('matauangInput');
 		$kurs = $this->input->post('kursberapa');
 		$audit = $this->input->post('audit');
 		$createdate = $this->input->post('createdate');
 
-		$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
-            SELECT '".$tanggalberlaku."', '".$matauang."', $kurs, '".$audit."', '".$createdate."'
+		if(!empty($matauangSelect))
+		{
+			$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
+            SELECT '".$tanggalberlaku."', '".$matauangSelect."', $kurs, '".$audit."', '".$createdate."'
             ";
+
+			$this->session->set_flashdata('message', [
+				'icon' => 'success',
+				'title' => 'Berhasil!',
+				'text' => 'Data berhasil di confirm!',
+			]);
+			redirect('setting/kurs');
+		}
+
+		else if(!empty($matauangInput))
+		{
+			$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
+            SELECT '".$tanggalberlaku."', '".$matauangInput."', $kurs, '".$audit."', '".$createdate."'
+            ";
+
+			$this->session->set_flashdata('message', [
+				'icon' => 'success',
+				'title' => 'Berhasil!',
+				'text' => 'Data berhasil di confirm!',
+			]);
+			redirect('setting/kurs');
+		}
+
+		else
+		{
+			$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
+            SELECT '".$tanggalberlaku."', NULL, $kurs, '".$audit."', '".$createdate."'
+            ";
+
+			$this->session->set_flashdata('message', [
+				'icon' => 'error',
+				'title' => 'Error!',
+				'text' => 'Data gagal masuk dan pastikan semua data terisi!',
+			]);
+			redirect('setting/tambahkurs');
+		}
 
         //$this->opc->query($queryInsertMaster);
         echo $queryInsertMaster;
 		//die;
-
-		$this->session->set_flashdata('message', [
-			'icon' => 'success',
-			'title' => 'Berhasil!',
-			'text' => 'Data berhasil di confirm!',
-		]);
-		redirect('setting/kurs');
 	}
 }

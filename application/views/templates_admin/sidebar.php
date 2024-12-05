@@ -74,15 +74,16 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'active' : ''; ?>">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#aktivasiDropdown" aria-expanded="true" aria-controls="aktivasiDropdown">
-                    <i class="fas fa-fw fa-database" style="color: black;"></i>
-                    <span style="color: black;">Aktivasi</span>
+                    <!--i class="fas fa-fw fa-wrench" style="color: black;"></i-->
+                    <img src="<?= base_url('assets/img/check-list.png') ?>" style="width:15px; height:15px; color: black;">
+                    <span style="color: black; padding-left:5px;">Aktivasi</span>
                 </a>
                 <!-- Dropdown Menu -->
                 <div id="aktivasiDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'show' : ''; ?>" aria-labelledby="aktivasiHeading" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!--h6 class="collapse-header">Akun Aktivasi:</h6-->
                         <a class="collapse-item <?php echo ($this->uri->segment(2) == 'akun') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/akun'); ?>"><i class="bi bi-person-fill"></i> Account</a>
-                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/album'); ?>"><i class="bi bi-person-fill"></i> Album</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('aktivasi/album'); ?>"><i class="bi bi-file-music-fill"></i> Album</a>
                     </div>
                 </div>
             </li>
@@ -91,13 +92,13 @@
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'importdigital') ? 'active' : ''; ?>">
                 <a class="nav-link" href="<?php echo base_url('importdigital') ?>">
                 <!--i class="fas fa-fw fa-tachometer-alt"></i-->
-                <i class="fas fa-fw fa-database" style="color: black;"></i>
+                <i class="fas fa-fw fa-file-excel" style="color: black;"></i>
                 <span style="color: black;">Import Digital</span></a>
             </li>
 
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active' : ''; ?>">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#laporanDropdown" aria-expanded="true" aria-controls="laporanDropdown">
-                    <i class="fas fa-fw fa-database" style="color: black;"></i>
+                    <i class="fas fa-fw fa-file-pdf" style="color: black;"></i>
                     <span style="color: black;">Laporan</span>
                 </a>
                 <!-- Dropdown Menu -->

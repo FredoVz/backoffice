@@ -3,7 +3,7 @@
 	<div class="row">
         <div class="col-lg-8 mt-5">
 
-		<?= $this->session->flashdata('message'); ?>
+		<div class="flash-data" data-flashdata='<?= json_encode($this->session->flashdata('message')); ?>'></div>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><strong>Tambah Kurs</strong></h1>
@@ -17,11 +17,19 @@
             </div>
 
             <div class="form-group row">
-				<label for="email" class="col-sm-2 col-form-label">Mata Uang</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="matauang" name="matauang" value="" required>
-				</div>
-            </div>
+                <label for="matauang" class="col-sm-2 col-form-label">Mata Uang</label>
+                <div class="col-sm-5">
+                    <select name="matauangSelect" id="matauangSelect" class="form-control" onchange="toggleInput()">
+                        <option value="">Select Menu</option>
+                        <?php foreach ($arrayKurs as $kurs): ?>
+                        <option value="<?= $kurs['MataUang']; ?>"><?= $kurs['MataUang']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="matauangInput" name="matauangInput" value="" placeholder="Tambah Mata Uang Baru" oninput="toggleSelect()">
+                </div>
+			</div>
 
             <div class="form-group row">
 				<label for="email" class="col-sm-2 col-form-label">Kurs</label>
@@ -47,6 +55,7 @@
 			<div class="form-group row justify-content-end">
 				<div class="col-sm-10">
 					<button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="<?php echo base_url('setting/kurs') ?>" class="btn btn-danger">Back</a>
 				</div>
             </div>
 		</form>
@@ -56,10 +65,77 @@
 </div>
 <!-- /.container-fluid -->
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<!-- SWEET ALERT -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        //console.log("masuk");
+        var flashData = document.querySelector('.flash-data').dataset.flashdata;
+        var confirmButtonText = 'OK';
+
+        //console.log(flashData);
+        if(flashData) {
+            // Parsing data JSON
+            var data = JSON.parse(flashData);
+
+            //console.log(data.icon);
+
+            Swal.fire({
+                icon: data.icon,
+                title: data.title,
+                text: data.text,
+                confirmButtonText: confirmButtonText,
+            });
+        }
+    });
+</script>
+
+<!-- Fungsi Create Date Today -->
 <script>
     // Get today's date
     var today = new Date().toISOString().split('T')[0];
     
     // Set the value of the input field with id 'createdate' to today's date
     document.getElementById('createdate').value = today;
+</script>
+
+<!-- Fungsi Toggle Disabled Mata Uang Dropdown dan Inputan -->
+<script>
+    // Fungsi untuk menonaktifkan atau mengaktifkan input dan dropdown
+    function toggleInput() {
+        var select = document.getElementById('matauangSelect');
+        var input = document.getElementById('matauangInput');
+
+        // Jika dropdown memiliki nilai yang dipilih, disable input
+        if (select.value !== "") {
+            input.disabled = true;
+            input.value = ""; // Kosongkan input jika dropdown dipilih
+        } else {
+            input.disabled = false;
+        }
+    }
+
+    // Fungsi untuk menonaktifkan atau mengaktifkan dropdown dan input
+    function toggleSelect() {
+        var select = document.getElementById('matauangSelect');
+        var input = document.getElementById('matauangInput');
+
+        // Jika ada input yang diisi, disable dropdown
+        if (input.value !== "") {
+            select.disabled = true;
+            select.value = ""; // Kosongkan dropdown jika input diisi
+        } else {
+            select.disabled = false;
+        }
+    }
+
+    // Panggil fungsi untuk inisialisasi status awal (misalnya ketika halaman pertama kali dimuat)
+    document.addEventListener('DOMContentLoaded', function() {
+        toggleInput();
+        toggleSelect();
+    });
 </script>
