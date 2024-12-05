@@ -54,7 +54,7 @@ class Setting extends CI_Controller {
 	{
 		$tanggalberlaku = $this->input->post('tanggalberlaku');
 		$matauang = $this->input->post('matauang');
-		$kurs = $this->input->post('kurs');
+		$kurs = $this->input->post('kursberapa');
 		$audit = $this->input->post('audit');
 		$createdate = $this->input->post('createdate');
 
