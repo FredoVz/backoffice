@@ -42,22 +42,22 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:20%;" data-column="TanggalBerlaku">Tanggal Berlaku <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="MataUang">Mata Uang <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="KursBerapa">Kurs <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Audit">Audit <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="CreateDate">CreateDate <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="TanggalBerlaku">Tanggal Berlaku <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="MataUang">Mata Uang <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="KursBerapa">Kurs <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:25%;" data-column="Audit">Audit <i class="bi bi-caret-down-fill"></i></th>
+                                    <!--th scope="col" style="width:20%;" data-column="CreateDate">CreateDate <i class="bi bi-caret-down-fill"></i></th-->
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayKurs)): ?>
                                     <?php foreach ($arrayKurs as $kurs): ?>
                                         <tr>
-                                            <td scope="row" style="width:20%;" data-label="TanggalBerlaku"><?php echo $kurs['TanggalBerlaku']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="MataUang"><?php echo $kurs['MataUang']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="KursBerapa"><?php echo number_format($kurs['KursBerapa'],0,',','.'); ?></td>
-                                            <td scope="row" style="width:20%;" data-label="Audit"><?php echo $kurs['Audit']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="CreateDate"><?php echo $kurs['CreateDate']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="TanggalBerlaku"><?php echo $kurs['TanggalBerlaku']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="MataUang"><?php echo $kurs['MataUang']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="KursBerapa"><?php echo number_format($kurs['KursBerapa'],0,',','.'); ?></td>
+                                            <td scope="row" style="width:25%;" data-label="Audit"><?php echo $kurs['Audit']; ?></td>
+                                            <!--td scope="row" style="width:20%;" data-label="CreateDate">< ?php echo $kurs['CreateDate']; ?></td-->
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -135,13 +135,13 @@
             // Format angka pada row.KursBerapa
             var kursBerapaFormatted = number_format(row.KursBerapa, 0, ',', '.');
 
+            //<td scope="row" style="width:20%;" data-label="CreateDate">${row.CreateDate}</td>
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:20%;" data-label="TanggalBerlaku">${row.TanggalBerlaku}</td>
-                    <td scope="row" style="width:20%;" data-label="MataUang">${row.MataUang}</td>
-                    <td scope="row" style="width:20%;" data-label="KursBerapa">${kursBerapaFormatted}</td>
-                    <td scope="row" style="width:20%;" data-label="Audit">${row.Audit}</td>
-                    <td scope="row" style="width:20%;" data-label="CreateDate">${row.CreateDate}</td>
+                    <td scope="row" style="width:25%;" data-label="TanggalBerlaku">${row.TanggalBerlaku}</td>
+                    <td scope="row" style="width:25%;" data-label="MataUang">${row.MataUang}</td>
+                    <td scope="row" style="width:25%;" data-label="KursBerapa">${kursBerapaFormatted}</td>
+                    <td scope="row" style="width:25%;" data-label="Audit">${row.Audit}</td>
                 </tr>
             `);
         });

@@ -16,18 +16,18 @@ class Setting extends CI_Controller {
 	public function arrayKurs(){
 		$arrayKurs = [
 			[
-				"TanggalBerlaku" => "04/12/2024",
+				"TanggalBerlaku" => "2024-12-04 00:00:00.000",
 				"MataUang" => "Rupiah",
 				"KursBerapa" => "15000",
 				"Audit" => "Vidi",
-				"CreateDate" => "04/12/2024",
+				"CreateDate" => "2024-12-04 00:00:00.000",
 			],
 			[
-				"TanggalBerlaku" => "04/12/2024",
+				"TanggalBerlaku" => "2024-12-04 00:00:00.000",
 				"MataUang" => "Dollar",
 				"KursBerapa" => "15000",
 				"Audit" => "Fredo",
-				"CreateDate" => "04/12/2024",
+				"CreateDate" => "2024-12-04 00:00:00.000",
 			],
 		];
 
