@@ -54,7 +54,7 @@
 
 			<div class="form-group row justify-content-end">
 				<div class="col-sm-10">
-					<button type="submit" class="btn btn-primary">Submit</button-->
+					<button type="submit" class="btn btn-primary">Submit</button>
                     <!--button type="submit" class="btn btn-primary" disabled>Submit</button-->
                     <a href="<?php echo base_url('setting/kurs') ?>" class="btn btn-danger">Back</a>
 				</div>
