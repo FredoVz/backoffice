@@ -59,8 +59,8 @@ class Setting extends CI_Controller {
 		$createdate = $this->input->post('createdate');
 
 		$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
-            SELECT '".$tanggalberlaku."', '".$matauang."', '".$kurs."', '".$audit."', '".$createdate."'
-            FROM #MasterKurs";
+            SELECT '".$tanggalberlaku."', '".$matauang."', $kurs, '".$audit."', '".$createdate."'
+            ";
 
         //$this->opc->query($queryInsertMaster);
         echo $queryInsertMaster;
