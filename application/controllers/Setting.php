@@ -19,14 +19,14 @@ class Setting extends CI_Controller {
 				"TanggalBerlaku" => "2024-12-04 00:00:00.000",
 				"MataUang" => "Rupiah",
 				"KursBerapa" => "15000",
-				"Audit" => "Vidi",
+				"Audit" => "admin",
 				"CreateDate" => "2024-12-04 00:00:00.000",
 			],
 			[
 				"TanggalBerlaku" => "2024-12-04 00:00:00.000",
 				"MataUang" => "Dollar",
 				"KursBerapa" => "15000",
-				"Audit" => "Fredo",
+				"Audit" => "admin",
 				"CreateDate" => "2024-12-04 00:00:00.000",
 			],
 		];
@@ -66,7 +66,8 @@ class Setting extends CI_Controller {
 		$matauangSelect = $this->input->post('matauangSelect');
 		$matauangInput = $this->input->post('matauangInput');
 		$kurs = $this->input->post('kursberapa');
-		$audit = $this->input->post('audit');
+		//$audit = $this->input->post('audit');
+		$audit = $this->session->userdata('username_pusatmusik_backoffice');
 		$createdate = $this->input->post('createdate');
 
 		if(!empty($matauangSelect))
@@ -75,11 +76,16 @@ class Setting extends CI_Controller {
             SELECT '".$tanggalberlaku."', '".$matauangSelect."', $kurs, '".$audit."', '".$createdate."'
             ";
 
+			//$this->opc->query($queryInsertMaster);
+			echo $queryInsertMaster;
+			//die;
+
 			$this->session->set_flashdata('message', [
 				'icon' => 'success',
 				'title' => 'Berhasil!',
 				'text' => 'Data berhasil di confirm!',
 			]);
+
 			redirect('setting/kurs');
 		}
 
@@ -88,6 +94,10 @@ class Setting extends CI_Controller {
 			$queryInsertMaster = "insert INTO MasterKurs(TanggalBerlaku, MataUang, Kurs, Audit, CreateDate)
             SELECT '".$tanggalberlaku."', '".$matauangInput."', $kurs, '".$audit."', '".$createdate."'
             ";
+
+			//$this->opc->query($queryInsertMaster);
+			echo $queryInsertMaster;
+			//die;
 
 			$this->session->set_flashdata('message', [
 				'icon' => 'success',
@@ -103,6 +113,10 @@ class Setting extends CI_Controller {
             SELECT '".$tanggalberlaku."', NULL, $kurs, '".$audit."', '".$createdate."'
             ";
 
+			//$this->opc->query($queryInsertMaster);
+			echo $queryInsertMaster;
+			//die;
+
 			$this->session->set_flashdata('message', [
 				'icon' => 'error',
 				'title' => 'Error!',
@@ -110,9 +124,5 @@ class Setting extends CI_Controller {
 			]);
 			redirect('setting/tambahkurs');
 		}
-
-        //$this->opc->query($queryInsertMaster);
-        echo $queryInsertMaster;
-		//die;
 	}
 }

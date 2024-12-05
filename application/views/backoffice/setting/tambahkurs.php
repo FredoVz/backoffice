@@ -38,23 +38,24 @@
 				</div>
             </div>
 
-            <div class="form-group row">
+            <!--div class="form-group row">
 				<label for="email" class="col-sm-2 col-form-label">Audit</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="audit" name="audit" value="" required>
 				</div>
-            </div>
+            </div-->
 
             <div class="form-group row">
-				<label for="email" class="col-sm-2 col-form-label">Create Date</label>
+				<!--label for="email" class="col-sm-2 col-form-label">Create Date</label-->
 				<div class="col-sm-10">
-					<input type="date" class="form-control" id="createdate" name="createdate" value="" readonly>
+					<input type="hidden" class="form-control" id="createdate" name="createdate" value="" readonly>
 				</div>
             </div>
 
 			<div class="form-group row justify-content-end">
 				<div class="col-sm-10">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary">Submit</button-->
+                    <!--button type="submit" class="btn btn-primary" disabled>Submit</button-->
                     <a href="<?php echo base_url('setting/kurs') ?>" class="btn btn-danger">Back</a>
 				</div>
             </div>
