@@ -53,11 +53,11 @@
                                 <?php if (!empty($arrayKurs)): ?>
                                     <?php foreach ($arrayKurs as $kurs): ?>
                                         <tr>
-                                            <td scope="row" style="width:25%;" data-label="TanggalBerlaku"><?php echo $kurs['TanggalBerlaku']; ?></td>
+                                            <td scope="row" style="width:25%;" data-label="TanggalBerlaku"><?php echo date('Y-m-d H:i:s', strtotime($kurs['TanggalBerlaku'])); ?></td>
                                             <td scope="row" style="width:25%;" data-label="MataUang"><?php echo $kurs['MataUang']; ?></td>
                                             <td scope="row" style="width:25%;" data-label="KursBerapa"><?php echo number_format($kurs['KursBerapa'],0,',','.'); ?></td>
                                             <td scope="row" style="width:25%;" data-label="Audit"><?php echo $kurs['Audit']; ?></td>
-                                            <!--td scope="row" style="width:20%;" data-label="CreateDate">< ?php echo $kurs['CreateDate']; ?></td-->
+                                            <!--td scope="row" style="width:20%;" data-label="CreateDate">< ?php echo date('Y-m-d H:i:s', strtotime($kurs['CreateDate'])); ?></td-->
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
