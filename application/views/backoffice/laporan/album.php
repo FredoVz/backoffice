@@ -23,13 +23,22 @@
 
                 <form action="<?= base_url('laporan/album'); ?>" method="post">
                     <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <label for="">Tanggal Awal</label>
                             <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <label for="">Tanggal Akhir</label>
                             <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="">AccountName</label>
+                            <select name="ytchannelnameSelect" id="ytchannelnameSelect" class="form-control">
+                                <option value="">ALL</option>
+                                <?php foreach ($arrayAlbum as $album): ?>
+                                <option value="<?= $album['KodeUser']; ?>"><?= $album['YoutubeChannelName']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
 
@@ -66,22 +75,24 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:20%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="UPC">UPC <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Jenis">Jenis <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="YoutubeChannelName">AccountName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="UPC">UPC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="Jenis">Jenis <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:16%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayAlbum)): ?>
                                     <?php foreach ($arrayAlbum as $album): ?>
                                         <tr>
-                                            <td scope="row" style="width:20%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($album['Tanggal'])); ?></td>
-                                            <td scope="row" style="width:20%;" data-label="UPC"><?php echo $album['UPC']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="Keterangan"><?php echo $album['Keterangan']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="Jenis"><?php echo $album['Jenis']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="Aktif">
+                                            <td scope="row" style="width:16%;" data-label="YoutubeChannelName"><?php echo $album['YoutubeChannelName']; ?></td>
+                                            <td scope="row" style="width:16%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($album['Tanggal'])); ?></td>
+                                            <td scope="row" style="width:16%;" data-label="UPC"><?php echo $album['UPC']; ?></td>
+                                            <td scope="row" style="width:16%;" data-label="Keterangan"><?php echo $album['Keterangan']; ?></td>
+                                            <td scope="row" style="width:16%;" data-label="Jenis"><?php echo $album['Jenis']; ?></td>
+                                            <td scope="row" style="width:16%;" data-label="Aktif">
                                                 <?php if ($album['Aktif'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
                                                     <button class="btn btn-danger" disabled>Non - Aktif</button>
@@ -199,11 +210,12 @@
 
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:20%;" data-label="Tanggal">${formattedDate}</td>
-                    <td scope="row" style="width:20%;" data-label="UPC">${row.UPC}</td>
-                    <td scope="row" style="width:20%;" data-label="Keterangan">${row.Keterangan}</td>
-                    <td scope="row" style="width:20%;" data-label="Jenis">${row.Jenis}</td>
-                    <td scope="row" style="width:20%;" data-label="Status">${statusColumn}</td>
+                    <td scope="row" style="width:16%;" data-label="UPC">${row.YoutubeChannelName}</td>
+                    <td scope="row" style="width:16%;" data-label="Tanggal">${formattedDate}</td>
+                    <td scope="row" style="width:16%;" data-label="UPC">${row.UPC}</td>
+                    <td scope="row" style="width:16%;" data-label="Keterangan">${row.Keterangan}</td>
+                    <td scope="row" style="width:16%;" data-label="Jenis">${row.Jenis}</td>
+                    <td scope="row" style="width:16%;" data-label="Status">${statusColumn}</td>
                 </tr>
             `);
         });

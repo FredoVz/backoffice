@@ -150,8 +150,11 @@ class Laporan extends CI_Controller {
 
 	public function album()
 	{
+		$branch = "0000J/01";
 		$arrayAlbum = [
 			[
+				"KodeUser" => $branch . "000040",
+				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Jehovah (Chapter I)",
 				"UPC" => "3617666782835",
@@ -161,6 +164,8 @@ class Laporan extends CI_Controller {
 				"Aktif" => "1",
 			],
 			[
+				"KodeUser" => $branch . "00003N",
+				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Blackpink Cover",
 				"UPC" => "3617666174104",
@@ -170,6 +175,8 @@ class Laporan extends CI_Controller {
 				"Aktif" => "1",
 			],
 			[
+				"KodeUser" => $branch . "00003Z",
+				"YoutubeChannelName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Bahagia Itu Indah Sapa Bahagia Yang Bernama Indah",
 				"UPC" => "112233",
@@ -179,6 +186,8 @@ class Laporan extends CI_Controller {
 				"Aktif" => "0",
 			],
 			[
+				"KodeUser" => $branch . "000057",
+				"YoutubeChannelName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "3617054696560",
 				"UPC" => "3617054696560",
@@ -200,6 +209,7 @@ class Laporan extends CI_Controller {
 			$aktif = $this->input->post('aktif');  // Menangkap aktif yang dikirimkan dari form
 			$tanggalawal = $this->input->post('tanggalawal');  // Menangkap tanggalawal yang dikirimkan dari form
 			$tanggalakhir = $this->input->post('tanggalakhir');  // Menangkap tanggalakhir yang dikirimkan dari form
+			$ytchannelnameSelect = $this->input->post('ytchannelnameSelect'); // Menangkap ytchannelnameSelect yang dikirimkan dari form
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
@@ -260,7 +270,7 @@ class Laporan extends CI_Controller {
 			header("Cache-Control: max-age=0");
 
 			// Output the header row
-			echo "No\tTanggal\tUPC\tKeterangan\tJenis\tStatus\n";
+			echo "No\tAccountName\tTanggal\tUPC\tKeterangan\tJenis\tStatus\n";
 
 			// Output data rows
 			$no = 1;
@@ -268,12 +278,10 @@ class Laporan extends CI_Controller {
 				// Convert status 0 to 'Non - Aktif' and 1 to 'Aktif'
 				$status = ($download['Aktif'] == 0) ? 'Non-Aktif' : 'Aktif';
 				$tanggal = date('d-m-Y', strtotime($download['Tanggal']));
-				//$upc = "'" . $download['UPC'];
-				//$keterangan = "'" . $download['Keterangan'];
 
-				// Check if Keterangan is numeric and greater than 11
+				// Check if UPC is numeric and greater than 11
 				$upc = $download['UPC'];
-				if (is_numeric($download['UPC']) && strlen($upc) > 11) {
+				if (is_numeric($upc) && strlen($upc) > 11) {
 					// If numeric and > 11, prefix with a quote
 					$upc = "'" . $upc; // Add quotes if it's numeric and length is greater than 11
 				} else {
@@ -291,7 +299,7 @@ class Laporan extends CI_Controller {
 					$keterangan = $keterangan;
 				}
 
-				echo "$no\t$tanggal\t$upc\t$keterangan\t{$download['Jenis']}\t$status\n";
+				echo "$no\t{$download['YoutubeChannelName']}\t$tanggal\t$upc\t$keterangan\t{$download['Jenis']}\t$status\n";
 				$no++;
 			}
 
