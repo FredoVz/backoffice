@@ -198,7 +198,10 @@ class Laporan extends CI_Controller {
 			// Output data rows
 			$no = 1;
 			foreach ($arrayUser as $download) {
-				echo "$no\t{$download['YoutubeChannelId']}\t{$download['YoutubeChannelNama']}\t{$download['MoU']}\t{$download['Status']}\n";
+				// Convert status 0 to 'Waiting' and 1 to 'Approve'
+				$status = ($download['Status'] == 0) ? 'Waiting' : 'Approve';
+
+				echo "$no\t{$download['YoutubeChannelId']}\t{$download['YoutubeChannelNama']}\t{$download['MoU']}\t$status\n";
 				$no++;
 			}
 
