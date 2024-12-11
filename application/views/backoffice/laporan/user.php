@@ -65,20 +65,27 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelId">ChannelID <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelNama">ChannelNama <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="MoU">MoU <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;">Action </th>
+                                    <th scope="col" style="width:12%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="YoutubeChannelId">ChannelID <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="YoutubeChannelNama">ChannelName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="MonetizationStatus">MonetizationStatus <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="RegisteredAs">RegisteredAs <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="MoU">MoU <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:12%;">Action </th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayUser)): ?>
                                     <?php foreach ($arrayUser as $user): ?>
                                         <tr>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelId"><?php echo $user['YoutubeChannelId']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelNama"><?php echo $user['YoutubeChannelNama']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="MoU">
+                                            <!--td scope="row" style="width:12%;" data-label="Tanggal">< ?php echo date('Y-m-d H:i:s', strtotime($user['Tanggal'])); ?></td-->
+                                            <td scope="row" style="width:12%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($user['Tanggal'])); ?></td>
+                                            <td scope="row" style="width:12%;" data-label="YoutubeChannelId"><?php echo $user['YoutubeChannelId']; ?></td>
+                                            <td scope="row" style="width:12%;" data-label="YoutubeChannelNama"><?php echo $user['YoutubeChannelNama']; ?></td>
+                                            <td scope="row" style="width:12%;" data-label="MonetizationStatus"><?php echo $user['MonetizationStatus']; ?></td>
+                                            <td scope="row" style="width:12%;" data-label="RegisteredAs"><?php echo $user['RegisteredAs']; ?></td>
+                                            <td scope="row" style="width:12%;" data-label="MoU">
                                                 <?php if ($user['MoU'] == "Congratulations! Your account is approving"): ?>
                                                     <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
                                                 <?php elseif ($user['MoU'] == "Congratulations! Your registration is successful..."): ?>
@@ -86,7 +93,7 @@
                                                     <p>-</p>
                                                 <?php endif; ?>
                                             </td>
-                                            <td scope="row" style="width:20%;" data-label="Status">
+                                            <td scope="row" style="width:12%;" data-label="Status">
                                                 <?php if ($user['Status'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
                                                     <p style="color:blue;">Waiting</p>
@@ -98,11 +105,14 @@
                                                     <p style="color:red;">Rejected</p>
                                                 <?php endif; ?>
                                             </td>
-                                            <td scope="row" style="width:20%;">
+                                            <td scope="row" style="width:12%;">
                                                 <?php if ($user['Status'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
-                                                    <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
+                                                    <form action="<?= base_url('laporan/akun'); ?>" method="post">
+                                                        <input type="hidden" name="Tanggal" value="${row.Tanggal}">
                                                         <input type="hidden" name="YoutubeChannelNama" value="<?php echo $user['YoutubeChannelNama']; ?>">
+                                                        <input type="hidden" name="MonetizationStatus" value="${row.MonetizationStatus}">
+                                                        <input type="hidden" name="RegisteredAs" value="${row.RegisteredAs}">
                                                         <input type="hidden" name="MoU" value="<?php echo $user['MoU']; ?>">
                                                         <input type="hidden" name="YoutubeChannelId" value="<?php echo $user['YoutubeChannelId']; ?>">
                                                         <input type="hidden" name="Status" value="<?php echo $user['Status']; ?>">
@@ -238,8 +248,11 @@
             if (row.Status == 0) {
                 actionColumn = `
                     <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
+                        <input type="hidden" name="Tanggal" value="${row.Tanggal}">
                         <input type="hidden" name="YoutubeChannelId" value="${row.YoutubeChannelId}">
                         <input type="hidden" name="YoutubeChannelNama" value="${row.YoutubeChannelNama}">
+                        <input type="hidden" name="MonetizationStatus" value="${row.MonetizationStatus}">
+                        <input type="hidden" name="RegisteredAs" value="${row.RegisteredAs}">
                         <input type="hidden" name="MoU" value="${row.MoU}">
                         <input type="hidden" name="Status" value="${row.Status}">
                         <button class="btn btn-primary">Konfirmasi</button>
@@ -265,13 +278,35 @@
                 `;
             }
 
+            // Format tanggal pada row.Tanggal (contoh: '2024-12-11 13:45:00')
+            var tanggal = new Date(row.Tanggal);
+            var formattedDateFull = tanggal.getFullYear() + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + tanggal.getDate()).slice(-2) + ' ' +
+                ('0' + tanggal.getHours()).slice(-2) + ':' +
+                ('0' + tanggal.getMinutes()).slice(-2) + ':' +
+                ('0' + tanggal.getSeconds()).slice(-2);
+
+            /*
+            var formattedDate = tanggal.getFullYear() + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + tanggal.getDate()).slice(-2);
+            */
+
+            var formattedDate = ('0' + tanggal.getDate()).slice(-2) + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                tanggal.getFullYear();
+
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:20%;" data-label="YoutubeChannelId">${row.YoutubeChannelId}</td>
-                    <td scope="row" style="width:20%;" data-label="YoutubeChannelNama">${row.YoutubeChannelNama}</td>
-                    <td scope="row" style="width:20%;" data-label="MoU">${mouColumn}</td>
-                    <td scope="row" style="width:20%;" data-label="Status">${statusColumn}</td>
-                    <td scope="row" style="width:20%;">
+                    <td scope="row" style="width:12%;" data-label="Tanggal">${formattedDate}</td>
+                    <td scope="row" style="width:12%;" data-label="YoutubeChannelId">${row.YoutubeChannelId}</td>
+                    <td scope="row" style="width:12%;" data-label="YoutubeChannelNama">${row.YoutubeChannelNama}</td>
+                    <td scope="row" style="width:12%;" data-label="MonetizationStatus">${row.MonetizationStatus}</td>
+                    <td scope="row" style="width:12%;" data-label="RegisteredAs">${row.RegisteredAs}</td>
+                    <td scope="row" style="width:12%;" data-label="MoU">${mouColumn}</td>
+                    <td scope="row" style="width:12%;" data-label="Status">${statusColumn}</td>
+                    <td scope="row" style="width:12%;">
                         ${actionColumn}
                     </td>
                 </tr>

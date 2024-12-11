@@ -36,8 +36,13 @@
     }
 
     @media (max-width: 768px) {
-    .table-responsive {
-        overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+        .table-responsive {
+            overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+        }
+
+        .table {
+            width: 1500px;
+        }
     }
 
     /* SEARCH */
@@ -54,7 +59,6 @@
             width: 100%; /* Full width on small screens */
         }
     }
-}
 </style>
 
 <style>

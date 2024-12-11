@@ -12,9 +12,9 @@
                     </div>
 
                     <div class="col-lg-2" style="text-align:right;">
-                        <form action="<?= base_url('laporan/exportakun') ?>" method="post">
-                            <input type="hidden" name="arrayUser" id="arrayUser"
-                            value='<?= json_encode($arrayUser); ?>'>
+                        <form action="<?= base_url('laporan/exporttrack') ?>" method="post">
+                            <input type="hidden" name="arrayTrack" id="arrayTrack"
+                            value='<?= json_encode($arrayTrack); ?>'>
                             <button type="submit" class="btn btn-success">Export</button>
                         </form>
                     </div>
@@ -73,46 +73,46 @@
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
-                                <?php if (!empty($arrayUser)): ?>
-                                    <?php foreach ($arrayUser as $user): ?>
+                                <?php if (!empty($arrayTrack)): ?>
+                                    <?php foreach ($arrayTrack as $track): ?>
                                         <tr>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelId"><?php echo $user['YoutubeChannelId']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelNama"><?php echo $user['YoutubeChannelNama']; ?></td>
+                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelId"><?php echo $track['YoutubeChannelId']; ?></td>
+                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelNama"><?php echo $track['YoutubeChannelNama']; ?></td>
                                             <td scope="row" style="width:20%;" data-label="MoU">
-                                                <?php if ($user['MoU'] == "Congratulations! Your account is approving"): ?>
+                                                <?php if ($track['MoU'] == "Congratulations! Your account is approving"): ?>
                                                     <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
-                                                <?php elseif ($user['MoU'] == "Congratulations! Your registration is successful..."): ?>
+                                                <?php elseif ($track['MoU'] == "Congratulations! Your registration is successful..."): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
                                                     <p>-</p>
                                                 <?php endif; ?>
                                             </td>
                                             <td scope="row" style="width:20%;" data-label="Status">
-                                                <?php if ($user['Status'] == 0): ?>
+                                                <?php if ($track['Status'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
                                                     <p style="color:blue;">Waiting</p>
-                                                <?php elseif ($user['Status'] == 1): ?>
+                                                <?php elseif ($track['Status'] == 1): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
                                                     <p style="color:green;">Approve</p>
-                                                <?php elseif ($user['Status'] == 2): ?>
+                                                <?php elseif ($track['Status'] == 2): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
                                                     <p style="color:red;">Rejected</p>
                                                 <?php endif; ?>
                                             </td>
                                             <td scope="row" style="width:20%;">
-                                                <?php if ($user['Status'] == 0): ?>
+                                                <?php if ($track['Status'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
-                                                    <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                                                        <input type="hidden" name="YoutubeChannelNama" value="<?php echo $user['YoutubeChannelNama']; ?>">
-                                                        <input type="hidden" name="MoU" value="<?php echo $user['MoU']; ?>">
-                                                        <input type="hidden" name="YoutubeChannelId" value="<?php echo $user['YoutubeChannelId']; ?>">
-                                                        <input type="hidden" name="Status" value="<?php echo $user['Status']; ?>">
+                                                    <form action="<?= base_url('laporan/track'); ?>" method="post">
+                                                        <input type="hidden" name="YoutubeChannelNama" value="<?php echo $track['YoutubeChannelNama']; ?>">
+                                                        <input type="hidden" name="MoU" value="<?php echo $track['MoU']; ?>">
+                                                        <input type="hidden" name="YoutubeChannelId" value="<?php echo $track['YoutubeChannelId']; ?>">
+                                                        <input type="hidden" name="Status" value="<?php echo $track['Status']; ?>">
                                                         <button class="btn btn-primary">Konfirmasi</button>
                                                     </form>
                                                     <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" data-userid="PM00000014">Reject</button>
-                                                <?php elseif ($user['Status'] == 1): ?>
+                                                <?php elseif ($track['Status'] == 1): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
                                                     <button class="btn btn-success" disabled>Terkonfirmasi</button>
-                                                <?php elseif ($user['Status'] == 2): ?>
+                                                <?php elseif ($track['Status'] == 2): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
                                                     <button class="btn btn-danger" disabled>Gagal</button>
                                                 <?php endif; ?>
@@ -197,7 +197,7 @@
 
 <!-- JavaScript -->
 <script>
-    var data = <?php echo json_encode($arrayUser); ?>;
+    var data = <?php echo json_encode($arrayTrack); ?>;
     var itemsPerPage = 10;
     var currentPage = 1;
     //var filteredData = initialized(data);
@@ -456,7 +456,7 @@
 
     $('#cancelSearch').on('click', function() {
         $('#searchInput').val('');
-        data = <?php echo json_encode($arrayUser); ?>;
+        data = <?php echo json_encode($arrayTrack); ?>;
         filteredData = data;
         $(this).hide();  // Sembunyikan tombol cancel
         totalItems = filteredData.length;
