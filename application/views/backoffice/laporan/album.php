@@ -35,8 +35,8 @@
                             <label for="">AccountName</label>
                             <select name="ytchannelnameSelect" id="ytchannelnameSelect" class="form-control">
                                 <option value="">ALL</option>
-                                <?php foreach ($arrayAlbum as $album): ?>
-                                <option value="<?= $album['KodeUser']; ?>"><?= $album['YoutubeChannelName']; ?></option>
+                                <?php foreach ($arrayUser as $user): ?>
+                                <option value="<?= $user['KodeUser']; ?>"><?= $user['YoutubeChannelNama']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

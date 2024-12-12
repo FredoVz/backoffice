@@ -22,13 +22,22 @@
 
                 <form action="<?= base_url('laporan/track'); ?>" method="post">
                     <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <label for="">Tanggal Awal</label>
                             <input type="date" class="form-control" name="tanggalawal" id="tanggalawal" value="">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <label for="">Tanggal Akhir</label>
                             <input type="date" class="form-control" name="tanggalakhir" id="tanggalakhir" value="">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="">AccountName</label>
+                            <select name="ytchannelnameSelect" id="ytchannelnameSelect" class="form-control">
+                                <option value="">ALL</option>
+                                <?php foreach ($arrayUser as $user): ?>
+                                <option value="<?= $user['KodeUser']; ?>"><?= $user['YoutubeChannelNama']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
 
@@ -65,58 +74,26 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelId">ChannelID <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="YoutubeChannelNama">ChannelNama <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="MoU">MoU <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:20%;">Action </th>
+                                    <th scope="col" style="width:14%;" data-column="AccountName">AccountName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="ISRC">ISRC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Author">Author <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Composer">Composer <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Genre">Genre <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayTrack)): ?>
                                     <?php foreach ($arrayTrack as $track): ?>
                                         <tr>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelId"><?php echo $track['YoutubeChannelId']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="YoutubeChannelNama"><?php echo $track['YoutubeChannelNama']; ?></td>
-                                            <td scope="row" style="width:20%;" data-label="MoU">
-                                                <?php if ($track['MoU'] == "Congratulations! Your account is approving"): ?>
-                                                    <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
-                                                <?php elseif ($track['MoU'] == "Congratulations! Your registration is successful..."): ?>
-                                                    <!-- Button for confirmation when Status is 1 -->
-                                                    <p>-</p>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td scope="row" style="width:20%;" data-label="Status">
-                                                <?php if ($track['Status'] == 0): ?>
-                                                    <!-- Form for confirmation when Status is 0 -->
-                                                    <p style="color:blue;">Waiting</p>
-                                                <?php elseif ($track['Status'] == 1): ?>
-                                                    <!-- Button for confirmation when Status is 1 -->
-                                                    <p style="color:green;">Approve</p>
-                                                <?php elseif ($track['Status'] == 2): ?>
-                                                    <!-- Button for confirmation when Status is 1 -->
-                                                    <p style="color:red;">Rejected</p>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td scope="row" style="width:20%;">
-                                                <?php if ($track['Status'] == 0): ?>
-                                                    <!-- Form for confirmation when Status is 0 -->
-                                                    <form action="<?= base_url('laporan/track'); ?>" method="post">
-                                                        <input type="hidden" name="YoutubeChannelNama" value="<?php echo $track['YoutubeChannelNama']; ?>">
-                                                        <input type="hidden" name="MoU" value="<?php echo $track['MoU']; ?>">
-                                                        <input type="hidden" name="YoutubeChannelId" value="<?php echo $track['YoutubeChannelId']; ?>">
-                                                        <input type="hidden" name="Status" value="<?php echo $track['Status']; ?>">
-                                                        <button class="btn btn-primary">Konfirmasi</button>
-                                                    </form>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" data-userid="PM00000014">Reject</button>
-                                                <?php elseif ($track['Status'] == 1): ?>
-                                                    <!-- Button for confirmation when Status is 1 -->
-                                                    <button class="btn btn-success" disabled>Terkonfirmasi</button>
-                                                <?php elseif ($track['Status'] == 2): ?>
-                                                    <!-- Button for confirmation when Status is 1 -->
-                                                    <button class="btn btn-danger" disabled>Gagal</button>
-                                                <?php endif; ?>
-                                            </td>
+                                            <td scope="row" style="width:14%;" data-label="AccountName"><?php echo $track['AccountName']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($track['Tanggal'])); ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Keterangan"><?php echo $track['Keterangan']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Author"><?php echo $track['Author']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Composer"><?php echo $track['Composer']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Genre"><?php echo $track['Genre']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -217,63 +194,35 @@
         var no = offset + 1; // Set nomor urut berdasarkan offset saat ini
 
         paginatedData.forEach(row => {
-            var actionColumn = ''; // This will hold the form or the button
-            var statusColumn = '';
-            var mouColumn = '';
 
-            // Check the status and set action column accordingly
-            if (row.MoU == "Congratulations! Your registration is successful...") {
-                //
-                mouColumn = `
-                    <p>-</p>
-                `;
-            } else if (row.MoU == "Congratulations! Your account is approving") {
-                //
-                mouColumn = `
-                    <a href="https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf" download="" target="_blank"><button class="btn btn-primary" type="button">Download</button></a>
-                `;
-            }
+            // Format tanggal pada row.Tanggal (contoh: '2024-12-11 13:45:00')
+            var tanggal = new Date(row.Tanggal);
+            var formattedDateFull = tanggal.getFullYear() + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + tanggal.getDate()).slice(-2) + ' ' +
+                ('0' + tanggal.getHours()).slice(-2) + ':' +
+                ('0' + tanggal.getMinutes()).slice(-2) + ':' +
+                ('0' + tanggal.getSeconds()).slice(-2);
+            
+            /*
+            var formattedDate = tanggal.getFullYear() + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                ('0' + tanggal.getDate()).slice(-2);
+            */
 
-            // Check the status and set action column accordingly
-            if (row.Status == 0) {
-                actionColumn = `
-                    <form action="<?= base_url('aktivasi/akun'); ?>" method="post">
-                        <input type="hidden" name="YoutubeChannelId" value="${row.YoutubeChannelId}">
-                        <input type="hidden" name="YoutubeChannelNama" value="${row.YoutubeChannelNama}">
-                        <input type="hidden" name="MoU" value="${row.MoU}">
-                        <input type="hidden" name="Status" value="${row.Status}">
-                        <button class="btn btn-primary">Konfirmasi</button>
-                    </form>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#rejectModal" data-userid="PM00000014">Reject</button>
-                `;
-                statusColumn = `
-                    <p style="color:blue;">Waiting</p>
-                `;
-            } else if (row.Status == 1) {
-                actionColumn = `
-                    <button class="btn btn-success" disabled>Terkonfirmasi</button>
-                `;
-                statusColumn= `
-                    <p style="color:green;">Approve</p>
-                `;
-            } else if (row.Status == 2) {
-                actionColumn = `
-                    <button class="btn btn-danger" disabled>Gagal</button>
-                `;
-                statusColumn= `
-                    <p style="color:red;">Rejected</p>
-                `;
-            }
+            var formattedDate = ('0' + tanggal.getDate()).slice(-2) + '-' +
+                ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
+                tanggal.getFullYear();
 
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:20%;" data-label="YoutubeChannelId">${row.YoutubeChannelId}</td>
-                    <td scope="row" style="width:20%;" data-label="YoutubeChannelNama">${row.YoutubeChannelNama}</td>
-                    <td scope="row" style="width:20%;" data-label="MoU">${mouColumn}</td>
-                    <td scope="row" style="width:20%;" data-label="Status">${statusColumn}</td>
-                    <td scope="row" style="width:20%;">
-                        ${actionColumn}
-                    </td>
+                    <td scope="row" style="width:14%;" data-label="AccountName">${row.AccountName}</td>
+                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDate}</td>
+                    <td scope="row" style="width:14%;" data-label="Keterangan">${row.Keterangan}</td>
+                    <td scope="row" style="width:14%;" data-label="ISRC">${row.ISRC}</td>
+                    <td scope="row" style="width:14%;" data-label="Author">${row.Author}</td>
+                    <td scope="row" style="width:14%;" data-label="Composer">${row.Composer}</td>
+                    <td scope="row" style="width:14%;" data-label="Genre">${row.Genre}</td>
                 </tr>
             `);
         });

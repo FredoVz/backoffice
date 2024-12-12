@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Laporan extends CI_Controller {
 
-    public function __construct() {
+    public function __construct() 
+    {
         parent::__construct();
         $this->load->library('session');
 
@@ -13,10 +14,13 @@ class Laporan extends CI_Controller {
 		}
     }
 
-	public function user()
-	{
-        $arrayUser = [
+    public function arrayUser()
+    {
+    	$branch = "0000J/01/";
+
+    	$arrayUser = [
 			[
+				"KodeUser" => $branch . "000040",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"YoutubeChannelId" => "uishbdUAdai-asSfda",
 				"YoutubeChannelNama" => "Vidi Aldiano",
@@ -26,6 +30,7 @@ class Laporan extends CI_Controller {
 				"Status" => "1",
 			],
 			[
+				"KodeUser" => $branch . "00003N",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
 				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
@@ -35,6 +40,7 @@ class Laporan extends CI_Controller {
 				"Status" => "1",
 			],
 			[
+				"KodeUser" => $branch . "00003Z",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"YoutubeChannelId" => "uishbdUAdai-asSfda",
 				"YoutubeChannelNama" => "Vidi Aldiano",
@@ -44,6 +50,7 @@ class Laporan extends CI_Controller {
 				"Status" => "0",
 			],
 			[
+				"KodeUser" => $branch . "000057",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
 				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
@@ -53,6 +60,13 @@ class Laporan extends CI_Controller {
 				"Status" => "0",
 			],
 		];
+
+		return $arrayUser;
+    }
+
+	public function user()
+	{
+        $arrayUser = $this->arrayUser();
 
 		$data['arrayUser'] = $arrayUser;
 
@@ -83,7 +97,8 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-    public function rejectakun(){
+    public function rejectakun()
+    {
 		if ($this->input->post()) {
 			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
 			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
@@ -107,7 +122,8 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function exportakun(){
+	public function exportakun()
+	{
 		if ($this->input->post()) {
 			// Get data from the database
 			$arrayUser = json_decode($this->input->post('arrayUser'), true); // Decode JSON to array
@@ -150,10 +166,30 @@ class Laporan extends CI_Controller {
 
 	public function album()
 	{
-		$branch = "0000J/01";
+		$arrayUser = $this->arrayUser();
+
 		$arrayAlbum = [
 			[
-				"KodeUser" => $branch . "000040",
+				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-12-09 17:31:35.807",
+				"Keterangan" => "Kejadianku Ajaib",
+				"UPC" => "3617666782835",
+				"Jenis" => "Single",
+				"CreateDate" => "04/11/2024",
+				"Approve" => "1",
+				"Aktif" => "1",
+			],
+			[
+				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-12-04 17:31:35.807",
+				"Keterangan" => "Terima Kasih",
+				"UPC" => "3617666174104",
+				"Jenis" => "Single",
+				"CreateDate" => "04/11/2024",
+				"Approve" => "1",
+				"Aktif" => "1",
+			],
+			[
 				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Jehovah (Chapter I)",
@@ -164,7 +200,6 @@ class Laporan extends CI_Controller {
 				"Aktif" => "1",
 			],
 			[
-				"KodeUser" => $branch . "00003N",
 				"YoutubeChannelName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Blackpink Cover",
@@ -175,7 +210,6 @@ class Laporan extends CI_Controller {
 				"Aktif" => "1",
 			],
 			[
-				"KodeUser" => $branch . "00003Z",
 				"YoutubeChannelName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "Bahagia Itu Indah Sapa Bahagia Yang Bernama Indah",
@@ -186,7 +220,6 @@ class Laporan extends CI_Controller {
 				"Aktif" => "0",
 			],
 			[
-				"KodeUser" => $branch . "000057",
 				"YoutubeChannelName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
 				"Keterangan" => "3617054696560",
@@ -198,6 +231,7 @@ class Laporan extends CI_Controller {
 			],
 		];
 
+		$data['arrayUser'] = $arrayUser;
 		$data['arrayAlbum'] = $arrayAlbum;
 
 		if ($this->input->post()) {
@@ -228,7 +262,8 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function aktifalbum(){
+	public function aktifalbum()
+	{
 		if ($this->input->post()) {
 			$keterangan = $this->input->post('keterangan'); // Menangkap keterangan yang dikirimkan dari form
 			$upc = $this->input->post('upc');  // Menangkap upc yang dikirimkan dari form
@@ -254,7 +289,8 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function exportalbum(){
+	public function exportalbum()
+	{
 		if ($this->input->post()) {
 			// Get data from the database
 			$arrayAlbum = json_decode($this->input->post('arrayAlbum'), true); // Decode JSON to array
@@ -277,7 +313,7 @@ class Laporan extends CI_Controller {
 			foreach ($arrayAlbum as $download) {
 				// Convert status 0 to 'Non - Aktif' and 1 to 'Aktif'
 				$status = ($download['Aktif'] == 0) ? 'Non-Aktif' : 'Aktif';
-				$tanggal = date('d-m-Y', strtotime($download['Tanggal']));
+				$tanggal = date('Y-m-d H:i:s.z', strtotime($download['Tanggal']));
 
 				// Check if UPC is numeric and greater than 11
 				$upc = $download['UPC'];
@@ -315,41 +351,78 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function track(){
+	public function track()
+	{
+		$arrayUser = $this->arrayUser();
+
 		$arrayTrack = [
 			[
-				"YoutubeChannelId" => "uishbdUAdai-asSfda",
-				"YoutubeChannelNama" => "Vidi Aldiano",
-				"MoU" => "Congratulations! Your account is approving",
-				"Status" => "1",
+				"AccountName" => "Vidi Aldiano",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "Jehovah",
+				"ISRC" => "DG-A0L-23-27601",
+				"Author" => "Alberd Tanoni",
+				"Composer" => "Alberd Tanoni",
+				"Genre" => "KRISTEN",
 			],
 			[
-				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
-				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
-				"MoU" => "Congratulations! Your account is approving",
-				"Status" => "1",
+				"AccountName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "Jehovah 2",
+				"ISRC" => "ID-A66-23-01731",
+				"Author" => "Alberd Tanoni",
+				"Composer" => "Alberd Tanoni",
+				"Genre" => "KRISTEN",
 			],
 			[
-				"YoutubeChannelId" => "uishbdUAdai-asSfda",
-				"YoutubeChannelNama" => "Vidi Aldiano",
-				"MoU" => "Congratulations! Your registration is successful...",
-				"Status" => "0",
+				"AccountName" => "Vidi Aldiano",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "RancanganMu Takkan Gagal",
+				"ISRC" => "ID-A66-22-01490",
+				"Author" => "Alberd Tanoni, Agata Verencia Lie, Ryan Nitisastro",
+				"Composer" => "Alberd Tanoni, Agata Verencia Lie, Ryan Nitisastro",
+				"Genre" => "KRISTEN",
 			],
 			[
-				"YoutubeChannelId" => "UCQ7dUY53AOGGTYl_Myiurlw",
-				"YoutubeChannelNama" => "Wilfredo Alexander Sutanto",
-				"MoU" => "Congratulations! Your registration is successful...",
-				"Status" => "0",
+				"AccountName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "Hari Terbaik",
+				"ISRC" => "ID-A66-22-01599",
+				"Author" => "Iswara Giovani, Andry Chandra, Michael Santoso, Samantha Pangkey",
+				"Composer" => "Iswara Giovani, Andry Chandra, Michael Santoso, Samantha Pangkey",
+				"Genre" => "KRISTEN",
+			],
+			[
+				"AccountName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "Berjalan BersamaMu",
+				"ISRC" => "ID-A66-22-01385",
+				"Author" => "",
+				"Composer" => "",
+				"Genre" => "KRISTEN",
+
+			],
+			[
+				"AccountName" => "Wilfredo Alexander Sutanto",
+				"Tanggal" => "2024-08-28 17:31:35.807",
+				"Keterangan" => "Tuhan Yesus Melawat UmatNya",
+				"ISRC" => "ID-A66-23-01654",
+				"Author" => "Alberd Tanoni",
+				"Composer" => "Alberd Tanoni",
+				"Genre" => "KRISTEN",
 			],
 		];
 
+		$data['arrayUser'] = $arrayUser;
 		$data['arrayTrack'] = $arrayTrack;
 
 		if ($this->input->post()) {
-			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
-			$YoutubeChannelNama = $this->input->post('YoutubeChannelNama'); // Menangkap yt nama yang dikirimkan dari form
-			$MoU = $this->input->post('MoU');  // Menangkap judul yang dikirimkan dari form
-			$Status = $this->input->post('Status');  // Menangkap status yang dikirimkan dari form
+			$accountName = $this->input->post('AccountName'); // Menangkap account nama yang dikirimkan dari form
+			$tanggal = $this->input->post('Tanggal');  // Menangkap tanggal yang dikirimkan dari form
+			$keterangan = $this->input->post('Keterangan');  // Menangkap keterangan yang dikirimkan dari form
+			$isrc = $this->input->post('ISRC');  // Menangkap isrc yang dikirimkan dari form
+			$author = $this->input->post('Author');  // Menangkap author yang dikirimkan dari form
+			$composer = $this->input->post('Composer');  // Menangkap composer yang dikirimkan dari form
 			$tanggalawal = $this->input->post('tanggalawal');  // Menangkap tanggalawal yang dikirimkan dari form
 			$tanggalakhir = $this->input->post('tanggalakhir');  // Menangkap tanggalakhir yang dikirimkan dari form
 
@@ -370,7 +443,8 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function exporttrack(){
+	public function exporttrack()
+	{
 		if ($this->input->post()) {
 			// Get data from the database
 			$arrayTrack = json_decode($this->input->post('arrayTrack'), true); // Decode JSON to array
@@ -386,16 +460,20 @@ class Laporan extends CI_Controller {
 			header("Cache-Control: max-age=0");
 
 			// Output the header row
-			echo "No\tYoutubeChannelId\tYoutubeChannelName\tMoU\tStatus\n";
+			echo "No\tAccountName\tTanggal\tKeterangan\tISRC\tAuthor\tComposer\tGenre\n";
 
 			// Output data rows
 			$no = 1;
 			foreach ($arrayTrack as $download) {
-				// Convert status 0 to 'Waiting' and 1 to 'Approve'
-				$status = ($download['Status'] == 0) ? 'Waiting' : 'Approve';
-				$mou = ($download['MoU'] == "Congratulations! Your registration is successful...") ? '-' : 'https://omegasoft.co.id/images/omegamusic/0000J_2024041902417109_MoU.pdf';
+				$accountName = $download['AccountName'];
+				$tanggal = date('Y-m-d H:i:s.z', strtotime($download['Tanggal']));
+				$keterangan = $download['Keterangan'];
+				$isrc = $download['ISRC'];
+				$author = $download['Author'];
+				$composer = $download['Composer'];
+				$genre = $download['Genre'];
 
-				echo "$no\t{$download['YoutubeChannelId']}\t{$download['YoutubeChannelNama']}\t$mou\t$status\n";
+				echo "$no\t$accountName\t$tanggal\t$keterangan\t$isrc\t$author\t$composer\t$genre\n";
 				$no++;
 			}
 
