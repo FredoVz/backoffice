@@ -312,7 +312,7 @@ class Laporan extends CI_Controller {
 			$no = 1;
 			foreach ($arrayAlbum as $download) {
 				// Convert status 0 to 'Non - Aktif' and 1 to 'Aktif'
-				$status = ($download['Aktif'] == 0) ? 'Non-Aktif' : 'Aktif';
+				$status = ($download['Aktif'] == 0) ? 'NO' : 'YES';
 				$tanggal = date('Y-m-d H:i:s.z', strtotime($download['Tanggal']));
 
 				// Check if UPC is numeric and greater than 11

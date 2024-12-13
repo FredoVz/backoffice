@@ -95,10 +95,10 @@
                                             <td scope="row" style="width:16%;" data-label="Aktif">
                                                 <?php if ($album['Aktif'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
-                                                    <button class="btn btn-danger" disabled>Non - Aktif</button>
+                                                    <button class="btn btn-danger" disabled>NO</button>
                                                 <?php elseif ($album['Aktif'] == 1): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-                                                    <button class="btn btn-success" disabled>Aktif</button>
+                                                    <button class="btn btn-success" disabled>YES</button>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
@@ -181,11 +181,11 @@
             // Check the status and set action column accordingly
             if (row.Aktif == 0) {
                 statusColumn = `
-                    <button class="btn btn-danger" disabled>Non - Aktif</button>
+                    <button class="btn btn-danger" disabled>NO</button>
                 `;
             } else if (row.Aktif == 1) {
                 statusColumn= `
-                    <button class="btn btn-success" disabled>Aktif</button>
+                    <button class="btn btn-success" disabled>YES</button>
                 `;
             }
 
