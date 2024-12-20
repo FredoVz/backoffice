@@ -359,57 +359,146 @@ class Laporan extends CI_Controller {
 			[
 				"AccountName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "Jehovah",
+				"Title" => "Jehovah",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "DG-A0L-23-27601",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "Alberd Tanoni",
 				"Composer" => "Alberd Tanoni",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
 				"AccountName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "Jehovah 2",
+				"Title" => "Jehovah 2",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "ID-A66-23-01731",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "Alberd Tanoni",
 				"Composer" => "Alberd Tanoni",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
 				"AccountName" => "Vidi Aldiano",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "RancanganMu Takkan Gagal",
+				"Title" => "RancanganMu Takkan Gagal",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "ID-A66-22-01490",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "Alberd Tanoni, Agata Verencia Lie, Ryan Nitisastro",
 				"Composer" => "Alberd Tanoni, Agata Verencia Lie, Ryan Nitisastro",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
 				"AccountName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "Hari Terbaik",
+				"Title" => "Hari Terbaik",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "ID-A66-22-01599",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "Iswara Giovani, Andry Chandra, Michael Santoso, Samantha Pangkey",
 				"Composer" => "Iswara Giovani, Andry Chandra, Michael Santoso, Samantha Pangkey",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
 				"AccountName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "Berjalan BersamaMu",
+				"Title" => "Berjalan BersamaMu",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "ID-A66-22-01385",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "",
 				"Composer" => "",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
-
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
 				"AccountName" => "Wilfredo Alexander Sutanto",
 				"Tanggal" => "2024-08-28 17:31:35.807",
-				"Keterangan" => "Tuhan Yesus Melawat UmatNya",
+				"Title" => "Tuhan Yesus Melawat UmatNya",
+				"Song" => "https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7",
 				"ISRC" => "ID-A66-23-01654",
+				"TanggalProduksi" => "2024-08-28 17:31:35.807",
+				"TanggalRilis" => "2024-08-28 17:31:35.807",
 				"Author" => "Alberd Tanoni",
 				"Composer" => "Alberd Tanoni",
+				"PLine" => "JCC Worship",
+				"CLine" => "JCC Worship",
+				"IsCover" => "0",
 				"Genre" => "KRISTEN",
+				"ArtistName" => "JCC Kids",
+				"CategoryArtist" => "Primary Artist",
+				"SpotifyId" => "",
+				"iTunesId" => "",
+				"IsExplicit" => "0",
+				"Language" => "Indonesia",
+				"PreviewStart" => "0",
+				"Lyrics" => "Aku berharga di mata...",
+				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 		];
 
@@ -460,20 +549,35 @@ class Laporan extends CI_Controller {
 			header("Cache-Control: max-age=0");
 
 			// Output the header row
-			echo "No\tAccountName\tTanggal\tKeterangan\tISRC\tAuthor\tComposer\tGenre\n";
+			echo "No\tAccountName\tTanggal\tTitle\tSong\tISRC\tTanggalProduksi\tTanggalRilis\tAuthor\tComposer\tPLine\tCLine\tIsCover\tGenre\tArtistName\tCategoryArtist\tSpotifyId\tiTunesId\tIsExplicit\tLanguage\tPreviewStart\tLyrics\tCover Document\n";
 
 			// Output data rows
 			$no = 1;
 			foreach ($arrayTrack as $download) {
 				$accountName = $download['AccountName'];
 				$tanggal = date('Y-m-d H:i:s.z', strtotime($download['Tanggal']));
-				$keterangan = $download['Keterangan'];
+				$title = $download['Title'];
+				$song = $download['Song'];
 				$isrc = $download['ISRC'];
+				$tanggalProduksi = date('Y-m-d', strtotime($download['TanggalProduksi']));
+				$tanggalRilis = date('Y-m-d', strtotime($download['TanggalRilis']));
 				$author = $download['Author'];
 				$composer = $download['Composer'];
+				$pLine = $download['PLine'];
+				$cLine = $download['CLine'];
+				$isCover = $download['IsCover'];
 				$genre = $download['Genre'];
+				$artistName = $download['ArtistName'];
+				$categoryArtist = $download['CategoryArtist'];
+				$spotifyId = $download['SpotifyId'];
+				$iTunesId = $download['iTunesId'];
+				$isExplicit = $download['IsExplicit'];
+				$language = $download['Language'];
+				$previewStart = $download['PreviewStart'];
+				$lyrics = $download['Lyrics'];
+				$coverDocument = $download['CoverDocument'];
 
-				echo "$no\t$accountName\t$tanggal\t$keterangan\t$isrc\t$author\t$composer\t$genre\n";
+				echo "$no\t$accountName\t$tanggal\t$title\t$song\t$isrc\t$tanggalProduksi\t$tanggalRilis\t$author\t$composer\t$pLine\t$cLine\t$isCover\t$genre\t$artistName\t$categoryArtist\t$spotifyId\t$iTunesId\t$isExplicit\t$language\t$previewStart\t$lyrics\t$coverDocument\n";
 				$no++;
 			}
 

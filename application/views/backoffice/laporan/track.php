@@ -76,11 +76,26 @@
                                 <tr>
                                     <th scope="col" style="width:14%;" data-column="AccountName">AccountName <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:14%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Title">Title <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Song">Song <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:14%;" data-column="ISRC">ISRC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="TanggalProduksi">TanggalProduksi <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="TanggalRilis">TanggalRilis <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:14%;" data-column="Author">Author <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:14%;" data-column="Composer">Composer <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="PLine">PLine <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="CLine">CLine <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="IsCover">IsCover <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:14%;" data-column="Genre">Genre <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="ArtistName">ArtistName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="CategoryArtist">CategoryArtist <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="SpotifyId">SpotifyId <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="iTunesId">iTunesId <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="IsExplicit">IsExplicit <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Language">Language <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="PreviewStart">PreviewStart <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Lyrics">Lyrics <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="CoverDocument">Cover Document <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
@@ -89,11 +104,26 @@
                                         <tr>
                                             <td scope="row" style="width:14%;" data-label="AccountName"><?php echo $track['AccountName']; ?></td>
                                             <td scope="row" style="width:14%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($track['Tanggal'])); ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Keterangan"><?php echo $track['Keterangan']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Title"><?php echo $track['Title']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Song"><?php echo $track['Song']; ?></td>
                                             <td scope="row" style="width:14%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="TanggalProduksi"><?php echo date('d-m-Y', strtotime($track['TanggalProduksi'])); ?></td>
+                                            <td scope="row" style="width:14%;" data-label="TanggalRilis"><?php echo date('d-m-Y', strtotime($track['TanggalRilis'])); ?></td>
                                             <td scope="row" style="width:14%;" data-label="Author"><?php echo $track['Author']; ?></td>
                                             <td scope="row" style="width:14%;" data-label="Composer"><?php echo $track['Composer']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="PLine"><?php echo $track['PLine']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="CLine"><?php echo $track['CLine']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="IsCover"><?php echo $track['IsCover']; ?></td>
                                             <td scope="row" style="width:14%;" data-label="Genre"><?php echo $track['Genre']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="ArtistName"><?php echo $track['ArtistName']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="CategoryArtist"><?php echo $track['CategoryArtist']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="SpotifyId"><?php echo $track['SpotifyId']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="iTunesId"><?php echo $track['iTunesId']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="IsExplicit"><?php echo $track['IsExplicit']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Language"><?php echo $track['Language']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="PreviewStart"><?php echo $track['PreviewStart']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Lyrics"><?php echo $track['Lyrics']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="CoverDocument"><?php echo $track['CoverDocument']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -197,6 +227,9 @@
 
             // Format tanggal pada row.Tanggal (contoh: '2024-12-11 13:45:00')
             var tanggal = new Date(row.Tanggal);
+            var tanggalProduksi = new Date(row.TanggalProduksi);
+            var tanggalRilis = new Date(row.TanggalRilis);
+
             var formattedDateFull = tanggal.getFullYear() + '-' +
                 ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
                 ('0' + tanggal.getDate()).slice(-2) + ' ' +
@@ -214,15 +247,38 @@
                 ('0' + (tanggal.getMonth() + 1)).slice(-2) + '-' +
                 tanggal.getFullYear();
 
+            var formattedDateTP = ('0' + tanggalProduksi.getDate()).slice(-2) + '-' +
+                ('0' + (tanggalProduksi.getMonth() + 1)).slice(-2) + '-' +
+                tanggalProduksi.getFullYear();
+
+            var formattedDateTR = ('0' + tanggalRilis.getDate()).slice(-2) + '-' +
+                ('0' + (tanggalRilis.getMonth() + 1)).slice(-2) + '-' +
+                tanggalRilis.getFullYear();
+
             $dataBody.append(`
                 <tr>
                     <td scope="row" style="width:14%;" data-label="AccountName">${row.AccountName}</td>
                     <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDate}</td>
-                    <td scope="row" style="width:14%;" data-label="Keterangan">${row.Keterangan}</td>
+                    <td scope="row" style="width:14%;" data-label="Title">${row.Title}</td>
+                    <td scope="row" style="width:14%;" data-label="Song">${row.Song}</td>
                     <td scope="row" style="width:14%;" data-label="ISRC">${row.ISRC}</td>
+                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDateTP}</td>
+                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDateTR}</td>
                     <td scope="row" style="width:14%;" data-label="Author">${row.Author}</td>
                     <td scope="row" style="width:14%;" data-label="Composer">${row.Composer}</td>
+                    <td scope="row" style="width:14%;" data-label="PLine">${row.PLine}</td>
+                    <td scope="row" style="width:14%;" data-label="CLine">${row.CLine}</td>
+                    <td scope="row" style="width:14%;" data-label="IsCover">${row.IsCover}</td>
                     <td scope="row" style="width:14%;" data-label="Genre">${row.Genre}</td>
+                    <td scope="row" style="width:14%;" data-label="ArtistName">${row.ArtistName}</td>
+                    <td scope="row" style="width:14%;" data-label="CategoryArtist">${row.CategoryArtist}</td>
+                    <td scope="row" style="width:14%;" data-label="SpotifyId">${row.SpotifyId}</td>
+                    <td scope="row" style="width:14%;" data-label="iTunesId">${row.iTunesId}</td>
+                    <td scope="row" style="width:14%;" data-label="IsExplicit">${row.IsExplicit}</td>
+                    <td scope="row" style="width:14%;" data-label="Language">${row.Language}</td>
+                    <td scope="row" style="width:14%;" data-label="PreviewStart">${row.PreviewStart}</td>
+                    <td scope="row" style="width:14%;" data-label="Lyrics">${row.Lyrics}</td>
+                    <td scope="row" style="width:14%;" data-label="CoverDocument">${row.CoverDocument}</td>
                 </tr>
             `);
         });
