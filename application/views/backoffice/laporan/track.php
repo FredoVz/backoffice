@@ -141,7 +141,7 @@
                                             </td>
                                             <td scope="row" style="width:4.5%;" data-label="Language"><?php echo $track['Language']; ?></td>
                                             <td scope="row" style="width:4.5%;" data-label="PreviewStart"><?php echo $track['PreviewStart']; ?></td>
-                                            <td scope="row" style="width:4.5%;" data-label="Lyrics"><?php echo $track['Lyrics']; ?></td>
+                                            <td scope="row" style="width:4.5%; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" data-label="Lyrics"><?php echo $track['Lyrics']; ?></td>
 											<td scope="row" style="width:4.5%;" data-label="CoverDocument">
                                                 <?php if ($track['CoverDocument'] == ""): ?>
 													<p>-</p>
@@ -353,7 +353,7 @@
                     <td scope="row" style="width:4.5%;" data-label="IsExplicit">${isExplicitColumn}</td>
                     <td scope="row" style="width:4.5%;" data-label="Language">${row.Language}</td>
                     <td scope="row" style="width:4.5%;" data-label="PreviewStart">${row.PreviewStart}</td>
-                    <td scope="row" style="width:4.5%;" data-label="Lyrics">${row.Lyrics}</td>
+                    <td scope="row" style="width:4.5%; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" data-label="Lyrics">${row.Lyrics}</td>
                     <td scope="row" style="width:4.5%;" data-label="CoverDocument">${coverDocumentColumn}</td>
                 </tr>
             `);

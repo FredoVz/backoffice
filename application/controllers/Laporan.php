@@ -389,7 +389,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
@@ -413,7 +413,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
@@ -437,7 +437,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
@@ -461,7 +461,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
@@ -485,7 +485,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 			[
@@ -509,7 +509,7 @@ class Laporan extends CI_Controller {
 				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
-				"Lyrics" => "Aku berharga di mata...",
+				"Lyrics" => "Aku berharga di mataMu Tuhan Aku mulia di dalamMu Tuhan Ku melompat Ku bersukaKu melompat bersamaMu Tuhan Lompat ke kanan kiri Lompat <petik> tuk lebih tinggi o bersinar sepertidu du du du du du du bintang-bintang di langit o terangi dunia du du du du du du du jadi generasi bintangKu pasti bisa</petik>",
 				"CoverDocument" => "https://pusatmusik.com/application/uploads/docs/",
 			],
 		];
