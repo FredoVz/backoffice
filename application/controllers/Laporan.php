@@ -66,9 +66,14 @@ class Laporan extends CI_Controller {
 
 	public function user()
 	{
+		$title = "PusatMusik - Backoffice - Laporan User";
+
         $arrayUser = $this->arrayUser();
 
-		$data['arrayUser'] = $arrayUser;
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		];
 
 		if ($this->input->post()) {
 			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
@@ -90,14 +95,14 @@ class Laporan extends CI_Controller {
 
 		else {
 			// Load views with data and messages
-		    $this->load->view('templates_admin/header');
-		    $this->load->view('templates_admin/sidebar');
+		    $this->load->view('templates_admin/header', $data);
+		    $this->load->view('templates_admin/sidebar', $data);
 			$this->load->view('backoffice/laporan/user', $data);
 			$this->load->view('templates_admin/footer');
 		}
 	}
 
-    public function rejectakun()
+    public function rejectuser()
     {
 		if ($this->input->post()) {
 			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
@@ -122,7 +127,7 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	public function exportakun()
+	public function exportuser()
 	{
 		if ($this->input->post()) {
 			// Get data from the database
@@ -166,6 +171,8 @@ class Laporan extends CI_Controller {
 
 	public function album()
 	{
+		$title = "PusatMusik - Backoffice - Laporan Album";
+
 		$arrayUser = $this->arrayUser();
 
 		$arrayAlbum = [
@@ -231,8 +238,11 @@ class Laporan extends CI_Controller {
 			],
 		];
 
-		$data['arrayUser'] = $arrayUser;
-		$data['arrayAlbum'] = $arrayAlbum;
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+			'arrayAlbum'=> $arrayAlbum,
+		];
 
 		if ($this->input->post()) {
 			$keterangan = $this->input->post('keterangan'); // Menangkap keterangan yang dikirimkan dari form
@@ -255,8 +265,8 @@ class Laporan extends CI_Controller {
 
 		else {
 			// Load views with data and messages
-		    $this->load->view('templates_admin/header');
-		    $this->load->view('templates_admin/sidebar');
+		    $this->load->view('templates_admin/header', $data);
+		    $this->load->view('templates_admin/sidebar', $data);
 			$this->load->view('backoffice/laporan/album', $data);
 			$this->load->view('templates_admin/footer');
 		}
@@ -353,6 +363,8 @@ class Laporan extends CI_Controller {
 
 	public function track()
 	{
+		$title = "PusatMusik - Backoffice - Laporan Track";
+
 		$arrayUser = $this->arrayUser();
 
 		$arrayTrack = [
@@ -368,13 +380,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "Alberd Tanoni",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -392,13 +404,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "Alberd Tanoni",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -416,13 +428,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "Alberd Tanoni, Agata Verencia Lie, Ryan Nitisastro",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -440,13 +452,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "Iswara Giovani, Andry Chandra, Michael Santoso, Samantha Pangkey",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -464,13 +476,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -488,13 +500,13 @@ class Laporan extends CI_Controller {
 				"Composer" => "Alberd Tanoni",
 				"PLine" => "JCC Worship",
 				"CLine" => "JCC Worship",
-				"IsCover" => "0",
+				"IsCover" => 0,
 				"Genre" => "KRISTEN",
 				"ArtistName" => "JCC Kids",
 				"CategoryArtist" => "Primary Artist",
 				"SpotifyId" => "",
 				"iTunesId" => "",
-				"IsExplicit" => "0",
+				"IsExplicit" => 0,
 				"Language" => "Indonesia",
 				"PreviewStart" => "0",
 				"Lyrics" => "Aku berharga di mata...",
@@ -502,8 +514,11 @@ class Laporan extends CI_Controller {
 			],
 		];
 
-		$data['arrayUser'] = $arrayUser;
-		$data['arrayTrack'] = $arrayTrack;
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		 	'arrayTrack' => $arrayTrack,
+		];
 
 		if ($this->input->post()) {
 			$accountName = $this->input->post('AccountName'); // Menangkap account nama yang dikirimkan dari form
@@ -525,8 +540,8 @@ class Laporan extends CI_Controller {
 
 		else {
 			// Load views with data and messages
-		    $this->load->view('templates_admin/header');
-		    $this->load->view('templates_admin/sidebar');
+		    $this->load->view('templates_admin/header', $data);
+		    $this->load->view('templates_admin/sidebar', $data);
 			$this->load->view('backoffice/laporan/track', $data);	
 			$this->load->view('templates_admin/footer');
 		}
@@ -565,13 +580,13 @@ class Laporan extends CI_Controller {
 				$composer = $download['Composer'];
 				$pLine = $download['PLine'];
 				$cLine = $download['CLine'];
-				$isCover = $download['IsCover'];
+				$isCover = ($download['IsCover'] == 0) ? 'NO' : 'YES';
 				$genre = $download['Genre'];
 				$artistName = $download['ArtistName'];
 				$categoryArtist = $download['CategoryArtist'];
 				$spotifyId = $download['SpotifyId'];
 				$iTunesId = $download['iTunesId'];
-				$isExplicit = $download['IsExplicit'];
+				$isExplicit = ($download['IsExplicit'] == 0) ? 'NO' : 'YES';
 				$language = $download['Language'];
 				$previewStart = $download['PreviewStart'];
 				$lyrics = $download['Lyrics'];

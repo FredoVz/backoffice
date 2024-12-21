@@ -188,6 +188,17 @@
     function renderTable(data) {
         var $dataBody = $('#data-body');
         $dataBody.empty();
+
+		// Cek jika data kosong
+		if (data.length === 0) {
+        	$dataBody.append(`
+                <tr>
+                    <td colspan="5" class="text-center">No data found.</td>
+                </tr>
+            `);
+            return; // Keluar dari fungsi jika data kosong
+        }
+
         var offset = (currentPage - 1) * itemsPerPage;
         var paginatedData = data.slice(offset, offset + itemsPerPage);
 
@@ -413,11 +424,13 @@
         })
     );
 
+	/*
     if (query.length > 2 && filteredData.length === 0) {
         $('#no-results').show();
     } else {
         $('#no-results').hide();
     }
+	*/
 
     totalItems = filteredData.length;
     totalPages = Math.ceil(totalItems / itemsPerPage);

@@ -22,6 +22,8 @@ class Importdigital extends CI_Controller {
     }
 
     public function index() {
+		$title = "PusatMusik - Backoffice - Import Digital";
+
         $channels = [
             ['day' => '2024-10-26 00:00:00.000', 'channelId' => 'UCQ7dUY53AOGGTYl_Myiurlw', 'channelName' => 'Fredo', 'videoId' => '7tTPWdu0FKM', 'videoTitle' => 'Doa Pagi Hari - Seri Beri Ruang Buat Tuhan'],
             ['day' => '2024-10-23 00:00:00.000', 'channelId' => 'UCrLp5XWCXQHJnmK8P36KTsQ', 'channelName' => 'Impact Music Indonesia', 'videoId' => '4yjsRArySSU',  'videoTitle' => 'Doa Pagi Hari - Seri Beri Ruang Buat Tuhan'],
@@ -29,7 +31,10 @@ class Importdigital extends CI_Controller {
         ];
 
         //$data = ['channels' => $channels, 'error' => '', 'success' => ''];
-        $data = ['channels' => $channels];
+        $data = [
+			'title' => $title,
+			'channels' => $channels,
+		];
 
         //echo json_encode($data);
 
@@ -61,8 +66,8 @@ class Importdigital extends CI_Controller {
         //}
 
         // Load views with data and messages
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
+        $this->load->view('templates_admin/header', $data);
+        $this->load->view('templates_admin/sidebar', $data);
         $this->load->view('backoffice/importdigital', $data);
         $this->load->view('templates_admin/footer');
     }

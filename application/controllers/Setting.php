@@ -36,26 +36,36 @@ class Setting extends CI_Controller {
 
 	public function kurs()
 	{
+		$title = "PusatMusik - Backoffice - Setting Kurs";
+
 		$arrayKurs = $this->arrayKurs();
 
-		$data['arrayKurs'] = $arrayKurs;
+		$data = [
+			'title' => $title,
+			'arrayKurs' => $arrayKurs,
+		];
 
 		// Load views with data and messages
-		$this->load->view('templates_admin/header');
-		$this->load->view('templates_admin/sidebar');
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
 		$this->load->view('backoffice/setting/kurs', $data);
 		$this->load->view('templates_admin/footer');
 	}
 
 	public function tambahkurs()
 	{
+		$title = "PusatMusik - Backoffice - Setting Tambah Kurs";
+
 		$arrayKurs = $this->arrayKurs();
 
-		$data['arrayKurs'] = $arrayKurs;
+		$data = [
+			'title' => $title,
+			'arrayKurs' => $arrayKurs,
+		];
 
 		// Load views with data and messages
-		$this->load->view('templates_admin/header');
-		$this->load->view('templates_admin/sidebar');
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
 		$this->load->view('backoffice/setting/tambahkurs', $data);
 		$this->load->view('templates_admin/footer');
 	}

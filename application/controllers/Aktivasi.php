@@ -15,6 +15,8 @@ class Aktivasi extends CI_Controller {
 	
 	public function akun()
 	{
+		$title = "PusatMusik - Backoffice - Aktivasi Akun";
+		
 		$arrayUser = [
 			[
 				"YoutubeChannelId" => "uishbdUAdai-asSfda",
@@ -42,7 +44,10 @@ class Aktivasi extends CI_Controller {
 			],
 		];
 
-		$data['arrayUser'] = $arrayUser;
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		];
 
 		if ($this->input->post()) {
 			$YoutubeChannelId = $this->input->post('YoutubeChannelId');  // Menangkap judul yang dikirimkan dari form
@@ -60,8 +65,8 @@ class Aktivasi extends CI_Controller {
 
 		else {
 			// Load views with data and messages
-		    $this->load->view('templates_admin/header');
-		    $this->load->view('templates_admin/sidebar');
+		    $this->load->view('templates_admin/header', $data);
+		    $this->load->view('templates_admin/sidebar', $data);
 			$this->load->view('backoffice/aktivasi/akun', $data);
 			$this->load->view('templates_admin/footer');
 		}
@@ -93,6 +98,8 @@ class Aktivasi extends CI_Controller {
 
 	public function album()
 	{
+		$title = "PusatMusik - Backoffice - Aktivasi Album";
+
 		$arrayUser = [
 			[
 				"Keterangan" => "Jehovah (Chapter I)",
@@ -120,7 +127,10 @@ class Aktivasi extends CI_Controller {
 			],
 		];
 
-		$data['arrayUser'] = $arrayUser;
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		];
 
 		if ($this->input->post()) {
 			$keterangan = $this->input->post('keterangan'); // Menangkap keterangan yang dikirimkan dari form
@@ -140,8 +150,8 @@ class Aktivasi extends CI_Controller {
 
 		else {
 			// Load views with data and messages
-		    $this->load->view('templates_admin/header');
-		    $this->load->view('templates_admin/sidebar');
+		    $this->load->view('templates_admin/header', $data);
+		    $this->load->view('templates_admin/sidebar', $data);
 			$this->load->view('backoffice/aktivasi/album', $data);
 			$this->load->view('templates_admin/footer');
 		}

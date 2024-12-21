@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="col-lg-2" style="text-align:right;">
-                        <form action="<?= base_url('laporan/exportakun') ?>" method="post">
+                        <form action="<?= base_url('laporan/exportuser') ?>" method="post">
                             <input type="hidden" name="arrayUser" id="arrayUser"
                             value='<?= json_encode($arrayUser); ?>'>
                             <button type="submit" class="btn btn-success">Export</button>
@@ -131,13 +131,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="rejectModalLabel">Tolak Akun</h5>
+        <h5 class="modal-title" id="rejectModalLabel">Tolak User</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <form id="rejectForm" action="<?php base_url('aktivasi/rejectakun'); ?>" method="post">
+        <form id="rejectForm" action="<?php base_url('aktivasi/rejectuser'); ?>" method="post">
           <input type="hidden" name="UserID" id="rejectUserID">
           <div class="form-group">
             <label for="reason">Alasan Penolakan</label>
@@ -198,6 +198,17 @@
     function renderTable(data) {
         var $dataBody = $('#data-body');
         $dataBody.empty();
+
+		// Cek jika data kosong
+		if (data.length === 0) {
+            $dataBody.append(`
+                <tr>
+                    <td colspan="7" class="text-center">No data found.</td>
+                </tr>
+            `);
+            return; // Keluar dari fungsi jika data kosong
+        }
+
         var offset = (currentPage - 1) * itemsPerPage;
         var paginatedData = data.slice(offset, offset + itemsPerPage);
 
@@ -425,11 +436,13 @@
         })
     );
 
+	/*
     if (query.length > 2 && filteredData.length === 0) {
         $('#no-results').show();
     } else {
         $('#no-results').hide();
     }
+	*/
 
     totalItems = filteredData.length;
     totalPages = Math.ceil(totalItems / itemsPerPage);

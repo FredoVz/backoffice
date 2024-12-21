@@ -71,59 +71,85 @@
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive" style="overflow-x: auto;">
-                        <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
+                        <table class="table table-bordered table-striped mb-0" style="min-width: 5000px; max-width: 100%; max-height: 560px"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:14%;" data-column="AccountName">AccountName <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Title">Title <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Song">Song <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="ISRC">ISRC <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="TanggalProduksi">TanggalProduksi <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="TanggalRilis">TanggalRilis <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Author">Author <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Composer">Composer <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="PLine">PLine <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="CLine">CLine <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="IsCover">IsCover <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Genre">Genre <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="ArtistName">ArtistName <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="CategoryArtist">CategoryArtist <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="SpotifyId">SpotifyId <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="iTunesId">iTunesId <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="IsExplicit">IsExplicit <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Language">Language <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="PreviewStart">PreviewStart <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="Lyrics">Lyrics <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:14%;" data-column="CoverDocument">Cover Document <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="AccountName">AccountName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Title">Title <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Song">Song <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="ISRC">ISRC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="TanggalProduksi">TanggalProduksi <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="TanggalRilis">TanggalRilis <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Author">Author <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Composer">Composer <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="PLine">PLine <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="CLine">CLine <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="IsCover">IsCover <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Genre">Genre <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="ArtistName">ArtistName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="CategoryArtist">CategoryArtist <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="SpotifyId">SpotifyId <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="iTunesId">iTunesId <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="IsExplicit">IsExplicit <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Language">Language <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="PreviewStart">PreviewStart <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="Lyrics">Lyrics <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;" data-column="CoverDocument">Cover Document <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayTrack)): ?>
                                     <?php foreach ($arrayTrack as $track): ?>
                                         <tr>
-                                            <td scope="row" style="width:14%;" data-label="AccountName"><?php echo $track['AccountName']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($track['Tanggal'])); ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Title"><?php echo $track['Title']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Song"><?php echo $track['Song']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="TanggalProduksi"><?php echo date('d-m-Y', strtotime($track['TanggalProduksi'])); ?></td>
-                                            <td scope="row" style="width:14%;" data-label="TanggalRilis"><?php echo date('d-m-Y', strtotime($track['TanggalRilis'])); ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Author"><?php echo $track['Author']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Composer"><?php echo $track['Composer']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="PLine"><?php echo $track['PLine']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="CLine"><?php echo $track['CLine']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="IsCover"><?php echo $track['IsCover']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Genre"><?php echo $track['Genre']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="ArtistName"><?php echo $track['ArtistName']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="CategoryArtist"><?php echo $track['CategoryArtist']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="SpotifyId"><?php echo $track['SpotifyId']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="iTunesId"><?php echo $track['iTunesId']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="IsExplicit"><?php echo $track['IsExplicit']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Language"><?php echo $track['Language']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="PreviewStart"><?php echo $track['PreviewStart']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="Lyrics"><?php echo $track['Lyrics']; ?></td>
-                                            <td scope="row" style="width:14%;" data-label="CoverDocument"><?php echo $track['CoverDocument']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="AccountName"><?php echo $track['AccountName']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($track['Tanggal'])); ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="Title"><?php echo $track['Title']; ?></td>
+											<td scope="row" style="width:4.5%;" data-label="Song">
+                                                <?php if ($track['Song'] == ""): ?>
+													<p>-</p>
+                                                <?php else : ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+													<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:4.5%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="TanggalProduksi"><?php echo date('d-m-Y', strtotime($track['TanggalProduksi'])); ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="TanggalRilis"><?php echo date('d-m-Y', strtotime($track['TanggalRilis'])); ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="Author"><?php echo $track['Author']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="Composer"><?php echo $track['Composer']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="PLine"><?php echo $track['PLine']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="CLine"><?php echo $track['CLine']; ?></td>
+											<td scope="row" style="width:4.5%;" data-label="IsCover">
+                                                <?php if ($track['IsCover'] == ""): ?>
+													<p style="color:red">NO</p>
+                                                <?php else : ?>
+													<p>-</p>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:4.5%;" data-label="Genre"><?php echo $track['Genre']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="ArtistName"><?php echo $track['ArtistName']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="CategoryArtist"><?php echo $track['CategoryArtist']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="SpotifyId"><?php echo $track['SpotifyId']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="iTunesId"><?php echo $track['iTunesId']; ?></td>
+											<td scope="row" style="width:4.5%;" data-label="IsExplicit">
+                                                <?php if ($track['IsExplicit'] == ""): ?>
+													<p style="color:red">NO</p>
+                                                <?php else : ?>
+													<p>-</p>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:4.5%;" data-label="Language"><?php echo $track['Language']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="PreviewStart"><?php echo $track['PreviewStart']; ?></td>
+                                            <td scope="row" style="width:4.5%;" data-label="Lyrics"><?php echo $track['Lyrics']; ?></td>
+											<td scope="row" style="width:4.5%;" data-label="CoverDocument">
+                                                <?php if ($track['CoverDocument'] == ""): ?>
+													<p>-</p>
+                                                <?php else : ?>
+                                                    <!-- Button for confirmation when Status is 1 -->
+													<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+                                                <?php endif; ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -218,6 +244,17 @@
     function renderTable(data) {
         var $dataBody = $('#data-body');
         $dataBody.empty();
+
+		// Cek jika data kosong
+		if (data.length === 0) {
+            $dataBody.append(`
+                <tr>
+                    <td colspan="22" class="text-center">No data found.</td>
+                </tr>
+            `);
+            return; // Keluar dari fungsi jika data kosong
+        }
+
         var offset = (currentPage - 1) * itemsPerPage;
         var paginatedData = data.slice(offset, offset + itemsPerPage);
 
@@ -255,30 +292,69 @@
                 ('0' + (tanggalRilis.getMonth() + 1)).slice(-2) + '-' +
                 tanggalRilis.getFullYear();
 
+			var songColumn = '';
+			var isCoverColumn = '';
+			var isExplicitColumn = '';
+			var coverDocumentColumn = '';
+
+			// Check the status and set action column accordingly
+			if (row.Song == "") {
+				songColumn = `
+					<p>-</p>
+				`;
+			} else {
+				songColumn = `
+					<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+				`;
+			}
+
+			if (row.IsCover == 0) {
+				isCoverColumn = `
+					<p style="color:red">NO</p>
+				`;
+			}
+
+			if (row.IsExplicit == 0) {
+				isExplicitColumn = `
+					<p style="color:red">NO</p>
+				`;
+			}
+
+			// Check the status and set action column accordingly
+			if (row.Song == "") {
+				coverDocumentColumn = `
+					<p>-</p>
+				`;
+			} else {
+				coverDocumentColumn = `
+					<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+				`;
+			}
+
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:14%;" data-label="AccountName">${row.AccountName}</td>
-                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDate}</td>
-                    <td scope="row" style="width:14%;" data-label="Title">${row.Title}</td>
-                    <td scope="row" style="width:14%;" data-label="Song">${row.Song}</td>
-                    <td scope="row" style="width:14%;" data-label="ISRC">${row.ISRC}</td>
-                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDateTP}</td>
-                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDateTR}</td>
-                    <td scope="row" style="width:14%;" data-label="Author">${row.Author}</td>
-                    <td scope="row" style="width:14%;" data-label="Composer">${row.Composer}</td>
-                    <td scope="row" style="width:14%;" data-label="PLine">${row.PLine}</td>
-                    <td scope="row" style="width:14%;" data-label="CLine">${row.CLine}</td>
-                    <td scope="row" style="width:14%;" data-label="IsCover">${row.IsCover}</td>
-                    <td scope="row" style="width:14%;" data-label="Genre">${row.Genre}</td>
-                    <td scope="row" style="width:14%;" data-label="ArtistName">${row.ArtistName}</td>
-                    <td scope="row" style="width:14%;" data-label="CategoryArtist">${row.CategoryArtist}</td>
-                    <td scope="row" style="width:14%;" data-label="SpotifyId">${row.SpotifyId}</td>
-                    <td scope="row" style="width:14%;" data-label="iTunesId">${row.iTunesId}</td>
-                    <td scope="row" style="width:14%;" data-label="IsExplicit">${row.IsExplicit}</td>
-                    <td scope="row" style="width:14%;" data-label="Language">${row.Language}</td>
-                    <td scope="row" style="width:14%;" data-label="PreviewStart">${row.PreviewStart}</td>
-                    <td scope="row" style="width:14%;" data-label="Lyrics">${row.Lyrics}</td>
-                    <td scope="row" style="width:14%;" data-label="CoverDocument">${row.CoverDocument}</td>
+                    <td scope="row" style="width:4.5%;" data-label="AccountName">${row.AccountName}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Tanggal">${formattedDate}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Title">${row.Title}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Song">${songColumn}</td>
+                    <td scope="row" style="width:4.5%;" data-label="ISRC">${row.ISRC}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Tanggal">${formattedDateTP}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Tanggal">${formattedDateTR}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Author">${row.Author}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Composer">${row.Composer}</td>
+                    <td scope="row" style="width:4.5%;" data-label="PLine">${row.PLine}</td>
+                    <td scope="row" style="width:4.5%;" data-label="CLine">${row.CLine}</td>
+                    <td scope="row" style="width:4.5%;" data-label="IsCover">${isCoverColumn}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Genre">${row.Genre}</td>
+                    <td scope="row" style="width:4.5%;" data-label="ArtistName">${row.ArtistName}</td>
+                    <td scope="row" style="width:4.5%;" data-label="CategoryArtist">${row.CategoryArtist}</td>
+                    <td scope="row" style="width:4.5%;" data-label="SpotifyId">${row.SpotifyId}</td>
+                    <td scope="row" style="width:4.5%;" data-label="iTunesId">${row.iTunesId}</td>
+                    <td scope="row" style="width:4.5%;" data-label="IsExplicit">${isExplicitColumn}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Language">${row.Language}</td>
+                    <td scope="row" style="width:4.5%;" data-label="PreviewStart">${row.PreviewStart}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Lyrics">${row.Lyrics}</td>
+                    <td scope="row" style="width:4.5%;" data-label="CoverDocument">${coverDocumentColumn}</td>
                 </tr>
             `);
         });
@@ -441,11 +517,13 @@
         })
     );
 
+	/*
     if (query.length > 2 && filteredData.length === 0) {
         $('#no-results').show();
     } else {
         $('#no-results').hide();
     }
+	*/
 
     totalItems = filteredData.length;
     totalPages = Math.ceil(totalItems / itemsPerPage);

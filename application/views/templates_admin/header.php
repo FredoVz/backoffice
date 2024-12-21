@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin PusatMusik - Dashboard</title>
+    <title><?= $title ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -59,6 +59,18 @@
             width: 100%; /* Full width on small screens */
         }
     }
+
+	/* Tabel bawah isi kolom bisa di scroll */
+	.table-responsive {
+        max-height: 560px;
+    }
+
+	.table thead {
+        position: sticky;
+        top: 0;
+        z-index: 2; /* Ensure the header stays on top */
+    }
+    /* End of Tabel bawah isi kolom bisa di scroll */
 </style>
 
 <style>
