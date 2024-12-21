@@ -57,6 +57,7 @@
             <!-- Divider -->
             <!--hr class="sidebar-divider my-0" style="border-color: #D3D3D3;"--> <!-- #D3D3D3 -->
 
+            <!-- Nav Item - Setting -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'setting') ? 'active' : ''; ?>">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#settingDropdown" aria-expanded="true" aria-controls="settingDropdown">
                     <i class="fas fa-fw fa-cog" style="color: black;"></i>
@@ -71,7 +72,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Aktivasi -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'aktivasi') ? 'active' : ''; ?>">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#aktivasiDropdown" aria-expanded="true" aria-controls="aktivasiDropdown">
                     <!--i class="fas fa-fw fa-wrench" style="color: black;"></i-->
@@ -88,7 +89,24 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Tambah -->
+            <li class="nav-item <?php echo ($this->uri->segment(1) == 'tambah') ? 'active' : ''; ?>">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#tambahDropdown" aria-expanded="true" aria-controls="tambahDropdown">
+                    <!--i class="fas fa-fw fa-wrench" style="color: black;"></i-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAl0lEQVR4nO3QMQoCMRAF0AfWVlaiWApuoZew3dpKYcFbWNl5Fk+wZ/AudnYKSmAEUVeMFjZ+CEOGzCMJr9PDHl1fZIxz1D/yiz9ZY4MiEylibpU2AyxRZSJVzPWvjfJDpLxtPENGmASS6jAX6eCEOpA69u3cm8xwDCQBi0+eA3Mcot7nbSSl1dDPQprygEyxwzZjpfNpzgU2LS/2ns0/owAAAABJRU5ErkJggg==" alt="insert">
+                    <span style="color: black; padding-left:5px;">Tambah</span>
+                </a>
+                <!-- Dropdown Menu -->
+                <div id="tambahDropdown" class="collapse <?php echo ($this->uri->segment(1) == 'tambah') ? 'show' : ''; ?>" aria-labelledby="tambahHeading" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--h6 class="collapse-header">Akun Tambah:</h6-->
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'album') ? 'active' : ''; ?>" href="<?php echo base_url('tambah/album'); ?>"><i class="bi bi-file-music-fill"></i> Album</a>
+                        <a class="collapse-item <?php echo ($this->uri->segment(2) == 'track') ? 'active' : ''; ?>" href="<?php echo base_url('tambah/track'); ?>"><i class="bi bi-file-music-fill"></i> Track</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Import Digital -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'importdigital') ? 'active' : ''; ?>">
                 <a class="nav-link" href="<?php echo base_url('importdigital') ?>">
                 <!--i class="fas fa-fw fa-tachometer-alt"></i-->
@@ -96,6 +114,7 @@
                 <span style="color: black;">Import Digital</span></a>
             </li>
 
+            <!-- Nav Item - Laporan -->
             <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active' : ''; ?>">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#laporanDropdown" aria-expanded="true" aria-controls="laporanDropdown">
                     <i class="fas fa-fw fa-file-pdf" style="color: black;"></i>

@@ -7,21 +7,12 @@
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5 mt-5">
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-10" style="text-align:center;">
-                        <h5 class="mb-0">Laporan Album</h5>
+                    <div class="col-lg-12" style="text-align:center;">
+                        <h5 class="mb-0">Data Album</h5>
                     </div>
-
-                    <div class="col-lg-2" style="text-align:right;">
-                        <form action="<?= base_url('laporan/exportalbum') ?>" method="post">
-                            <input type="hidden" name="arrayAlbum" id="arrayAlbum"
-                            value='<?= json_encode($arrayAlbum); ?>'>
-                            <button type="submit" class="btn btn-success">Export</button>
-                        </form>
-                    </div>
-
                 </div>
 
-                <form action="<?= base_url('laporan/album'); ?>" method="post">
+                <form action="<?= base_url('tambah/album'); ?>" method="post">
                     <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                         <div class="col-lg-4">
                             <label for="">Tanggal Awal</label>
@@ -63,7 +54,7 @@
                         </div>
                         <div class="ms-2"> Entries</div>
                     </div>
-                    <!--h5 class="mb-0">Laporan Account</h5-->
+                    <!--h5 class="mb-0">Data Album</h5-->
                     <div class="clearable position-relative" style="width: auto; position: relative;">
                         <input type="text" id="searchInput" class="form-control" placeholder="Search..." style="padding-right: 24px;">
                         <!--i class="clearable__clear" id="cancelSearch">&times;</i-->
@@ -75,31 +66,44 @@
                         <table class="table table-bordered table-striped mb-0"> <!-- style="width: 100%; min-width: 600px; max-width: 100%;" -->
                             <thead id="data-head" style="background-color: #e7dbeb;position: sticky;">
                                 <tr>
-                                    <th scope="col" style="width:16%;" data-column="YoutubeChannelName">AccountName <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:16%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:16%;" data-column="UPC">UPC <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:16%;" data-column="Keterangan">Keterangan <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:16%;" data-column="Jenis">Jenis <i class="bi bi-caret-down-fill"></i></th>
-                                    <th scope="col" style="width:16%;" data-column="Status">Status <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="AccountName">AccountName <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Tanggal">Tanggal <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="UPC">UPC <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Title">Title <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Jenis">Jenis <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;" data-column="Aktif">Aktif <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:14%;">Action </th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
                                 <?php if (!empty($arrayAlbum)): ?>
                                     <?php foreach ($arrayAlbum as $album): ?>
                                         <tr>
-                                            <td scope="row" style="width:16%;" data-label="YoutubeChannelName"><?php echo $album['YoutubeChannelName']; ?></td>
-                                            <td scope="row" style="width:16%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($album['Tanggal'])); ?></td>
-                                            <td scope="row" style="width:16%;" data-label="UPC"><?php echo $album['UPC']; ?></td>
-                                            <td scope="row" style="width:16%;" data-label="Keterangan"><?php echo $album['Keterangan']; ?></td>
-                                            <td scope="row" style="width:16%;" data-label="Jenis"><?php echo $album['Jenis']; ?></td>
-                                            <td scope="row" style="width:16%;" data-label="Aktif">
+                                            <td scope="row" style="width:14%;" data-label="AccountName"><?php echo $album['AccountName']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Tanggal"><?php echo date('d-m-Y', strtotime($album['Tanggal'])); ?></td>
+                                            <td scope="row" style="width:14%;" data-label="UPC"><?php echo $album['UPC']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Title"><?php echo $album['Title']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Jenis"><?php echo $album['Jenis']; ?></td>
+                                            <td scope="row" style="width:14%;" data-label="Aktif">
                                                 <?php if ($album['Aktif'] == 0): ?>
                                                     <!-- Form for confirmation when Status is 0 -->
-                                                    <button class="btn btn-danger" disabled>NO</button>
+                                                    <p style="color:red;">NO</p>
                                                 <?php elseif ($album['Aktif'] == 1): ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-                                                    <button class="btn btn-success" disabled>YES</button>
+                                                    <p style="color:green;">YES</p>
                                                 <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:14%;">
+                                                <!-- Form for confirmation when Status is 0 -->
+                                                <form action="<?= base_url('tambah/album'); ?>" method="post">
+                                                    <input type="hidden" name="AccountName" value="<?php echo $album['AccountName']; ?>">
+                                                    <input type="hidden" name="Tanggal" value="<?php echo $album['Tanggal']; ?>">
+                                                    <input type="hidden" name="UPC" value="<?php echo $album['UPC']; ?>">
+                                                    <input type="hidden" name="Title" value="<?php echo $album['Title']; ?>">
+                                                    <input type="hidden" name="Jenis" value="<?php echo $album['Jenis']; ?>">
+                                                    <input type="hidden" name="Aktif" value="<?php echo $album['Aktif']; ?>">
+                                                    <button class="btn btn-primary">Ubah</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -174,7 +178,7 @@
 		if (data.length === 0) {
             $dataBody.append(`
                 <tr>
-                    <td colspan="6" class="text-center">No data found.</td>
+                    <td colspan="7" class="text-center">No data found.</td>
                 </tr>
             `);
             return; // Keluar dari fungsi jika data kosong
@@ -189,14 +193,26 @@
             var actionColumn = ''; // This will hold the form or the button
             var statusColumn = '';
 
+            actionColumn = `
+                <form action="<?= base_url('tambah/album'); ?>" method="post">
+                    <input type="hidden" name="AccountName" value="${row.AccountName}">
+                    <input type="hidden" name="Tanggal" value="${row.Tanggal}">
+                    <input type="hidden" name="UPC" value="${row.UPC}">
+                    <input type="hidden" name="Title" value="${row.Title}">
+                    <input type="hidden" name="Jenis" value="${row.Jenis}">
+                    <input type="hidden" name="Aktif" value="${row.Aktif}">
+                    <button class="btn btn-primary">Ubah</button>
+                </form>
+            `;
+
             // Check the status and set action column accordingly
             if (row.Aktif == 0) {
                 statusColumn = `
-                    <button class="btn btn-danger" disabled>NO</button>
+                    <p style="color:red;">NO</p>
                 `;
             } else if (row.Aktif == 1) {
                 statusColumn= `
-                    <button class="btn btn-success" disabled>YES</button>
+                    <p style="color:green;">YES</p>
                 `;
             }
 
@@ -221,12 +237,15 @@
 
             $dataBody.append(`
                 <tr>
-                    <td scope="row" style="width:16%;" data-label="YoutubeChannelName">${row.YoutubeChannelName}</td>
-                    <td scope="row" style="width:16%;" data-label="Tanggal">${formattedDate}</td>
-                    <td scope="row" style="width:16%;" data-label="UPC">${row.UPC}</td>
-                    <td scope="row" style="width:16%;" data-label="Keterangan">${row.Keterangan}</td>
-                    <td scope="row" style="width:16%;" data-label="Jenis">${row.Jenis}</td>
-                    <td scope="row" style="width:16%;" data-label="Status">${statusColumn}</td>
+                    <td scope="row" style="width:14%;" data-label="AccountName">${row.AccountName}</td>
+                    <td scope="row" style="width:14%;" data-label="Tanggal">${formattedDate}</td>
+                    <td scope="row" style="width:14%;" data-label="UPC">${row.UPC}</td>
+                    <td scope="row" style="width:14%;" data-label="Title">${row.Title}</td>
+                    <td scope="row" style="width:14%;" data-label="Jenis">${row.Jenis}</td>
+                    <td scope="row" style="width:14%;" data-label="Aktif">${statusColumn}</td>
+                    <td scope="row" style="width:14%;">
+                        ${actionColumn}
+                    </td>
                 </tr>
             `);
         });

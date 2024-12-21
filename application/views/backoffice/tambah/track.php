@@ -7,20 +7,12 @@
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5 mt-5">
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-10" style="text-align:center;">
-                        <h5 class="mb-0">Laporan Track</h5>
-                    </div>
-
-                    <div class="col-lg-2" style="text-align:right;">
-                        <form action="<?= base_url('laporan/exporttrack') ?>" method="post">
-                            <input type="hidden" name="arrayTrack" id="arrayTrack"
-                            value='<?= json_encode($arrayTrack); ?>'>
-                            <button type="submit" class="btn btn-success">Export</button>
-                        </form>
+                    <div class="col-lg-12" style="text-align:center;">
+                        <h5 class="mb-0">Data Track</h5>
                     </div>
                 </div>
 
-                <form action="<?= base_url('laporan/track'); ?>" method="post">
+                <form action="<?= base_url('tambah/track'); ?>" method="post">
                     <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
                         <div class="col-lg-4">
                             <label for="">Tanggal Awal</label>
@@ -62,7 +54,7 @@
                         </div>
                         <div class="ms-2"> Entries</div>
                     </div>
-                    <!--h5 class="mb-0">Laporan Account</h5-->
+                    <!--h5 class="mb-0">Data Track</h5-->
                     <div class="clearable position-relative" style="width: auto; position: relative;">
                         <input type="text" id="searchInput" class="form-control" placeholder="Search..." style="padding-right: 24px;">
                         <!--i class="clearable__clear" id="cancelSearch">&times;</i-->
@@ -96,6 +88,7 @@
                                     <th scope="col" style="width:4.5%;" data-column="PreviewStart">PreviewStart <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:4.5%;" data-column="Lyrics">Lyrics <i class="bi bi-caret-down-fill"></i></th>
                                     <th scope="col" style="width:4.5%;" data-column="CoverDocument">Cover Document <i class="bi bi-caret-down-fill"></i></th>
+                                    <th scope="col" style="width:4.5%;">Action <i class="bi bi-caret-down-fill"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="data-body" style="overflow-y: auto;">
@@ -149,6 +142,34 @@
                                                     <!-- Button for confirmation when Status is 1 -->
 													<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
                                                 <?php endif; ?>
+                                            </td>
+                                            <td scope="row" style="width:4.5%;">
+                                                <!-- Form for confirmation when Status is 0 -->
+                                                <form action="<?= base_url('tambah/track'); ?>" method="post">
+                                                    <input type="hidden" name="AccountName" value="<?php echo $track['AccountName']; ?>">
+                                                    <input type="hidden" name="Tanggal" value="<?php echo $track['Tanggal']; ?>">
+                                                    <input type="hidden" name="Title" value="<?php echo $track['Title']; ?>">
+                                                    <input type="hidden" name="Song" value="<?php echo $track['Song']; ?>">
+                                                    <input type="hidden" name="ISRC" value="<?php echo $track['ISRC']; ?>">
+                                                    <input type="hidden" name="TanggalProduksi" value="<?php echo $track['TanggalProduksi']; ?>">
+                                                    <input type="hidden" name="TanggalRilis" value="<?php echo $track['TanggalRilis']; ?>">
+                                                    <input type="hidden" name="Author" value="<?php echo $track['Author']; ?>">
+                                                    <input type="hidden" name="Composer" value="<?php echo $track['Composer']; ?>">
+                                                    <input type="hidden" name="PLine" value="<?php echo $track['PLine']; ?>">
+                                                    <input type="hidden" name="CLine" value="<?php echo $track['CLine']; ?>">
+                                                    <input type="hidden" name="IsCover" value="<?php echo $track['IsCover']; ?>">
+                                                    <input type="hidden" name="Genre" value="<?php echo $track['Genre']; ?>">
+                                                    <input type="hidden" name="ArtistName" value="<?php echo $track['ArtistName']; ?>">
+                                                    <input type="hidden" name="CategoryArtist" value="<?php echo $track['CategoryArtist']; ?>">
+                                                    <input type="hidden" name="SpotifyId" value="<?php echo $track['SpotifyId']; ?>">
+                                                    <input type="hidden" name="iTunesId" value="<?php echo $track['iTunesId']; ?>">
+                                                    <input type="hidden" name="isExplicit" value="<?php echo $track['isExplicit']; ?>">
+                                                    <input type="hidden" name="Language" value="<?php echo $track['Language']; ?>">
+                                                    <input type="hidden" name="PreviewStart" value="<?php echo $track['PreviewStart']; ?>">
+                                                    <input type="hidden" name="Lyrics" value="<?php echo $track['Lyrics']; ?>">
+                                                    <input type="hidden" name="CoverDocument" value="<?php echo $track['CoverDocument']; ?>">
+                                                    <button class="btn btn-primary">Ubah</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -270,6 +291,7 @@
 			var isCoverColumn = '';
 			var isExplicitColumn = '';
 			var coverDocumentColumn = '';
+            var actionColumn = '';
 
 			// Check the status and set action column accordingly
 			if (row.Song == "") {
@@ -305,6 +327,34 @@
 				`;
 			}
 
+            actionColumn = `
+                <form action="<?= base_url('tambah/track'); ?>" method="post">
+                    <input type="hidden" name="AccountName" value="${row.AccountName}">
+                    <input type="hidden" name="Tanggal" value="${row.Tanggal}">
+                    <input type="hidden" name="Title" value="${row.Title}">
+                    <input type="hidden" name="Song" value="${row.Song}">
+                    <input type="hidden" name="ISRC" value="${row.ISRC}">
+                    <input type="hidden" name="TanggalProduksi" value="${row.TanggalProduksi}">
+                    <input type="hidden" name="TanggalRilis" value="${row.TanggalRilis}">
+                    <input type="hidden" name="Author" value="${row.Author}">
+                    <input type="hidden" name="Composer" value="${row.Composer}">
+                    <input type="hidden" name="PLine" value="${row.PLine}">
+                    <input type="hidden" name="CLine" value="${row.CLine}">
+                    <input type="hidden" name="IsCover" value="${row.IsCover}">
+                    <input type="hidden" name="Genre" value="${row.Genre}">
+                    <input type="hidden" name="ArtistName" value="${row.ArtistName}">
+                    <input type="hidden" name="CategoryArtist" value="${row.CategoryArtist}">
+                    <input type="hidden" name="SpotifyId" value="${row.SpotifyId}">
+                    <input type="hidden" name="iTunesId" value="${row.iTunesId}">
+                    <input type="hidden" name="isExplicit" value="${row.IsExplicit}">
+                    <input type="hidden" name="Language" value="${row.Language}">
+                    <input type="hidden" name="PreviewStart" value="${row.PreviewStart}">
+                    <input type="hidden" name="Lyrics" value="${row.Lyrics}">
+                    <input type="hidden" name="CoverDocument" value="${row.CoverDocument}">
+                    <button class="btn btn-primary">Ubah</button>
+                </form>
+            `;
+
             $dataBody.append(`
                 <tr>
                     <td scope="row" style="width:4.5%;" data-label="AccountName">${row.AccountName}</td>
@@ -312,8 +362,8 @@
                     <td scope="row" style="width:4.5%;" data-label="Title">${row.Title}</td>
                     <td scope="row" style="width:4.5%;" data-label="Song">${songColumn}</td>
                     <td scope="row" style="width:4.5%;" data-label="ISRC">${row.ISRC}</td>
-                    <td scope="row" style="width:4.5%;" data-label="TanggalProduksi">${formattedDateTP}</td>
-                    <td scope="row" style="width:4.5%;" data-label="TanggalRilis">${formattedDateTR}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Tanggal">${formattedDateTP}</td>
+                    <td scope="row" style="width:4.5%;" data-label="Tanggal">${formattedDateTR}</td>
                     <td scope="row" style="width:4.5%;" data-label="Author">${row.Author}</td>
                     <td scope="row" style="width:4.5%;" data-label="Composer">${row.Composer}</td>
                     <td scope="row" style="width:4.5%;" data-label="PLine">${row.PLine}</td>
@@ -329,6 +379,7 @@
                     <td scope="row" style="width:4.5%;" data-label="PreviewStart">${row.PreviewStart}</td>
                     <td scope="row" style="width:4.5%; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" data-label="Lyrics">${row.Lyrics}</td>
                     <td scope="row" style="width:4.5%;" data-label="CoverDocument">${coverDocumentColumn}</td>
+                    <td scope="row" style="width:4.5%;">${actionColumn}</td>
                 </tr>
             `);
         });
