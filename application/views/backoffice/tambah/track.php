@@ -7,8 +7,13 @@
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="card shadow-lg mb-5 mt-5">
                 <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div class="col-lg-12" style="text-align:center;">
+                    <div class="col-lg-10" style="text-align:center;">
                         <h5 class="mb-0">Data Track</h5>
+                    </div>
+                    <div class="col-lg-2" style="text-align:right;">
+                        <form action="<?= base_url('tambah/newtrack'); ?>" method="post">
+                            <button type="submit" class="btn btn-success">Tambah</button>
+                        </form>
                     </div>
                 </div>
 

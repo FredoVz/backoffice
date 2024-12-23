@@ -90,7 +90,7 @@
             </li>
 
             <!-- Nav Item - Tambah -->
-            <li class="nav-item <?php echo ($this->uri->segment(1) == 'tambah') ? 'active' : ''; ?>">
+            <li class="nav-item <?php echo ($this->uri->segment(1) == 'tambah') ? 'active' : ''; ?>"> <!-- hidden -->
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#tambahDropdown" aria-expanded="true" aria-controls="tambahDropdown">
                     <!--i class="fas fa-fw fa-wrench" style="color: black;"></i-->
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAl0lEQVR4nO3QMQoCMRAF0AfWVlaiWApuoZew3dpKYcFbWNl5Fk+wZ/AudnYKSmAEUVeMFjZ+CEOGzCMJr9PDHl1fZIxz1D/yiz9ZY4MiEylibpU2AyxRZSJVzPWvjfJDpLxtPENGmASS6jAX6eCEOpA69u3cm8xwDCQBi0+eA3Mcot7nbSSl1dDPQprygEyxwzZjpfNpzgU2LS/2ns0/owAAAABJRU5ErkJggg==" alt="insert">

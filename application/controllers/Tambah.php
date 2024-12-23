@@ -494,7 +494,7 @@ class Tambah extends CI_Controller {
 			        $successRenamingFile = "Insert data successfully";
 
 					$queryInsertMasterAlbum = "insert INTO MasterAlbum(Jenis, KodeUser, Title, UPC, FileInput)
-					SELECT '".$jenis."', '".$userSelect."', $title, '".$upc."', '".$formattedRenameGambarUpload."'
+					SELECT '".$jenis."', '".$userSelect."', '".$title."', '".$upc."', '".$formattedRenameGambarUpload."'
 					";
 
 					echo $queryInsertMasterAlbum;
@@ -689,5 +689,26 @@ class Tambah extends CI_Controller {
 		else {
 			redirect('tambah/track');
 		}
+	}
+
+	public function newtrack()
+	{
+		$title = "PusatMusik - Backoffice - New Track";
+		$arrayUser = $this->arrayUser();
+
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		];
+
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
+		$this->load->view('backoffice/tambah/newtrack', $data);
+		$this->load->view('templates_admin/footer');
+	}
+
+	public function inserttrack()
+	{
+
 	}
 }
