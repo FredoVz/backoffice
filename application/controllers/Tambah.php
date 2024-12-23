@@ -444,7 +444,7 @@ class Tambah extends CI_Controller {
 			echo '<pre>'.$file_name.'</pre>';
 			//die;
 
-			$config['allowed_types'] = 'jpg|png';
+			$config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size'] = 10000;
 			$config['upload_path'] = 'assets/uploads/';
 
