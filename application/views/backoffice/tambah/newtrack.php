@@ -223,10 +223,14 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
   console.log('[{"RefPelanggan":"0000J\/01\/000040","YoutubeChannelName":"Albert Official"},{"RefPelanggan":"0000J\/01\/00003N","YoutubeChannelName":"excello"},{"RefPelanggan":"0000J\/01\/00003Z","YoutubeChannelName":"excelloX"},{"RefPelanggan":"0000J\/01\/000057","YoutubeChannelName":"Fredo"},{"RefPelanggan":"0000J\/01\/00003V","YoutubeChannelName":"Jesus Center Church (JCC) Cijantung"},{"RefPelanggan":"0000J\/01\/00003X","YoutubeChannelName":"Jesus Center Church (JCC) Cijantung"},{"RefPelanggan":"0000J\/01\/00003Q","YoutubeChannelName":"melithatricia"},{"RefPelanggan":"0000J\/01\/00003T","YoutubeChannelName":"tesyt1"},{"RefPelanggan":"0000J\/01\/00003U","YoutubeChannelName":"Vidi Official"},{"RefPelanggan":"0000J\/01\/00003S","YoutubeChannelName":"Vidi Official"},{"RefPelanggan":"0000J\/01\/00003L","YoutubeChannelName":"YTChannelName"}]');
-  const element = document.getElementById('iduserSelect');
-  const choices = new Choices(element, {
+  var element = document.getElementById('iduserSelect');
+  var choices = new Choices(element, {
     searchEnabled: true,
     itemSelectText: 'Pilih',
   });
