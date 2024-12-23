@@ -709,6 +709,43 @@ class Tambah extends CI_Controller {
 
 	public function inserttrack()
 	{
+		if ($this->input->post())
+		{
+			$userSelect = $this->input->post('userSelect');
+			$title = $this->input->post('Title');
+			$isrc = $this->input->post('ISRC');
+			$author = $this->input->post('Author');
+			$pLine = $this->input->post('PLine');
+			$composer = $this->input->post('Composer');
+			$cLine = $this->input->post('CLine');
+			$genre = $this->input->post('Genre');
+			$newGenre = $this->input->post('NewGenre');
+			$filetusd = $this->input->post('filetusd');
+			$tanggalProduksi = $this->input->post('TanggalProduksi');
+			$radtypesong = $this->input->post('radtypesong');
+			$artis1 = $this->input->post('artis1');
+			$selart1 = $this->input->post('selart1');
+			$fileinput1 = $this->input->post('fileinput1');
+			$spotify1 = $this->input->post('spotify1');
+			$itune1 = $this->input->post('itune1');
+			$addsartis1 = $this->input->post('addsartis1');
+			$total_chq = $this->input->post('total_chq');
+			$cb = $this->input->post('cb');
+			$selleng = $this->input->post('selleng');
+			$start = $this->input->post('start');
+			$time = $this->input->post('time');
+			$lyric = $this->input->post('lyric');
 
+			$queryInsertMasterAlbum = "insert INTO MasterTrack(KodeUser, Title, ISRC, Author, PLine, Composer, CLine, Genre, NewGenre, filetusd, TanggalProduksi, radtypesong, artist1, selart1, fileinput1, spotify1, itune1, addartist1, total_chq, cb, selleng, start, time, lyric)
+			SELECT '".$userSelect."', '".$title."', '".$isrc."', '".$author."', '".$pLine."', '".$composer."', '".$cLine."', '".$genre."', '".$newGenre."', '".$filetusd."', '".$tanggalProduksi."', '".$radtypesong."', '".$artis1."', '".$selart1."', '".$fileinput1."', '".$spotify1."', '".$itune1."', '".$addsartis1."', '".$total_chq."', '".$cb."', '".$selleng."', '".$start."', '".$time."', '".$lyric."'
+			";
+			//die
+
+			redirect('tambah/track');
+		}
+
+		else{
+			redirect('tambah/track');
+		}
 	}
 }
