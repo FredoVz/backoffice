@@ -95,13 +95,16 @@
                                             </td>
                                             <td scope="row" style="width:14%;">
                                                 <!-- Form for confirmation when Status is 0 -->
-                                                <form action="<?= base_url('tambah/album'); ?>" method="post">
-                                                    <input type="hidden" name="AccountName" value="<?php echo $album['AccountName']; ?>">
-                                                    <input type="hidden" name="Tanggal" value="<?php echo $album['Tanggal']; ?>">
-                                                    <input type="hidden" name="UPC" value="<?php echo $album['UPC']; ?>">
-                                                    <input type="hidden" name="Title" value="<?php echo $album['Title']; ?>">
-                                                    <input type="hidden" name="Jenis" value="<?php echo $album['Jenis']; ?>">
-                                                    <input type="hidden" name="Aktif" value="<?php echo $album['Aktif']; ?>">
+                                                <form action="<?= base_url('tambah/getalbum'); ?>" method="post">
+													<input type="hidden" name="KodeAlbum" value="<?php echo $album['KodeAlbum']; ?>">
+													<!--
+                                                    <input type="hidden" name="AccountName" value="< ?php echo $album['AccountName']; ?>">
+                                                    <input type="hidden" name="Tanggal" value="< ?php echo $album['Tanggal']; ?>">
+                                                    <input type="hidden" name="UPC" value="< ?php echo $album['UPC']; ?>">
+                                                    <input type="hidden" name="Title" value="< ?php echo $album['Title']; ?>">
+                                                    <input type="hidden" name="Jenis" value="< ?php echo $album['Jenis']; ?>">
+                                                    <input type="hidden" name="Aktif" value="< ?php echo $album['Aktif']; ?>">
+													-->
                                                     <button class="btn btn-primary">Ubah</button>
                                                 </form>
                                             </td>
@@ -193,14 +196,18 @@
             var actionColumn = ''; // This will hold the form or the button
             var statusColumn = '';
 
+			/*
+			<input type="hidden" name="AccountName" value="${row.AccountName}">
+			<input type="hidden" name="Tanggal" value="${row.Tanggal}">
+			<input type="hidden" name="UPC" value="${row.UPC}">
+			<input type="hidden" name="Title" value="${row.Title}">
+			<input type="hidden" name="Jenis" value="${row.Jenis}">
+			<input type="hidden" name="Aktif" value="${row.Aktif}">
+			*/
+
             actionColumn = `
-                <form action="<?= base_url('tambah/album'); ?>" method="post">
-                    <input type="hidden" name="AccountName" value="${row.AccountName}">
-                    <input type="hidden" name="Tanggal" value="${row.Tanggal}">
-                    <input type="hidden" name="UPC" value="${row.UPC}">
-                    <input type="hidden" name="Title" value="${row.Title}">
-                    <input type="hidden" name="Jenis" value="${row.Jenis}">
-                    <input type="hidden" name="Aktif" value="${row.Aktif}">
+                <form action="<?= base_url('tambah/getalbum'); ?>" method="post">
+					<input type="hidden" name="KodeAlbum" value="${row.KodeAlbum}">
                     <button class="btn btn-primary">Ubah</button>
                 </form>
             `;

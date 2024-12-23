@@ -110,7 +110,7 @@
 													<p>-</p>
                                                 <?php else : ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-													<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+													<a href="<?php echo $track['Song']; ?>">Download</a>
                                                 <?php endif; ?>
                                             </td>
                                             <td scope="row" style="width:4.5%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
@@ -147,7 +147,7 @@
 													<p>-</p>
                                                 <?php else : ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-													<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+													<a href="<?php echo $track['CoverDocument']; ?><">Download</a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
@@ -278,7 +278,7 @@
 				`;
 			} else {
 				songColumn = `
-					<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+					<a href="${row.Song}">Download</a>
 				`;
 			}
 
@@ -295,13 +295,13 @@
 			}
 
 			// Check the status and set action column accordingly
-			if (row.Song == "") {
+			if (row.CoverDocument == "") {
 				coverDocumentColumn = `
 					<p>-</p>
 				`;
 			} else {
 				coverDocumentColumn = `
-					<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+					<a href="${row.CoverDocument}">Download</a>
 				`;
 			}
 

@@ -103,7 +103,7 @@
 													<p>-</p>
                                                 <?php else : ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-													<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+													<a href="<?php echo $track['Song']; ?>">Download</a>
                                                 <?php endif; ?>
                                             </td>
                                             <td scope="row" style="width:4.5%;" data-label="ISRC"><?php echo $track['ISRC']; ?></td>
@@ -140,34 +140,37 @@
 													<p>-</p>
                                                 <?php else : ?>
                                                     <!-- Button for confirmation when Status is 1 -->
-													<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+													<a href="<?php echo $track['CoverDocument']; ?>">Download</a>
                                                 <?php endif; ?>
                                             </td>
                                             <td scope="row" style="width:4.5%;">
                                                 <!-- Form for confirmation when Status is 0 -->
-                                                <form action="<?= base_url('tambah/track'); ?>" method="post">
-                                                    <input type="hidden" name="AccountName" value="<?php echo $track['AccountName']; ?>">
-                                                    <input type="hidden" name="Tanggal" value="<?php echo $track['Tanggal']; ?>">
-                                                    <input type="hidden" name="Title" value="<?php echo $track['Title']; ?>">
-                                                    <input type="hidden" name="Song" value="<?php echo $track['Song']; ?>">
-                                                    <input type="hidden" name="ISRC" value="<?php echo $track['ISRC']; ?>">
-                                                    <input type="hidden" name="TanggalProduksi" value="<?php echo $track['TanggalProduksi']; ?>">
-                                                    <input type="hidden" name="TanggalRilis" value="<?php echo $track['TanggalRilis']; ?>">
-                                                    <input type="hidden" name="Author" value="<?php echo $track['Author']; ?>">
-                                                    <input type="hidden" name="Composer" value="<?php echo $track['Composer']; ?>">
-                                                    <input type="hidden" name="PLine" value="<?php echo $track['PLine']; ?>">
-                                                    <input type="hidden" name="CLine" value="<?php echo $track['CLine']; ?>">
-                                                    <input type="hidden" name="IsCover" value="<?php echo $track['IsCover']; ?>">
-                                                    <input type="hidden" name="Genre" value="<?php echo $track['Genre']; ?>">
-                                                    <input type="hidden" name="ArtistName" value="<?php echo $track['ArtistName']; ?>">
-                                                    <input type="hidden" name="CategoryArtist" value="<?php echo $track['CategoryArtist']; ?>">
-                                                    <input type="hidden" name="SpotifyId" value="<?php echo $track['SpotifyId']; ?>">
-                                                    <input type="hidden" name="iTunesId" value="<?php echo $track['iTunesId']; ?>">
-                                                    <input type="hidden" name="isExplicit" value="<?php echo $track['isExplicit']; ?>">
-                                                    <input type="hidden" name="Language" value="<?php echo $track['Language']; ?>">
-                                                    <input type="hidden" name="PreviewStart" value="<?php echo $track['PreviewStart']; ?>">
-                                                    <input type="hidden" name="Lyrics" value="<?php echo $track['Lyrics']; ?>">
-                                                    <input type="hidden" name="CoverDocument" value="<?php echo $track['CoverDocument']; ?>">
+                                                <form action="<?= base_url('tambah/gettrack'); ?>" method="post">
+													<input type="hidden" name="KodeTrack" value="<?php echo $track['KodeTrack']; ?>">
+													<!--
+                                                    <input type="hidden" name="AccountName" value="< ?php echo $track['AccountName']; ?>">
+                                                    <input type="hidden" name="Tanggal" value="< ?php echo $track['Tanggal']; ?>">
+                                                    <input type="hidden" name="Title" value="< ?php echo $track['Title']; ?>">
+                                                    <input type="hidden" name="Song" value="< ?php echo $track['Song']; ?>">
+                                                    <input type="hidden" name="ISRC" value="< ?php echo $track['ISRC']; ?>">
+                                                    <input type="hidden" name="TanggalProduksi" value="< ?php echo $track['TanggalProduksi']; ?>">
+                                                    <input type="hidden" name="TanggalRilis" value="< ?php echo $track['TanggalRilis']; ?>">
+                                                    <input type="hidden" name="Author" value="< ?php echo $track['Author']; ?>">
+                                                    <input type="hidden" name="Composer" value="< ?php echo $track['Composer']; ?>">
+                                                    <input type="hidden" name="PLine" value="< ?php echo $track['PLine']; ?>">
+                                                    <input type="hidden" name="CLine" value="< ?php echo $track['CLine']; ?>">
+                                                    <input type="hidden" name="IsCover" value="< ?php echo $track['IsCover']; ?>">
+                                                    <input type="hidden" name="Genre" value="< ?php echo $track['Genre']; ?>">
+                                                    <input type="hidden" name="ArtistName" value="< ?php echo $track['ArtistName']; ?>">
+                                                    <input type="hidden" name="CategoryArtist" value="< ?php echo $track['CategoryArtist']; ?>">
+                                                    <input type="hidden" name="SpotifyId" value="< ?php echo $track['SpotifyId']; ?>">
+                                                    <input type="hidden" name="iTunesId" value="< ?php echo $track['iTunesId']; ?>">
+                                                    <input type="hidden" name="isExplicit" value="< ?php echo $track['isExplicit']; ?>">
+                                                    <input type="hidden" name="Language" value="< ?php echo $track['Language']; ?>">
+                                                    <input type="hidden" name="PreviewStart" value="< ?php echo $track['PreviewStart']; ?>">
+                                                    <input type="hidden" name="Lyrics" value="< ?php echo $track['Lyrics']; ?>">
+                                                    <input type="hidden" name="CoverDocument" value="< ?php echo $track['CoverDocument']; ?>">
+													-->
                                                     <button class="btn btn-primary">Ubah</button>
                                                 </form>
                                             </td>
@@ -300,7 +303,7 @@
 				`;
 			} else {
 				songColumn = `
-					<a href="https://tusd.omegasoft.co.id/track/2f3d49d29a748abe4d36706a2dc721c7">Download</a>
+					<a href="${row.Song}">Download</a>
 				`;
 			}
 
@@ -317,40 +320,44 @@
 			}
 
 			// Check the status and set action column accordingly
-			if (row.Song == "") {
+			if (row.CoverDocument == "") {
 				coverDocumentColumn = `
 					<p>-</p>
 				`;
 			} else {
 				coverDocumentColumn = `
-					<a href="https://pusatmusik.com/application/uploads/docs/">Download</a>
+					<a href="${row.CoverDocument}">Download</a>
 				`;
 			}
 
+			/*
+			<input type="hidden" name="AccountName" value="${row.AccountName}">
+			<input type="hidden" name="Tanggal" value="${row.Tanggal}">
+			<input type="hidden" name="Title" value="${row.Title}">
+			<input type="hidden" name="Song" value="${row.Song}">
+			<input type="hidden" name="ISRC" value="${row.ISRC}">
+			<input type="hidden" name="TanggalProduksi" value="${row.TanggalProduksi}">
+			<input type="hidden" name="TanggalRilis" value="${row.TanggalRilis}">
+			<input type="hidden" name="Author" value="${row.Author}">
+			<input type="hidden" name="Composer" value="${row.Composer}">
+			<input type="hidden" name="PLine" value="${row.PLine}">
+			<input type="hidden" name="CLine" value="${row.CLine}">
+			<input type="hidden" name="IsCover" value="${row.IsCover}">
+			<input type="hidden" name="Genre" value="${row.Genre}">
+			<input type="hidden" name="ArtistName" value="${row.ArtistName}">
+			<input type="hidden" name="CategoryArtist" value="${row.CategoryArtist}">
+			<input type="hidden" name="SpotifyId" value="${row.SpotifyId}">
+			<input type="hidden" name="iTunesId" value="${row.iTunesId}">
+			<input type="hidden" name="isExplicit" value="${row.IsExplicit}">
+			<input type="hidden" name="Language" value="${row.Language}">
+			<input type="hidden" name="PreviewStart" value="${row.PreviewStart}">
+			<input type="hidden" name="Lyrics" value="${row.Lyrics}">
+			<input type="hidden" name="CoverDocument" value="${row.CoverDocument}">
+			*/
+
             actionColumn = `
-                <form action="<?= base_url('tambah/track'); ?>" method="post">
-                    <input type="hidden" name="AccountName" value="${row.AccountName}">
-                    <input type="hidden" name="Tanggal" value="${row.Tanggal}">
-                    <input type="hidden" name="Title" value="${row.Title}">
-                    <input type="hidden" name="Song" value="${row.Song}">
-                    <input type="hidden" name="ISRC" value="${row.ISRC}">
-                    <input type="hidden" name="TanggalProduksi" value="${row.TanggalProduksi}">
-                    <input type="hidden" name="TanggalRilis" value="${row.TanggalRilis}">
-                    <input type="hidden" name="Author" value="${row.Author}">
-                    <input type="hidden" name="Composer" value="${row.Composer}">
-                    <input type="hidden" name="PLine" value="${row.PLine}">
-                    <input type="hidden" name="CLine" value="${row.CLine}">
-                    <input type="hidden" name="IsCover" value="${row.IsCover}">
-                    <input type="hidden" name="Genre" value="${row.Genre}">
-                    <input type="hidden" name="ArtistName" value="${row.ArtistName}">
-                    <input type="hidden" name="CategoryArtist" value="${row.CategoryArtist}">
-                    <input type="hidden" name="SpotifyId" value="${row.SpotifyId}">
-                    <input type="hidden" name="iTunesId" value="${row.iTunesId}">
-                    <input type="hidden" name="isExplicit" value="${row.IsExplicit}">
-                    <input type="hidden" name="Language" value="${row.Language}">
-                    <input type="hidden" name="PreviewStart" value="${row.PreviewStart}">
-                    <input type="hidden" name="Lyrics" value="${row.Lyrics}">
-                    <input type="hidden" name="CoverDocument" value="${row.CoverDocument}">
+                <form action="<?= base_url('tambah/gettrack'); ?>" method="post">
+					<input type="hidden" name="KodeTrack" value="${row.KodeTrack}">
                     <button class="btn btn-primary">Ubah</button>
                 </form>
             `;
