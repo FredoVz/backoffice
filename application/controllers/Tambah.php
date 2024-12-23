@@ -394,9 +394,13 @@ class Tambah extends CI_Controller {
 			echo '<pre>3. Jenis      : '.$jenis.'</pre>';
 			echo '<pre>4. File Url   : '.$fileurl.'</pre>';
 			echo '<pre>5. Kode Album : '.$kodeAlbum.'</pre>';
+
+			$queryUpdateMasterAlbum = "update INTO MasterAlbum(KodeAlbum, UPC, Title, Jenis, FileUrl)
+            SELECT '".$kodeAlbum."', '".$upc."', $title, '".$jenis."', '".$fileurl."'
+            ";
+
+			echo $queryUpdateMasterAlbum;
 			//die;
-
-
 
 			$this->session->set_flashdata('message', [
 		        'icon' => 'success',
@@ -548,6 +552,12 @@ class Tambah extends CI_Controller {
 			echo '<pre>17. CoverDocument       : '.$coverDocument.'</pre>';
 			echo '<pre>18. Lyrics              : '.$lyrics.'</pre>';
 			echo '<pre>19. Kode Track          : '.$kodeTrack.'</pre>';
+
+			$queryUpdateMasterTrack = "update INTO MasterTrack(KodeTrack, Title, Author, Composer, Genre, Artist, ISRC, PLine, CLine, ProductionDate, OriginalReleaseDate, SpotifyId, iTunesId, IsExplicit, IsCover, Language, Track, CoverDocument, Lyrics)
+            SELECT '".$kodeTrack."', '".$title."', $author, '".$composer."', '".$genre."', '".$artistName."', '".$isrc."', '".$pLine."', '".$cLine."', '".$tanggalProduksi."', '".$tanggalRilis."', '".$spotifyId."', '".$iTunesId."', '".$isExplicit."', '".$isCover."', '".$language."', '".$song."', '".$coverDocument."', '".$lyrics."'
+            ";
+
+			echo $queryUpdateMasterTrack;
 			//die;
 
 			/*
