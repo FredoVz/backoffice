@@ -247,7 +247,7 @@
 		if (data.length === 0) {
             $dataBody.append(`
                 <tr>
-                    <td colspan="22" class="text-center">No data found.</td>
+                    <td colspan="23" class="text-center">No data found.</td>
                 </tr>
             `);
             return; // Keluar dari fungsi jika data kosong

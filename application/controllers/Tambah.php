@@ -6,6 +6,7 @@ class Tambah extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->library('session');
+		$this->load->library('upload');
 
 		// Check if user is logged in, otherwise redirect to login page
 		if (!$this->session->userdata('username_pusatmusik_backoffice')) {
@@ -412,6 +413,117 @@ class Tambah extends CI_Controller {
 
 		else {
 			redirect('tambah/album');
+		}
+	}
+
+	public function newalbum()
+	{
+		$title = "PusatMusik - Backoffice - New Album";
+		$arrayUser = $this->arrayUser();
+
+		$data = [
+			'title' => $title,
+			'arrayUser' => $arrayUser,
+		];
+
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
+		$this->load->view('backoffice/tambah/newalbum', $data);
+		$this->load->view('templates_admin/footer');
+	}
+
+	public function insertalbum()
+	{
+		if($this->input->post())
+		{
+			$jenis = $this->input->post('customRadio');
+			$userSelect = $this->input->post('userSelect');
+			$title = $this->input->post('Title');
+			$upc = $this->input->post('UPC');
+			$file_name = $this->input->post('file-name', true);
+			echo '<pre>'.$file_name.'</pre>';
+			//die;
+
+			$config['allowed_types'] = 'jpg|png';
+            $config['max_size'] = 10000;
+			$config['upload_path'] = 'assets/uploads/';
+
+			$this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('jpeg')) {
+                $data['message'] = $this->upload->display_errors();
+                //echo "Masuk1";
+
+				$textGagal = $this->upload->display_errors();
+
+				// Hapus tag HTML seperti <p></p> dari $textGagal
+				$textGagal = strip_tags($textGagal);
+
+				// Set flashdata for error message
+				$this->session->set_flashdata('message', [
+					'icon' => 'error',
+					'title' => 'Failed!',
+					'text' => $textGagal,
+				]);
+
+				redirect('tambah/newalbum');
+            } else {
+                //echo "Masuk2";
+                $file = $this->upload->data();
+                $inputFileName = $file['full_path'];
+                $fileExtension = strtolower(pathinfo($inputFileName, PATHINFO_EXTENSION));
+
+                // Format nama file
+			    $formattedDate = date('dmYhisz', time()); // Format: 14112024112020z (dmYhisz)
+
+			    // Pisahkan nama file dan ekstensi menggunakan pathinfo
+			    $file_info = pathinfo($file_name);
+			    $extension = isset($file_info['extension']) ? $file_info['extension'] : '';
+
+			    // Format nama file baru
+			    $formattedRenameGambarUpload = "album" . $formattedDate . "." . $extension;
+
+			    echo '<pre>' . $formattedRenameGambarUpload . '</pre>';
+
+			    // Ubah nama file di folder upload
+			    $newFilePath = 'assets/uploads/' . $formattedRenameGambarUpload;
+
+			    // Rename file setelah di-upload
+			    if (rename($inputFileName, $newFilePath)) {
+			        // Berhasil mengganti nama file
+			        $successRenamingFile = "Insert data successfully";
+
+					$queryInsertMasterAlbum = "insert INTO MasterAlbum(Jenis, KodeUser, Title, UPC, FileInput)
+					SELECT '".$jenis."', '".$userSelect."', $title, '".$upc."', '".$formattedRenameGambarUpload."'
+					";
+
+					echo $queryInsertMasterAlbum;
+					//die;
+
+					$this->session->set_flashdata('message', [
+						'icon' => 'success',
+						'title' => 'Success!',
+						'text' => $successRenamingFile,
+					]);
+
+					redirect('tambah/album');
+			    } else {
+			        // Jika gagal mengganti nama
+			        $errorRenamingFile = "Error renaming the file.";
+
+			        $this->session->set_flashdata('message', [
+						'icon' => 'error',
+						'title' => 'Error!',
+						'text' => $errorRenamingFile,
+					]);
+					redirect('tambah/newalbum');
+			    }
+			}
+		}
+
+		else
+		{
+			redirect('tambah/newalbum');
 		}
 	}
 

@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5">
 	<div class="row">
-		<div class="col-lg-12 align-item-strech" style="margin-top:10%">
+		<div class="col-lg-12 align-item-strech mt-5" style=""> <!-- margin-top:10% -->
 			<div class="row">
 				<div class="col-lg-12 text-left">
 					<a name="button" class="btn mb-1 btn-dark text-light text-light align-item-center" href="<?= base_url('tambah/track') ?>">
